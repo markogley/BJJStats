@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MOSubmissionObject.h"
 
-@interface MOSubmittedViewController : UIViewController
+@protocol MOSubmittedViewControllerDelegate <NSObject>
+
+@required
+-(void)addSubmitted:(MOSubmissionObject *)newSubmittedObject;
+-(void)didCancel;
+
+@end
+
+@interface MOSubmittedViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+
+@property (weak, nonatomic) id <MOSubmittedViewControllerDelegate>delegate;
+
 
 @end
