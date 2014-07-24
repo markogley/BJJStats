@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MOSubmissionsViewController.h"
+#import "MOSubmittedViewController.h"
 #import "MOObjectConverter.h"
 
-@interface MOViewController : UIViewController <MOSubmissionsViewControllerDelegate>
+@interface MOViewController : UIViewController <MOSubmissionsViewControllerDelegate, MOSubmittedViewControllerDelegate>
 
 #define ADDED_SUBMISSION_OBJECTS_KEY @"Added Submission Objects Key"
+#define ADDED_SUBMITTED_OBJECT_KEY @"Added Submitted Objects Key"
 
 
 @end

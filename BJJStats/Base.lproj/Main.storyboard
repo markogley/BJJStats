@@ -51,10 +51,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Submitted View Controller-->
         <scene sceneID="UZ3-oj-WLA">
             <objects>
-                <viewController id="NV4-TG-6cj" sceneMemberID="viewController">
+                <viewController id="NV4-TG-6cj" customClass="MOSubmittedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eeB-1c-oGR"/>
                         <viewControllerLayoutGuide type="bottom" id="7o4-T8-Ssb"/>
@@ -64,20 +64,32 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEo-Xp-Jsf">
-                                <rect key="frame" x="20" y="269" width="30" height="30"/>
+                                <rect key="frame" x="20" y="390" width="30" height="30"/>
                                 <state key="normal" title="Add">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addedButtonPressed:" destination="NV4-TG-6cj" eventType="touchUpInside" id="ajM-pU-ZZN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J79-bY-ebE">
-                                <rect key="frame" x="254" y="269" width="48" height="30"/>
+                                <rect key="frame" x="252" y="390" width="48" height="30"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="NV4-TG-6cj" eventType="touchUpInside" id="dc4-xO-Ff9"/>
+                                </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I4w-aM-CsE">
+                                <rect key="frame" x="0.0" y="150" width="320" height="162"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="submittedPickerView" destination="I4w-aM-CsE" id="zuo-Uk-un6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKG-nR-74T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -209,7 +221,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="informationPickerView" destination="GOU-ve-84E" id="gEv-xV-Pg2"/>
+                        <outlet property="submissionPickerView" destination="GOU-ve-84E" id="b5n-7J-Mwm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6X-aN-9RK" userLabel="First Responder" sceneMemberID="firstResponder"/>
