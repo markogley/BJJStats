@@ -9,7 +9,7 @@
 #import "MOSubmissionsViewController.h"
 
 @interface MOSubmissionsViewController ()
-@property (strong, nonatomic) IBOutlet UIPickerView *informationPickerView;
+@property (strong, nonatomic) IBOutlet UIPickerView *submissionPickerView;
 
 @property (strong, nonatomic) NSArray *submissionsArray;
 @property (strong, nonatomic) NSArray *submissionPositionsArray;
@@ -31,8 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.informationPickerView.delegate = self;
-    self.informationPickerView.dataSource = self;
+    self.submissionPickerView.delegate = self;
+    self.submissionPickerView.dataSource = self;
     
     // Do any additional setup after loading the view.
     NSURL *submissions = [[NSBundle mainBundle] URLForResource:@"Submissions" withExtension:@"plist"];
@@ -182,7 +182,7 @@
 //dismisses back to the main screen on pushing the cancel button.
 - (IBAction)cancelButtonPressed:(UIButton *)sender {
     
-    [self.delegate didCancel];
+    [self.delegate didCancelSubmission];
     
 }
 
@@ -190,14 +190,15 @@
     
     MOSubmissionObject *addedSubmissionObject = [[MOSubmissionObject alloc] init];
     
-    NSInteger indexSubmissions = [self.informationPickerView selectedRowInComponent:0];
-    NSInteger indexPositions = [self.informationPickerView selectedRowInComponent:1];
-    NSInteger indexTopBottom = [self.informationPickerView selectedRowInComponent:2];
+    NSInteger indexSubmissions = [self.submissionPickerView selectedRowInComponent:0];
+    NSInteger indexPositions = [self.submissionPickerView selectedRowInComponent:1];
+    NSInteger indexTopBottom = [self.submissionPickerView selectedRowInComponent:2];
     
     
     addedSubmissionObject.submissionType = [self.submissionsArray objectAtIndex:indexSubmissions];
     addedSubmissionObject.submissionPosition = [self.submissionPositionsArray objectAtIndex:indexPositions];
     addedSubmissionObject.topOrBottom = [self.topOrBottomArray objectAtIndex:indexTopBottom];
+    addedSubmissionObject.counter = 1;
     
     
     return addedSubmissionObject;

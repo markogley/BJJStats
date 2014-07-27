@@ -191,7 +191,7 @@
     addedSubmissionObject.submissionType = [self.submittedArray objectAtIndex:indexSubmissions];
     addedSubmissionObject.submissionPosition = [self.submittedPositionArray objectAtIndex:indexPositions];
     addedSubmissionObject.topOrBottom = [self.topOrBottomArray objectAtIndex:indexTopBottom];
-    
+    addedSubmissionObject.counter = 1;
     
     return addedSubmissionObject;
     

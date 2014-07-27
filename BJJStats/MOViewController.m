@@ -31,6 +31,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    //increment methode test
+    MOSubmissionObject *testObject = [[MOSubmissionObject alloc] initWithData:@{SUBMISSION_POSITION: @"Full Mount", SUBMISSION_TOP_OR_BOTTOM : @"Top", SUBMISSION_TYPE : @"Arm Bar", SUBMISSION_COUNTER : @1 }];
+    
+    for (int i = 0; i < 10; i++){
+        [testObject incrementCounter];
+        NSLog(@"testObject %d", testObject.counter);
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,53 +72,10 @@
 
 -(void)addSubmission:(MOSubmissionObject *)newSubmissionObject{
     
-    [self.addedSubmissions addObject:newSubmissionObject];
-    //creates new converter from MOObjectConverter class
-    MOObjectConverter *converter = [[MOObjectConverter alloc] init];
+   
+    MOSubmissionsPersistenceManager *manger = [[MOSubmissionsPersistenceManager alloc] init];
     
-    
-    //open preveous submissions saved in NSUserDefaults
-    NSMutableArray *submissionObjectsAsPropertyLists = [[[NSUserDefaults standardUserDefaults]arrayForKey:ADDED_SUBMISSION_OBJECTS_KEY] mutableCopy];
-    //if submissionsObjectAsPropertyList does not exist allocate and initialize it
-    if (!submissionObjectsAsPropertyLists) {
-        submissionObjectsAsPropertyLists = [[NSMutableArray alloc] init];
-        
-    }
-    
-    //converts newSubmissionObject to NSDictionary using converter
-    NSDictionary *newSub = [converter submissionObjectAsPropertyList:newSubmissionObject];
-    
-    BOOL alreadyInArray = NO;
-    int index = 0;
-    
-    for (NSDictionary *entry in submissionObjectsAsPropertyLists) {
-        //need to compare submissionType, submissionPosition and submissionTopOrBottom but not counter
-        if ([[entry valueForKey:SUBMISSION_POSITION] isEqualToString:[newSub valueForKey:SUBMISSION_POSITION]] && [[entry valueForKey:SUBMISSION_TYPE] isEqualToString: [newSub valueForKey:SUBMISSION_TYPE]] && [[entry valueForKey:SUBMISSION_TOP_OR_BOTTOM] isEqualToString:[newSub valueForKey:SUBMISSION_TOP_OR_BOTTOM]] ) {
-            //if ([entry isEqualToDictionary:newSub]) {
-            alreadyInArray = YES;
-            NSLog(@"This submission is already in the array");
-        }else{
-            
-            index++;
-        }
-    }
-    
-    if (alreadyInArray == NO) {
-        [submissionObjectsAsPropertyLists addObject:[converter submissionObjectAsPropertyList:newSubmissionObject]];
-        NSLog(@"Submission added to the array");
-    }
-    
-    if (alreadyInArray == YES) {
-        MOSubmissionObject *updatedEntry = [converter submissionObjectForDictionary:submissionObjectsAsPropertyLists[index]];
-        [updatedEntry incrementCounter];
-        NSDictionary *updatedEntryComplete = [converter submissionObjectAsPropertyList:updatedEntry];
-        submissionObjectsAsPropertyLists[index] = updatedEntryComplete;
-    }
-    
-    [[NSUserDefaults standardUserDefaults] setObject:submissionObjectsAsPropertyLists forKey:ADDED_SUBMISSION_OBJECTS_KEY];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-     NSLog(@"%@ %lu", submissionObjectsAsPropertyLists, (unsigned long)[submissionObjectsAsPropertyLists count]);
+    [manger addSubmissionObject:newSubmissionObject];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -118,7 +84,10 @@
 #pragma mark MOSubmittedViewControllerDelegate
 
 -(void)addSubmitted:(MOSubmissionObject *)newSubmittedObject{
+    MOSubmissionsPersistenceManager *manger = [[MOSubmissionsPersistenceManager alloc] init];
+    [manger addSubmittedObject:newSubmittedObject];
     
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 

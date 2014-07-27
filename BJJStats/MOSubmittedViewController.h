@@ -13,13 +13,13 @@
 
 @required
 -(void)addSubmitted:(MOSubmissionObject *)newSubmittedObject;
--(void)didCancel;
+-(void)didCancelSubmitted;
 
 @end
 
 @interface MOSubmittedViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (weak, nonatomic) id <MOSubmittedViewControllerDelegate>delegate;
+@property (weak, nonatomic) id <MOSubmittedViewControllerDelegate> delegate;
 
 
 @end
