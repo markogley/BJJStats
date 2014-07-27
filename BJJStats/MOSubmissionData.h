@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#define SUBMISSION_TYPE @"Submission Type"
+#define SUBMISSION_POSITION @"Submission Position"
+#define SUBMISSION_TOP_OR_BOTTOM @"Submission From Top or Bottom"
+#define SUBMISSION_COUNTER @"Counter"
+
 @interface MOSubmissionData : NSObject
 
 @end

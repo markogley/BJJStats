@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5BABB27F197A5F77009B636E"
-               BuildableName = "BJJStats.app"
-               BlueprintName = "BJJStats"
-               ReferencedContainer = "container:BJJStats.xcodeproj">
+               BlueprintIdentifier = "A8F7FCB614AD4505B550C8B6"
+               BuildableName = "libPods-XYPieChart.a"
+               BlueprintName = "Pods-XYPieChart"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,26 +28,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5BABB2A0197A5F77009B636E"
-               BuildableName = "BJJStatsTests.xctest"
-               BlueprintName = "BJJStatsTests"
-               ReferencedContainer = "container:BJJStats.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5BABB27F197A5F77009B636E"
-            BuildableName = "BJJStats.app"
-            BlueprintName = "BJJStats"
-            ReferencedContainer = "container:BJJStats.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -58,15 +39,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5BABB27F197A5F77009B636E"
-            BuildableName = "BJJStats.app"
-            BlueprintName = "BJJStats"
-            ReferencedContainer = "container:BJJStats.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -76,15 +48,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5BABB27F197A5F77009B636E"
-            BuildableName = "BJJStats.app"
-            BlueprintName = "BJJStats"
-            ReferencedContainer = "container:BJJStats.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

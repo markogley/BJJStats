@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<array>
+	<string>Full Mount</string>
+	<string>Closed Guard</string>
+	<string>Open Guard</string>
+	<string>Half Guard</string>
+	<string>Side Mount</string>
+	<string>Back Mount</string>
+	<string>North/South</string>
+	<string>Turtle Position</string>
+	<string>Knee Mount</string>
+</array>
 </plist>

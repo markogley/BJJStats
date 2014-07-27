@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MOSubmissionObject.h"
+#import "MOSubmissionData.h"
+#import "MOObjectConverter.h"
 
-@interface MOSubmissionsPersistanceManager : NSObject
+@interface MOSubmissionsPersistenceManager : NSObject
+
+#define ADDED_SUBMISSION_OBJECTS_KEY @"Added Submission Objects Key"
+#define ADDED_SUBMITTED_OBJECTS_KEY @"Added Submitted Objects Key"
+
+-(void)addSubmissionObject:(MOSubmissionObject *)submissionObject;
+-(void)addSubmittedObject:(MOSubmissionObject *)submissionObject;
 
 @end

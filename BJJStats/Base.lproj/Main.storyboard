@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -120,12 +120,15 @@
                                 <rect key="frame" x="0.0" y="156" width="320" height="220"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IKY-IM-9aA">
-                                <rect key="frame" x="99" y="92" width="123" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IKY-IM-9aA">
+                                <rect key="frame" x="69" y="88" width="183" height="29"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Submissions"/>
+                                    <segment title="Submitted"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segementControllerPressed:" destination="Z7Y-SN-28Z" eventType="valueChanged" id="o83-6M-5Pc"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Submission Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Joa-O6-Fte">
                                 <rect key="frame" x="20" y="384" width="162" height="21"/>
@@ -175,6 +178,7 @@
                     <connections>
                         <outlet property="percentageLabel" destination="Cof-5r-Wma" id="2Bb-Gn-LpY"/>
                         <outlet property="pieChart" destination="QCU-1C-YX2" id="u06-6T-a3p"/>
+                        <outlet property="pieChartSegmentControl" destination="IKY-IM-9aA" id="WYV-Di-S2W"/>
                         <outlet property="submissionPositionLabel" destination="SmW-Gd-Emy" id="e6T-d6-MG5"/>
                         <outlet property="submissionSelectedLabel" destination="Ar4-UZ-x8v" id="i95-he-rEU"/>
                         <outlet property="topOrBottomLabel" destination="Vfq-E0-2Uf" id="00g-5W-bWE"/>
@@ -232,9 +236,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4">
-            <size key="portraitSize" width="320" height="568"/>
-            <size key="landscapeSize" width="568" height="320"/>
-        </simulatedScreenMetrics>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>

@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<array>
+	<string>Arm Bar</string>
+	<string>Triangle Choke</string>
+	<string>Cross Collar Choke</string>
+	<string>Arm Triangle</string>
+	<string>D&apos;Arce Choke</string>
+	<string>Kimura</string>
+</array>
 </plist>

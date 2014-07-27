@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MOSubmissionObject.h"
 
 @interface MOObjectConverter : NSObject
+
+-(NSDictionary *)submissionObjectAsPropertyList:(MOSubmissionObject *)submissionObject;
+-(MOSubmissionObject *)submissionObjectForDictionary:(NSDictionary *)dictionary;
+
 
 @end
