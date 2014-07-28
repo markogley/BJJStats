@@ -10,6 +10,8 @@
 
 @interface MOSubmittedViewController ()
 @property (strong, nonatomic) IBOutlet UIPickerView *submittedPickerView;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *topOrBottomSegmentedControl;
+
 
 @property (strong, nonatomic) NSArray *submittedArray;
 @property (strong, nonatomic) NSArray *submittedPositionArray;
@@ -43,8 +45,8 @@
     NSURL *positions = [[NSBundle mainBundle] URLForResource:@"Positions" withExtension:@"plist"];
     self.submittedPositionArray = [NSArray arrayWithContentsOfURL:positions];
     
-    NSURL *topBottom = [[NSBundle mainBundle] URLForResource:@"TopBottom" withExtension:@"plist"];
-    self.topOrBottomArray = [NSArray arrayWithContentsOfURL:topBottom];
+    //NSURL *topBottom = [[NSBundle mainBundle] URLForResource:@"TopBottom" withExtension:@"plist"];
+    //self.topOrBottomArray = [NSArray arrayWithContentsOfURL:topBottom];
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,10 +71,10 @@
         
         result = [self.submittedPositionArray count];
         
-    }else if (component == 2){
+    }//else if (component == 2){
         
-        result = [self.topOrBottomArray count];
-    }
+        //result = [self.topOrBottomArray count];
+    //}
     
     return result;
 }
@@ -81,7 +83,7 @@
 //returns the number of components in the UIPickerView
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     
-    return 3;
+    return 2;
 }
 
 
@@ -98,10 +100,10 @@
         
         result =  self.submittedPositionArray[row];
         
-    }else if (component == 2){
+    }//else if (component == 2){
         
-        result = self.topOrBottomArray[row];
-    }
+        //result = self.topOrBottomArray[row];
+    //}
     
     return result;
 }
@@ -138,10 +140,10 @@
         tView.textAlignment = NSTextAlignmentCenter;
         tView.text =  self.submittedPositionArray[row];
         
-    }else if (component == 2){
-        tView.textAlignment = NSTextAlignmentCenter;
-        tView.text = self.topOrBottomArray[row];
-    }
+    }//else if (component == 2){
+        //tView.textAlignment = NSTextAlignmentCenter;
+        //tView.text = self.topOrBottomArray[row];
+    //}
     
     return tView;
 }
@@ -185,12 +187,19 @@
     
     NSInteger indexSubmissions = [self.submittedPickerView selectedRowInComponent:0];
     NSInteger indexPositions = [self.submittedPickerView selectedRowInComponent:1];
-    NSInteger indexTopBottom = [self.submittedPickerView selectedRowInComponent:2];
+    //NSInteger indexTopBottom = [self.submittedPickerView selectedRowInComponent:2];
+    NSString *topOrBottom;
     
+    if (self.topOrBottomSegmentedControl.selectedSegmentIndex == 0) {
+        topOrBottom = @"Top";
+    
+    }else if(self.topOrBottomSegmentedControl.selectedSegmentIndex == 1){
+        topOrBottom = @"Bottom";
+    }
     
     addedSubmissionObject.submissionType = [self.submittedArray objectAtIndex:indexSubmissions];
     addedSubmissionObject.submissionPosition = [self.submittedPositionArray objectAtIndex:indexPositions];
-    addedSubmissionObject.topOrBottom = [self.topOrBottomArray objectAtIndex:indexTopBottom];
+    addedSubmissionObject.topOrBottom = topOrBottom;
     addedSubmissionObject.counter = 1;
     
     return addedSubmissionObject;

@@ -32,13 +32,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    //increment methode test
-    MOSubmissionObject *testObject = [[MOSubmissionObject alloc] initWithData:@{SUBMISSION_POSITION: @"Full Mount", SUBMISSION_TOP_OR_BOTTOM : @"Top", SUBMISSION_TYPE : @"Arm Bar", SUBMISSION_COUNTER : @1 }];
-    
-    for (int i = 0; i < 10; i++){
-        [testObject incrementCounter];
-        NSLog(@"testObject %d", testObject.counter);
-    }
     
 }
 

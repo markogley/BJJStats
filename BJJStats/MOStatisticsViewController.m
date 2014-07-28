@@ -14,9 +14,13 @@
 @property (strong, nonatomic) NSMutableArray *mySubmissionsAsPropertyList;
 @property (strong, nonatomic) NSMutableArray *mySubmittedAsPropertyList;
 @property (strong, nonatomic) NSArray *sliceColors;
-@property (strong, nonatomic) NSMutableArray *percentageCalaculated;
+@property (strong, nonatomic) NSMutableArray *percentageCalculated;
+//@property (strong, nonatomic) NSMutableArray *percentageCalaculatedSubmissions;
+//@property (strong, nonatomic) NSMutableArray *percentageCalculatedSubmitted;
 @property (strong, nonatomic) NSMutableArray *submissionsStatisticsArray;
 @property (strong, nonatomic) NSMutableArray *submittedStatisticsArray;
+
+//@property (strong, nonatomic) NSNumber *total;
 
 @end
 
@@ -50,21 +54,38 @@
     return _mySubmissionsAsPropertyList;
 }
 
+
+
+//-(NSMutableArray *)percentageCalaculatedSubmissions{
+    //if(!_percentageCalaculatedSubmissions){
+        //_percentageCalaculatedSubmissions = [[NSMutableArray alloc] init];
+    //}
+    
+    //return _percentageCalaculatedSubmissions;
+//}
+
+//-(NSMutableArray *)percentageCalaculatedSubmitted{
+    //if(!_percentageCalculatedSubmitted){
+        //_percentageCalculatedSubmitted = [[NSMutableArray alloc] init];
+    //}
+    
+    //return _percentageCalculatedSubmitted;
+//}
+
 -(NSMutableArray *)percentageCalaculated{
-    if(!_percentageCalaculated){
-        _percentageCalaculated = [[NSMutableArray alloc] init];
+    if(!_percentageCalculated){
+        _percentageCalculated = [[NSMutableArray alloc] init];
     }
     
-    return _percentageCalaculated;
+    return _percentageCalculated;
 }
-
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -96,7 +117,7 @@
     //Gets the data stored in NSUserDefaults for submitted
     self.mySubmittedAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_SUBMITTED_OBJECTS_KEY] mutableCopy];
     
-    NSLog(@"%@", self.mySubmissionsAsPropertyList);
+    
 //    MOObjectConverter *converter = [[MOObjectConverter alloc] init];
 //    
 //    //Iterates through all the dictionaries in the mySubmissionsAsPropertyList array and converts them to MOSubmission objects and adds the to the submissionsStatisticsArray
@@ -108,17 +129,18 @@
 //        [self.submissionsStatisticsArray addObject:submissionObject];
 //    }
     
-    NSLog(@"segmentIndex %ld", (long)self.pieChartSegmentControl.selectedSegmentIndex);
     
     [self convertMultipleObjectsToDictionary:self.mySubmissionsAsPropertyList storeInStatisticsArray:self.submissionsStatisticsArray];
     [self convertMultipleObjectsToDictionary:self.mySubmittedAsPropertyList storeInStatisticsArray:self.submittedStatisticsArray];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     
-    [super viewDidAppear:YES];
     [self.pieChart reloadData];
+    [super viewDidAppear:YES];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -133,7 +155,7 @@
 
 #pragma mark XYPieChartDataMethods
 
-//need to persist data and add a count value to submission object as to not create duplicate values
+//This is running everytime I click the segement controller and halving my percentages.Need to fix
 
 -(CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index{
     
@@ -158,7 +180,8 @@
         
         
     }
-    
+    //NSLog(@"The percentage submissions array is %@", self.percentageCalaculatedSubmissions);
+    //NSLog(@"The percentage submitted array is %@", self.percentageCalaculatedSubmitted);
     return valueOfCounter;
     
 }
@@ -166,11 +189,11 @@
 -(NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart{
     
     if (self.pieChartSegmentControl.selectedSegmentIndex == 0) {
-        NSLog(@"Count of Submitted statistics Array %ld", [self.submissionsStatisticsArray count]);
+        NSLog(@"Count of Submissions statistics Array %d", (int)[self.submissionsStatisticsArray count]);
         return [self.submissionsStatisticsArray count];
         
     }else if (self.pieChartSegmentControl.selectedSegmentIndex == 1){
-        NSLog(@"Count of Submitted statistics Array %ld", [self.submittedStatisticsArray count]);
+        NSLog(@"Count of Submitted statistics Array %d", (int)[self.submittedStatisticsArray count]);
         return [self.submittedStatisticsArray count];
     }else{
         return 0;
@@ -186,9 +209,12 @@
 -(NSString *)pieChart:(XYPieChart *)pieChart textForSliceAtIndex:(NSUInteger)index{
     
     if (self.pieChartSegmentControl.selectedSegmentIndex ==  0) {
+        
         MOSubmissionObject *objectFromArray = self.submissionsStatisticsArray[index];
         return objectFromArray.submissionType;
+        
     }else if(self.pieChartSegmentControl.selectedSegmentIndex ==1){
+        
         MOSubmissionObject *objectFromArray = self.submittedStatisticsArray[index];
         return objectFromArray.submissionType;
     }
@@ -202,49 +228,65 @@
 
 -(void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index{
     
+    
     if (self.pieChartSegmentControl.selectedSegmentIndex == 0) {
-    MOSubmissionObject *objectFromArray = self.submissionsStatisticsArray[index];
-    self.submissionSelectedLabel.text = objectFromArray.submissionType;
-    self.submissionPositionLabel.text = objectFromArray.submissionPosition;
-    self.topOrBottomLabel.text = objectFromArray.topOrBottom;
-    
-    NSNumber *total = [[NSNumber alloc] init];
-    for (NSNumber *i in self.percentageCalaculated) {
-        total = [NSNumber numberWithInt:([total intValue] + [i intValue])];
-    }
-    
-    NSDictionary *dictOb = [self.mySubmissionsAsPropertyList objectAtIndex:index];
-    int valueOfCounter = (int)[[dictOb valueForKey:@"Counter"] integerValue];
-    
-    float percentage = (valueOfCounter / [total floatValue]) * 100;
-    NSString *percentageAsString = [NSString stringWithFormat:@"%.2f%%", percentage];
-    self.percentageLabel.text = percentageAsString;
         
-    }else if (self.pieChartSegmentControl.selectedSegmentIndex == 1){
-        
-        MOSubmissionObject *objectFromArray = self.submittedStatisticsArray[index];
+        //sets up a new submissionObject from an object in the submissionArray
+        MOSubmissionObject *objectFromArray = self.submissionsStatisticsArray[index];
+        //sets all the labels for the display for all the object properties underneath the pie chart
         self.submissionSelectedLabel.text = objectFromArray.submissionType;
         self.submissionPositionLabel.text = objectFromArray.submissionPosition;
         self.topOrBottomLabel.text = objectFromArray.topOrBottom;
         
+        //calculates the total number value of counters for all the objects in the submissionsArray
+        NSNumber *total = [[NSNumber alloc] init];
+        for (NSNumber *i in self.percentageCalaculated) {
+            total = [NSNumber numberWithInt:([total intValue] + [i intValue])];
+        }
+        NSLog(@"The submissions total is %@", total);
+        
+        //grabs the string literal from the dictionary version of the submission object
+        NSDictionary *dictOb = [self.mySubmissionsAsPropertyList objectAtIndex:index];
+        //converts this value to an int
+        int valueOfCounter = [[dictOb valueForKey:@"Counter"] integerValue];
+        
+        //calculates the percentage using the valueOfCounter from the object with the total calculated above
+        float percentage = (valueOfCounter / [total floatValue]) * 100;
+        //rounds off the total to 2 decimals and converts it to a string to put in the percentageLabel
+        NSString *percentageAsString = [NSString stringWithFormat:@"%.2f%%", percentage];
+        self.percentageLabel.text = percentageAsString;
+        
+    }else if (self.pieChartSegmentControl.selectedSegmentIndex == 1){
+        
+        //sets up a new submissionObject from an object in the submissionArray
+        MOSubmissionObject *objectFromArray = self.submittedStatisticsArray[index];
+        
+        //sets all the labels for the display for all the object properties underneath the pie chart
+        self.submissionSelectedLabel.text = objectFromArray.submissionType;
+        self.submissionPositionLabel.text = objectFromArray.submissionPosition;
+        self.topOrBottomLabel.text = objectFromArray.topOrBottom;
+        
+        //calculates the total number value of counters for all the objects in the submissionsArray
         NSNumber *total = [[NSNumber alloc] init];
         for (NSNumber *i in self.percentageCalaculated) {
             total = [NSNumber numberWithInt:([total intValue] + [i intValue])];
         }
         
+        //grabs the string literal from the dictionary version of the submission object
         NSDictionary *dictOb = [self.mySubmittedAsPropertyList objectAtIndex:index];
-        int valueOfCounter = (int)[[dictOb valueForKey:@"Counter"] integerValue];
+        //converts this value to an int
+        int valueOfCounter = [[dictOb valueForKey:@"Counter"] integerValue];
         
+        //calculates the percentage using the valueOfCounter from the object with the total calculated above
         float percentage = (valueOfCounter / [total floatValue]) * 100;
         NSString *percentageAsString = [NSString stringWithFormat:@"%.2f%%", percentage];
         self.percentageLabel.text = percentageAsString;
-        
     }
-    
 }
 
 -(void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index{
-
+    
+    //erases all the labels when the user deselects a slice of the pie chart
     self.submissionSelectedLabel.text = nil;
     self.submissionPositionLabel.text = nil;
     self.topOrBottomLabel.text = nil;
@@ -282,7 +324,9 @@
 
 - (IBAction)segementControllerPressed:(UISegmentedControl *)sender {
     
-    [self viewDidAppear:YES];
-    NSLog(@"segmentIndex %ld", (long)self.pieChartSegmentControl.selectedSegmentIndex);
+    //This solved the readding of the percentage totals in the the calculated percentage method of didSelectedSliceAtIndex
+    self.percentageCalculated = nil;
+    //reloads all the data for the new segment
+    [self.pieChart reloadData];
 }
 @end
