@@ -27,6 +27,14 @@
     return _addedSubmissions;
 }
 
+-(NSMutableArray *)addedSubmitted{
+    if(!_addedSubmitted){
+        _addedSubmitted = [[NSMutableArray alloc] init];
+    }
+    
+    return _addedSubmitted;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

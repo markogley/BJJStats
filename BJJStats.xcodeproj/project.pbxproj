@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B067DCA197C00F1000C7B56 /* MOSubmissionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B067DC9197C00F1000C7B56 /* MOSubmissionData.m */; };
 		5B1CAF1A1983F49300383D97 /* MOSubmissionsPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CAF191983F49300383D97 /* MOSubmissionsPersistenceManager.m */; };
+		5B1FB21A19892D0100B81387 /* MODateAddedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1FB21919892D0100B81387 /* MODateAddedViewController.m */; };
 		5B202820197B937300105D36 /* MOSubmissionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B20281F197B937300105D36 /* MOSubmissionObject.m */; };
 		5B202823197BA2BC00105D36 /* MOStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B202822197BA2BC00105D36 /* MOStatisticsViewController.m */; };
 		5BABB284197A5F77009B636E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB283197A5F77009B636E /* Foundation.framework */; };
@@ -49,6 +50,8 @@
 		5B067DC9197C00F1000C7B56 /* MOSubmissionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSubmissionData.m; sourceTree = "<group>"; };
 		5B1CAF181983F49300383D97 /* MOSubmissionsPersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSubmissionsPersistenceManager.h; sourceTree = "<group>"; };
 		5B1CAF191983F49300383D97 /* MOSubmissionsPersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSubmissionsPersistenceManager.m; sourceTree = "<group>"; };
+		5B1FB21819892D0100B81387 /* MODateAddedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MODateAddedViewController.h; sourceTree = "<group>"; };
+		5B1FB21919892D0100B81387 /* MODateAddedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MODateAddedViewController.m; sourceTree = "<group>"; };
 		5B20281E197B937300105D36 /* MOSubmissionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSubmissionObject.h; sourceTree = "<group>"; };
 		5B20281F197B937300105D36 /* MOSubmissionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSubmissionObject.m; sourceTree = "<group>"; };
 		5B202821197BA2BC00105D36 /* MOStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOStatisticsViewController.h; sourceTree = "<group>"; };
@@ -117,6 +120,7 @@
 				5BABB2C7197A9EED009B636E /* Submitted */,
 				5B202824197BA2C100105D36 /* Statistics */,
 				5BABB2C8197A9EF6009B636E /* Home */,
+				5B1FB21B19892D0700B81387 /* Date Added */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -131,6 +135,15 @@
 				5BEB450F197E5D85008F6355 /* SubmissionObject */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		5B1FB21B19892D0700B81387 /* Date Added */ = {
+			isa = PBXGroup;
+			children = (
+				5B1FB21819892D0100B81387 /* MODateAddedViewController.h */,
+				5B1FB21919892D0100B81387 /* MODateAddedViewController.m */,
+			);
+			name = "Date Added";
 			sourceTree = "<group>";
 		};
 		5B202824197BA2C100105D36 /* Statistics */ = {
@@ -404,6 +417,7 @@
 			files = (
 				5BABB294197A5F77009B636E /* MOAppDelegate.m in Sources */,
 				5B1CAF1A1983F49300383D97 /* MOSubmissionsPersistenceManager.m in Sources */,
+				5B1FB21A19892D0100B81387 /* MODateAddedViewController.m in Sources */,
 				5BABB29A197A5F77009B636E /* MOViewController.m in Sources */,
 				5B202823197BA2BC00105D36 /* MOStatisticsViewController.m in Sources */,
 				5BABB2C1197A6CAA009B636E /* MOSubmissionsViewController.m in Sources */,

@@ -11,7 +11,9 @@
 #define SUBMISSION_TYPE @"Submission Type"
 #define SUBMISSION_POSITION @"Submission Position"
 #define SUBMISSION_TOP_OR_BOTTOM @"Submission From Top or Bottom"
+#define SUBMISSION_COUNTER_AND_DATE @"Submission Counter and Date"
 #define SUBMISSION_COUNTER @"Counter"
+#define SUBMISSION_DATE @"Date"
 
 @interface MOSubmissionData : NSObject
 

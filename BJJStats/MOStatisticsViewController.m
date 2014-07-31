@@ -55,23 +55,6 @@
 }
 
 
-
-//-(NSMutableArray *)percentageCalaculatedSubmissions{
-    //if(!_percentageCalaculatedSubmissions){
-        //_percentageCalaculatedSubmissions = [[NSMutableArray alloc] init];
-    //}
-    
-    //return _percentageCalaculatedSubmissions;
-//}
-
-//-(NSMutableArray *)percentageCalaculatedSubmitted{
-    //if(!_percentageCalculatedSubmitted){
-        //_percentageCalculatedSubmitted = [[NSMutableArray alloc] init];
-    //}
-    
-    //return _percentageCalculatedSubmitted;
-//}
-
 -(NSMutableArray *)percentageCalaculated{
     if(!_percentageCalculated){
         _percentageCalculated = [[NSMutableArray alloc] init];
@@ -118,25 +101,16 @@
     self.mySubmittedAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_SUBMITTED_OBJECTS_KEY] mutableCopy];
     
     
-//    MOObjectConverter *converter = [[MOObjectConverter alloc] init];
-//    
-//    //Iterates through all the dictionaries in the mySubmissionsAsPropertyList array and converts them to MOSubmission objects and adds the to the submissionsStatisticsArray
-//    for (NSDictionary *dictionary in self.mySubmissionsAsPropertyList) {
-//        NSLog(@"The dictionary being processed is %@", dictionary);
-//        //using outside class as convert for plist to object and object to plist
-//        MOSubmissionObject *submissionObject = [converter submissionObjectForDictionary:dictionary];
-//        NSLog(@"Submission object is %@", submissionObject.submissionPosition);
-//        [self.submissionsStatisticsArray addObject:submissionObject];
-//    }
-    
     
     [self convertMultipleObjectsToDictionary:self.mySubmissionsAsPropertyList storeInStatisticsArray:self.submissionsStatisticsArray];
     [self convertMultipleObjectsToDictionary:self.mySubmittedAsPropertyList storeInStatisticsArray:self.submittedStatisticsArray];
+    
     
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     
+    [self setupView];
     [self.pieChart reloadData];
     [super viewDidAppear:YES];
 }
@@ -153,9 +127,32 @@
     
 }
 
-#pragma mark XYPieChartDataMethods
+-(void)setupView{
+    self.view.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0];
+    
+    [self addShadowForView:self.pieChart];
+    [self addShadowForView:self.statisticsLabelView];
+    //do want to clip any subviews of the imageView
+}
 
-//This is running everytime I click the segement controller and halving my percentages.Need to fix
+-(void)addShadowForView:(UIView *)view{
+    
+    //any subviews will be clipped
+    view.layer.masksToBounds = NO;
+    //rounds corners of the view
+    view.layer.cornerRadius = 4;
+    //size of shadow raidius
+    view.layer.shadowRadius = 1;
+    //tweak to allow iPhone 4 to load shadows without hindering performace of XYPieChart animations
+    view.layer.shadowPath = [[UIBezierPath bezierPathWithRect:view.bounds] CGPath];
+    //how the shadow is oriented to the view
+    view.layer.shadowOffset = CGSizeMake(0, 1);
+    //sets alpha for shadow
+    view.layer.shadowOpacity = 0.25;
+    
+}
+
+#pragma mark XYPieChartDataMethods
 
 -(CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index{
     
@@ -166,7 +163,7 @@
         
         
         NSDictionary *dictOb = [self.mySubmissionsAsPropertyList objectAtIndex:index];
-        valueOfCounter = (int)[[dictOb valueForKey:@"Counter"] integerValue];
+        valueOfCounter = (int)[[[dictOb valueForKey:SUBMISSION_COUNTER_AND_DATE ] valueForKey:@"Counter"] integerValue];
         
         percentage = [NSNumber numberWithInt:valueOfCounter];
         [self.percentageCalaculated addObject:percentage];
@@ -174,14 +171,12 @@
     }else if (self.pieChartSegmentControl.selectedSegmentIndex == 1){
         
         NSDictionary *dictOb = [self.mySubmittedAsPropertyList objectAtIndex:index];
-        valueOfCounter = (int)[[dictOb valueForKey:@"Counter"] integerValue];
+        valueOfCounter = (int)[[[dictOb valueForKey:SUBMISSION_COUNTER_AND_DATE ] valueForKey:@"Counter"] integerValue];
         percentage = [NSNumber numberWithInt:valueOfCounter];
         [self.percentageCalaculated addObject:percentage];
         
         
     }
-    //NSLog(@"The percentage submissions array is %@", self.percentageCalaculatedSubmissions);
-    //NSLog(@"The percentage submitted array is %@", self.percentageCalaculatedSubmitted);
     return valueOfCounter;
     
 }
@@ -189,11 +184,9 @@
 -(NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart{
     
     if (self.pieChartSegmentControl.selectedSegmentIndex == 0) {
-        NSLog(@"Count of Submissions statistics Array %d", (int)[self.submissionsStatisticsArray count]);
-        return [self.submissionsStatisticsArray count];
+                return [self.submissionsStatisticsArray count];
         
     }else if (self.pieChartSegmentControl.selectedSegmentIndex == 1){
-        NSLog(@"Count of Submitted statistics Array %d", (int)[self.submittedStatisticsArray count]);
         return [self.submittedStatisticsArray count];
     }else{
         return 0;
@@ -248,7 +241,7 @@
         //grabs the string literal from the dictionary version of the submission object
         NSDictionary *dictOb = [self.mySubmissionsAsPropertyList objectAtIndex:index];
         //converts this value to an int
-        int valueOfCounter = [[dictOb valueForKey:@"Counter"] integerValue];
+        int valueOfCounter = [[[dictOb valueForKey:SUBMISSION_COUNTER_AND_DATE ] valueForKey:@"Counter"] integerValue];
         
         //calculates the percentage using the valueOfCounter from the object with the total calculated above
         float percentage = (valueOfCounter / [total floatValue]) * 100;
@@ -275,7 +268,7 @@
         //grabs the string literal from the dictionary version of the submission object
         NSDictionary *dictOb = [self.mySubmittedAsPropertyList objectAtIndex:index];
         //converts this value to an int
-        int valueOfCounter = [[dictOb valueForKey:@"Counter"] integerValue];
+        int valueOfCounter = [[[dictOb valueForKey:SUBMISSION_COUNTER_AND_DATE] valueForKey:@"Counter"] integerValue];
         
         //calculates the percentage using the valueOfCounter from the object with the total calculated above
         float percentage = (valueOfCounter / [total floatValue]) * 100;
@@ -312,10 +305,8 @@
     
     //Iterates through all the dictionaries in the mySubmissionsAsPropertyList array and converts them to MOSubmission objects and adds the to the submissionsStatisticsArray
     for (NSDictionary *dictionary in objectsAsPlistArray) {
-        NSLog(@"The dictionary being processed is %@", dictionary);
         //using outside class as convert for plist to object and object to plist
         MOSubmissionObject *submissionObject = [converter submissionObjectForDictionary:dictionary];
-        NSLog(@"Submission object is %@", submissionObject.submissionPosition);
         [statisticsArray addObject:submissionObject];
     }
     
@@ -323,6 +314,12 @@
 
 
 - (IBAction)segementControllerPressed:(UISegmentedControl *)sender {
+    
+    //erases all the labels when the user deselects a slice of the pie chart
+    self.submissionSelectedLabel.text = nil;
+    self.submissionPositionLabel.text = nil;
+    self.topOrBottomLabel.text = nil;
+    self.percentageLabel.text = nil;
     
     //This solved the readding of the percentage totals in the the calculated percentage method of didSelectedSliceAtIndex
     self.percentageCalculated = nil;

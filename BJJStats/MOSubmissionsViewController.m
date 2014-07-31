@@ -10,10 +10,11 @@
 
 @interface MOSubmissionsViewController ()
 @property (strong, nonatomic) IBOutlet UIPickerView *submissionPickerView;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *topOrBottomSegmentedControl;
 
 @property (strong, nonatomic) NSArray *submissionsArray;
 @property (strong, nonatomic) NSArray *submissionPositionsArray;
-@property (strong, nonatomic) NSArray *topOrBottomArray;
+//@property (strong, nonatomic) NSArray *topOrBottomArray;
 
 @end
 
@@ -41,8 +42,8 @@
     NSURL *positions = [[NSBundle mainBundle] URLForResource:@"Positions" withExtension:@"plist"];
     self.submissionPositionsArray = [NSArray arrayWithContentsOfURL:positions];
     
-    NSURL *topBottom = [[NSBundle mainBundle] URLForResource:@"TopBottom" withExtension:@"plist"];
-    self.topOrBottomArray = [NSArray arrayWithContentsOfURL:topBottom];
+    //NSURL *topBottom = [[NSBundle mainBundle] URLForResource:@"TopBottom" withExtension:@"plist"];
+    //self.topOrBottomArray = [NSArray arrayWithContentsOfURL:topBottom];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,10 +68,10 @@
         
         result = [self.submissionPositionsArray count];
         
-    }else if (component == 2){
+    }//else if (component == 2){
         
-        result = [self.topOrBottomArray count];
-    }
+        //result = [self.topOrBottomArray count];
+    //}
     
     return result;
 }
@@ -96,10 +97,10 @@
         
         result =  self.submissionPositionsArray[row];
     
-    }else if (component == 2){
+    }//else if (component == 2){
         
-        result = self.topOrBottomArray[row];
-    }
+        //result = self.topOrBottomArray[row];
+    //}
     
     return result;
 }
@@ -136,10 +137,10 @@
         tView.textAlignment = NSTextAlignmentCenter;
         tView.text =  self.submissionPositionsArray[row];
         
-    }else if (component == 2){
-        tView.textAlignment = NSTextAlignmentCenter;
-        tView.text = self.topOrBottomArray[row];
-    }
+    }//else if (component == 2){
+        //tView.textAlignment = NSTextAlignmentCenter;
+        //tView.text = self.topOrBottomArray[row];
+    //}
     
     return tView;
 }
@@ -192,13 +193,32 @@
     
     NSInteger indexSubmissions = [self.submissionPickerView selectedRowInComponent:0];
     NSInteger indexPositions = [self.submissionPickerView selectedRowInComponent:1];
-    NSInteger indexTopBottom = [self.submissionPickerView selectedRowInComponent:2];
+    //NSInteger indexTopBottom = [self.submissionPickerView selectedRowInComponent:2];
+    
+    NSString *topOrBottom;
+    
+    if (self.topOrBottomSegmentedControl.selectedSegmentIndex == 0) {
+        topOrBottom = @"Top";
+        
+    }else if(self.topOrBottomSegmentedControl.selectedSegmentIndex == 1){
+        topOrBottom = @"Bottom";
+    }
     
     
     addedSubmissionObject.submissionType = [self.submissionsArray objectAtIndex:indexSubmissions];
     addedSubmissionObject.submissionPosition = [self.submissionPositionsArray objectAtIndex:indexPositions];
-    addedSubmissionObject.topOrBottom = [self.topOrBottomArray objectAtIndex:indexTopBottom];
+    addedSubmissionObject.topOrBottom = topOrBottom; //[self.topOrBottomArray objectAtIndex:indexTopBottom];
     addedSubmissionObject.counter = 1;
+    
+    //testing date object for future statistics
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateAsString = [dateFormatter stringFromDate:date];
+    
+    [addedSubmissionObject.datesArray addObject:dateAsString];
+    
+    NSLog(@"The date set is %@", addedSubmissionObject.datesArray);
     
     
     return addedSubmissionObject;

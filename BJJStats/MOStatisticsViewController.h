@@ -14,6 +14,9 @@
 @interface MOStatisticsViewController : UIViewController<XYPieChartDelegate, XYPieChartDataSource>
 
 @property (strong, nonatomic) IBOutlet XYPieChart *pieChart;
+@property (strong, nonatomic) IBOutlet UIView *statisticsLabelView;
+
+
 @property (strong, nonatomic) IBOutlet UILabel *submissionSelectedLabel;
 @property (strong, nonatomic) IBOutlet UILabel *submissionPositionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *topOrBottomLabel;

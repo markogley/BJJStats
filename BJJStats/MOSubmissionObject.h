@@ -14,11 +14,15 @@
 @property (strong, nonatomic) NSString *submissionType;
 @property (strong, nonatomic) NSString *submissionPosition;
 @property (strong, nonatomic) NSString *topOrBottom;
+@property (strong, nonatomic) NSMutableDictionary *counterAndDate;
+
+@property (strong, nonatomic) NSMutableArray *datesArray;
 @property int counter;
 
 
 -(id)initWithData:(NSDictionary *)data;
 -(void)incrementCounter;
+-(void)addDate;
 
 
 

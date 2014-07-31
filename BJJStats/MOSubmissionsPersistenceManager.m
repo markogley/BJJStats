@@ -54,6 +54,7 @@
 
 -(NSMutableArray *)compareNewSubmissionObjectToSavedData:(NSMutableArray *)objectsAsPropertyList newSubmissionObject:(MOSubmissionObject *)newObject{
     
+    
     //creates new converter from MOObjectConverter class
     MOObjectConverter *converter = [[MOObjectConverter alloc] init];
     NSDictionary *newSub = [converter submissionObjectAsPropertyList:newObject];
@@ -88,11 +89,31 @@
         MOSubmissionObject *updatedEntry = [converter submissionObjectForDictionary:objectsAsPropertyList[index]];
         [updatedEntry incrementCounter];
         NSLog(@"object counter %d", updatedEntry.counter);
+        
+        NSDate *date = [NSDate date];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSString *today = [dateFormatter stringFromDate:date];
+        for (NSString *dates in updatedEntry.datesArray){
+            if ([dates isEqualToString:today]) {
+                NSDictionary *updatedEntryComplete = [converter submissionObjectAsPropertyList:updatedEntry];
+                //objectsAsPropertyList[index] = updatedEntryComplete;
+                [objectsAsPropertyList replaceObjectAtIndex:index withObject:updatedEntryComplete];
+        }else{
+        
+        NSMutableArray *newDatesArray = updatedEntry.datesArray;
+        for (NSString *i in newObject.datesArray) {
+            [newDatesArray addObject:i];
+        }
+        NSLog(@"newDatesArray%@", newDatesArray);
+        updatedEntry.datesArray = [newDatesArray mutableCopy];
+        NSLog(@"object dates are %@", updatedEntry.datesArray);
         NSDictionary *updatedEntryComplete = [converter submissionObjectAsPropertyList:updatedEntry];
         //objectsAsPropertyList[index] = updatedEntryComplete;
         [objectsAsPropertyList replaceObjectAtIndex:index withObject:updatedEntryComplete];
+            }
+        }
     }
-    
     return objectsAsPropertyList;
 }
 

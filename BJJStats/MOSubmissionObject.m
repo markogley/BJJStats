@@ -10,6 +10,16 @@
 
 @implementation MOSubmissionObject
 
+-(NSMutableArray*)datesArray{
+    
+    if(!_datesArray){
+        
+        _datesArray = [[NSMutableArray alloc]init];
+    }
+    
+    return _datesArray;
+}
+
 
 -(id)init{
     
@@ -25,7 +35,8 @@
     self.submissionType = data[SUBMISSION_TYPE];
     self.submissionPosition = data[SUBMISSION_POSITION];
     self.topOrBottom = data[SUBMISSION_TOP_OR_BOTTOM];
-    self.counter = [data[SUBMISSION_COUNTER] intValue];
+    self.counter = [data[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_COUNTER] intValue];
+    self.datesArray = data[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_DATE];
     
     
     return self;
@@ -34,6 +45,12 @@
 
 -(void)incrementCounter{
     self.counter = self.counter + 1;
+}
+
+-(void)addDate{
+    
+    
+    
 }
 
 

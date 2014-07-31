@@ -15,7 +15,8 @@
 -(NSDictionary *)submissionObjectAsPropertyList:(MOSubmissionObject *)submissionObject {
     
     
-    NSDictionary *submissionDictionary = @{SUBMISSION_TYPE : submissionObject.submissionType, SUBMISSION_POSITION: submissionObject.submissionPosition, SUBMISSION_TOP_OR_BOTTOM: submissionObject.topOrBottom, SUBMISSION_COUNTER : @(submissionObject.counter)};
+    NSDictionary *submissionDictionary = @{SUBMISSION_TYPE : submissionObject.submissionType, SUBMISSION_POSITION: submissionObject.submissionPosition, SUBMISSION_TOP_OR_BOTTOM: submissionObject.topOrBottom, SUBMISSION_COUNTER_AND_DATE : @{SUBMISSION_COUNTER : @(submissionObject.counter), SUBMISSION_DATE: [submissionObject.datesArray mutableCopy]}};
+
     
     return submissionDictionary;
     

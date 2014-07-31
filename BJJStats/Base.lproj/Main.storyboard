@@ -18,9 +18,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4La-gd-K0t">
-                                <rect key="frame" x="20" y="221" width="120" height="38"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <rect key="frame" x="20" y="222" width="120" height="37"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
                                 <state key="normal" title="Submission">
+                                    <color key="titleColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -28,9 +29,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQf-mO-nho">
-                                <rect key="frame" x="180" y="221" width="120" height="38"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <rect key="frame" x="180" y="222" width="120" height="37"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
                                 <state key="normal" title="Submitted">
+                                    <color key="titleColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -39,10 +41,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLf-qY-rmu">
                                 <rect key="frame" x="100" y="324" width="120" height="37"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
                                 <state key="normal" title="Statistics">
-                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.2523953914642334" green="0.6568865180015564" blue="0.95531159639358521" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="Z7Y-SN-28Z" kind="modal" id="xNh-QE-bPA"/>
@@ -78,48 +80,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEo-Xp-Jsf">
-                                <rect key="frame" x="20" y="302" width="30" height="30"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addedButtonPressed:" destination="NV4-TG-6cj" eventType="touchUpInside" id="ajM-pU-ZZN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J79-bY-ebE">
-                                <rect key="frame" x="252" y="302" width="48" height="30"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButtonPressed:" destination="NV4-TG-6cj" eventType="touchUpInside" id="dc4-xO-Ff9"/>
-                                </connections>
-                            </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4w-aM-CsE">
                                 <rect key="frame" x="0.0" y="62" width="320" height="162"/>
                             </pickerView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="glT-4M-hq9">
-                                <rect key="frame" x="99" y="252" width="119" height="29"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lh3-dH-hec">
+                                <rect key="frame" x="0.0" y="232" width="320" height="177"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Top"/>
-                                    <segment title="Bottom"/>
-                                </segments>
-                            </segmentedControl>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEo-Xp-Jsf">
+                                        <rect key="frame" x="20" y="90" width="40" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Add">
+                                            <color key="titleColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addedButtonPressed:" destination="NV4-TG-6cj" eventType="touchUpInside" id="ajM-pU-ZZN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J79-bY-ebE">
+                                        <rect key="frame" x="245" y="90" width="55" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelButtonPressed:" destination="NV4-TG-6cj" eventType="touchUpInside" id="dc4-xO-Ff9"/>
+                                        </connections>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="glT-4M-hq9">
+                                        <rect key="frame" x="101" y="20" width="119" height="29"/>
+                                        <segments>
+                                            <segment title="Top"/>
+                                            <segment title="Bottom"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </segmentedControl>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Today's Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eq-jY-QJ2">
+                                        <rect key="frame" x="20" y="128" width="105" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFq-uR-a1t">
+                                        <rect key="frame" x="110" y="147" width="100" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Change Date">
+                                            <color key="titleColor" red="0.2523953914642334" green="0.6568865180015564" blue="0.95531159639358521" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPE-tv-CAT">
+                                        <rect key="frame" x="133" y="128" width="167" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="I4w-aM-CsE" firstAttribute="top" secondItem="eeB-1c-oGR" secondAttribute="bottom" constant="42" id="2Uh-F8-BZn"/>
                             <constraint firstAttribute="trailing" secondItem="I4w-aM-CsE" secondAttribute="trailing" id="36g-fb-rya"/>
-                            <constraint firstItem="KEo-Xp-Jsf" firstAttribute="leading" secondItem="0Cy-Db-1Sy" secondAttribute="leading" constant="20" id="7xF-Zp-isb"/>
-                            <constraint firstItem="KEo-Xp-Jsf" firstAttribute="top" secondItem="eeB-1c-oGR" secondAttribute="bottom" constant="282" id="AZS-yk-eIc"/>
-                            <constraint firstAttribute="trailing" secondItem="J79-bY-ebE" secondAttribute="trailing" constant="20" id="GgO-S7-ho0"/>
-                            <constraint firstItem="KEo-Xp-Jsf" firstAttribute="top" secondItem="I4w-aM-CsE" secondAttribute="bottom" constant="78" id="kJP-0A-Hdv"/>
-                            <constraint firstItem="J79-bY-ebE" firstAttribute="leading" secondItem="KEo-Xp-Jsf" secondAttribute="trailing" constant="202" id="ozh-Kc-x0X"/>
-                            <constraint firstItem="J79-bY-ebE" firstAttribute="top" secondItem="I4w-aM-CsE" secondAttribute="bottom" constant="78" id="xHK-jp-IFy"/>
+                            <constraint firstItem="I4w-aM-CsE" firstAttribute="leading" secondItem="lh3-dH-hec" secondAttribute="leading" id="3Bc-AF-E0A"/>
+                            <constraint firstItem="lh3-dH-hec" firstAttribute="top" secondItem="I4w-aM-CsE" secondAttribute="bottom" constant="8" symbolic="YES" id="Vuo-KL-7tm"/>
+                            <constraint firstItem="7o4-T8-Ssb" firstAttribute="top" secondItem="lh3-dH-hec" secondAttribute="bottom" constant="71" id="e1K-Me-z7n"/>
+                            <constraint firstItem="I4w-aM-CsE" firstAttribute="trailing" secondItem="lh3-dH-hec" secondAttribute="trailing" id="eW3-K5-LNs"/>
                             <constraint firstItem="I4w-aM-CsE" firstAttribute="leading" secondItem="0Cy-Db-1Sy" secondAttribute="leading" id="yp3-n2-3PX"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="submittedPickerView" destination="I4w-aM-CsE" id="zuo-Uk-un6"/>
                         <outlet property="topOrBottomSegmentedControl" destination="glT-4M-hq9" id="AN2-Og-gIt"/>
@@ -141,107 +175,108 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="QCU-1C-YX2" customClass="XYPieChart">
+                                <rect key="frame" x="10" y="55" width="300" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="K9v-sf-hkK"/>
+                                    <constraint firstAttribute="width" constant="300" id="bNo-93-ysN"/>
+                                    <constraint firstAttribute="height" constant="250" id="lDN-bc-ipP"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHZ-HW-EGQ">
-                                <rect key="frame" x="244" y="13" width="40" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <rect key="frame" x="260" y="20" width="40" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Exit">
+                                    <color key="titleColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="exitButtonPressed:" destination="Z7Y-SN-28Z" eventType="touchUpInside" id="UMZ-4e-MRd"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="QCU-1C-YX2" customClass="XYPieChart">
-                                <rect key="frame" x="1" y="85" width="320" height="250"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="fj2-Ql-6MP"/>
-                                    <constraint firstAttribute="height" constant="250" id="lDN-bc-ipP"/>
-                                </constraints>
-                            </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IKY-IM-9aA">
-                                <rect key="frame" x="69" y="49" width="183" height="29"/>
-                                <segments>
-                                    <segment title="Submissions"/>
-                                    <segment title="Submitted"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segementControllerPressed:" destination="Z7Y-SN-28Z" eventType="valueChanged" id="o83-6M-5Pc"/>
-                                </connections>
-                            </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7k5-ib-Dhn">
-                                <rect key="frame" x="1" y="356" width="320" height="105"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2g-Y8-dvr">
+                                <rect key="frame" x="10" y="313" width="300" height="129"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IKY-IM-9aA">
+                                        <rect key="frame" x="59" y="5" width="183" height="29"/>
+                                        <segments>
+                                            <segment title="Submissions"/>
+                                            <segment title="Submitted"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="segementControllerPressed:" destination="Z7Y-SN-28Z" eventType="valueChanged" id="o83-6M-5Pc"/>
+                                        </connections>
+                                    </segmentedControl>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Submission Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Joa-O6-Fte">
-                                        <rect key="frame" x="8" y="0.0" width="162" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <rect key="frame" x="5" y="35" width="162" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="0.2523953914642334" green="0.6568865180015564" blue="0.95531159639358521" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ar4-UZ-x8v">
-                                        <rect key="frame" x="170" y="0.0" width="124" height="24"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmW-Gd-Emy">
+                                        <rect key="frame" x="181" y="59" width="124" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Submission Position:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9d-qH-sl2">
-                                        <rect key="frame" x="8" y="28" width="167" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <rect key="frame" x="5" y="59" width="167" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="0.2523953914642334" green="0.6568865180015564" blue="0.95531159639358521" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmW-Gd-Emy">
-                                        <rect key="frame" x="170" y="28" width="124" height="24"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfq-E0-2Uf">
+                                        <rect key="frame" x="175" y="83" width="130" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Top or Bottom:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2W-22-zJg">
-                                        <rect key="frame" x="8" y="53" width="162" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfq-E0-2Uf">
-                                        <rect key="frame" x="170" y="53" width="130" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="5" y="83" width="162" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="0.2523953914642334" green="0.6568865180015564" blue="0.95531159639358521" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cof-5r-Wma">
-                                        <rect key="frame" x="170" y="79" width="130" height="24"/>
+                                        <rect key="frame" x="175" y="105" width="130" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Percentage:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APO-rC-cWl">
-                                        <rect key="frame" x="8" y="79" width="162" height="24"/>
+                                        <rect key="frame" x="5" y="105" width="162" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="0.2523953914642334" green="0.6568865180015564" blue="0.95531159639358521" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ar4-UZ-x8v">
+                                        <rect key="frame" x="181" y="35" width="124" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="105" id="Ixo-Eg-xD3"/>
-                                    <constraint firstAttribute="width" constant="320" id="jst-qT-f1l"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="IKY-IM-9aA" secondAttribute="centerX" constant="-0.5" id="Abd-Vs-kIq"/>
-                            <constraint firstItem="FHZ-HW-EGQ" firstAttribute="leading" secondItem="eEg-dR-mXY" secondAttribute="leading" constant="244" id="MAC-bb-hWm"/>
-                            <constraint firstItem="7k5-ib-Dhn" firstAttribute="top" secondItem="QCU-1C-YX2" secondAttribute="bottom" constant="21" id="TCg-CI-r0W"/>
-                            <constraint firstItem="QCU-1C-YX2" firstAttribute="leading" secondItem="7k5-ib-Dhn" secondAttribute="leading" id="Tcj-xt-05U"/>
-                            <constraint firstItem="7k5-ib-Dhn" firstAttribute="top" secondItem="QCU-1C-YX2" secondAttribute="bottom" constant="21" id="WJz-nd-6Ot"/>
-                            <constraint firstItem="IKY-IM-9aA" firstAttribute="top" secondItem="eEg-dR-mXY" secondAttribute="top" constant="49" id="YhQ-tQ-7lv"/>
-                            <constraint firstAttribute="trailing" secondItem="FHZ-HW-EGQ" secondAttribute="trailing" constant="36" id="arG-10-Ona"/>
-                            <constraint firstItem="QCU-1C-YX2" firstAttribute="top" secondItem="IKY-IM-9aA" secondAttribute="bottom" constant="8" symbolic="YES" id="cB1-zY-EmO"/>
-                            <constraint firstItem="QCU-1C-YX2" firstAttribute="trailing" secondItem="7k5-ib-Dhn" secondAttribute="trailing" id="sgw-F8-PuJ"/>
-                            <constraint firstItem="QCU-1C-YX2" firstAttribute="centerX" secondItem="IKY-IM-9aA" secondAttribute="centerX" id="sjP-3m-NU2"/>
-                            <constraint firstItem="IKY-IM-9aA" firstAttribute="top" secondItem="FHZ-HW-EGQ" secondAttribute="bottom" constant="2" id="v0y-fs-kY6"/>
+                            <constraint firstAttribute="bottom" secondItem="F2g-Y8-dvr" secondAttribute="bottom" constant="38" id="5ff-mP-PYI"/>
+                            <constraint firstItem="F2g-Y8-dvr" firstAttribute="trailing" secondItem="QCU-1C-YX2" secondAttribute="trailing" id="7jv-3y-Lmj"/>
+                            <constraint firstItem="FHZ-HW-EGQ" firstAttribute="top" secondItem="eEg-dR-mXY" secondAttribute="top" constant="20" id="EEG-nd-uka"/>
+                            <constraint firstItem="FHZ-HW-EGQ" firstAttribute="leading" secondItem="eEg-dR-mXY" secondAttribute="leading" constant="260" id="MAC-bb-hWm"/>
+                            <constraint firstItem="F2g-Y8-dvr" firstAttribute="leading" secondItem="QCU-1C-YX2" secondAttribute="leading" id="Zx4-AM-HUp"/>
+                            <constraint firstAttribute="trailing" secondItem="FHZ-HW-EGQ" secondAttribute="trailing" constant="20" id="arG-10-Ona"/>
+                            <constraint firstItem="QCU-1C-YX2" firstAttribute="leading" secondItem="eEg-dR-mXY" secondAttribute="leading" constant="10" id="dWt-vo-nFa"/>
+                            <constraint firstItem="QCU-1C-YX2" firstAttribute="top" secondItem="FHZ-HW-EGQ" secondAttribute="bottom" constant="1" id="dfQ-o3-uDM"/>
+                            <constraint firstItem="F2g-Y8-dvr" firstAttribute="top" secondItem="QCU-1C-YX2" secondAttribute="bottom" constant="8" id="tn4-wj-CCD"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="percentageLabel" destination="Cof-5r-Wma" id="2Bb-Gn-LpY"/>
                         <outlet property="pieChart" destination="QCU-1C-YX2" id="u06-6T-a3p"/>
                         <outlet property="pieChartSegmentControl" destination="IKY-IM-9aA" id="WYV-Di-S2W"/>
+                        <outlet property="statisticsLabelView" destination="F2g-Y8-dvr" id="0iO-35-AaC"/>
                         <outlet property="submissionPositionLabel" destination="SmW-Gd-Emy" id="e6T-d6-MG5"/>
                         <outlet property="submissionSelectedLabel" destination="Ar4-UZ-x8v" id="i95-he-rEU"/>
                         <outlet property="topOrBottomLabel" destination="Vfq-E0-2Uf" id="00g-5W-bWE"/>
@@ -263,24 +298,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2I-dX-5fh">
-                                <rect key="frame" x="20" y="302" width="30" height="30"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addSubmissionButtonPressed:" destination="7UW-10-7tF" eventType="touchUpInside" id="jHs-7L-k7F"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWZ-ic-qCV">
-                                <rect key="frame" x="252" y="302" width="48" height="30"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButtonPressed:" destination="7UW-10-7tF" eventType="touchUpInside" id="gdc-0a-tMT"/>
-                                </connections>
-                            </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOU-ve-84E">
                                 <rect key="frame" x="0.0" y="62" width="320" height="162"/>
                                 <constraints>
@@ -288,26 +305,188 @@
                                     <constraint firstAttribute="width" constant="320" id="oHB-sO-Vj6"/>
                                 </constraints>
                             </pickerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5A-s2-Gr7">
+                                <rect key="frame" x="10" y="232" width="300" height="203"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWZ-ic-qCV">
+                                        <rect key="frame" x="225" y="90" width="55" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelButtonPressed:" destination="7UW-10-7tF" eventType="touchUpInside" id="gdc-0a-tMT"/>
+                                        </connections>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ci4-wE-3Tf">
+                                        <rect key="frame" x="91" y="20" width="119" height="29"/>
+                                        <segments>
+                                            <segment title="Top"/>
+                                            <segment title="Bottom"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2I-dX-5fh">
+                                        <rect key="frame" x="20" y="90" width="40" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Add">
+                                            <color key="titleColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addSubmissionButtonPressed:" destination="7UW-10-7tF" eventType="touchUpInside" id="jHs-7L-k7F"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Today's Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1f-gy-Na4">
+                                        <rect key="frame" x="20" y="134" width="105" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wms-HG-EBD">
+                                        <rect key="frame" x="100" y="153" width="100" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Change Date">
+                                            <color key="titleColor" red="0.2523953914642334" green="0.6568865180015564" blue="0.95531159639358521" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="e5l-os-fJD" kind="modal" id="R7l-nb-KYA"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sY0-qg-8ue">
+                                        <rect key="frame" x="133" y="134" width="167" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="k2I-dX-5fh" firstAttribute="leading" secondItem="Ixz-oa-lkz" secondAttribute="leading" constant="20" id="5Rp-qJ-NBE"/>
+                            <constraint firstItem="GOU-ve-84E" firstAttribute="centerX" secondItem="o5A-s2-Gr7" secondAttribute="centerX" id="DUc-4R-wOp"/>
                             <constraint firstItem="GOU-ve-84E" firstAttribute="leading" secondItem="Ixz-oa-lkz" secondAttribute="leading" id="Rue-9X-7Ld"/>
-                            <constraint firstItem="kWZ-ic-qCV" firstAttribute="top" secondItem="GOU-ve-84E" secondAttribute="bottom" constant="78" id="Vkm-JV-5sm"/>
-                            <constraint firstItem="kWZ-ic-qCV" firstAttribute="leading" secondItem="k2I-dX-5fh" secondAttribute="trailing" constant="202" id="XvV-X1-Kgu"/>
-                            <constraint firstItem="k2I-dX-5fh" firstAttribute="top" secondItem="GOU-ve-84E" secondAttribute="bottom" constant="78" id="d1x-zk-SBF"/>
-                            <constraint firstItem="k2I-dX-5fh" firstAttribute="top" secondItem="PgN-He-rug" secondAttribute="bottom" constant="282" id="eY6-8R-UTk"/>
-                            <constraint firstAttribute="trailing" secondItem="kWZ-ic-qCV" secondAttribute="trailing" constant="20" id="hFN-c0-F1g"/>
+                            <constraint firstItem="o5A-s2-Gr7" firstAttribute="leading" secondItem="Ixz-oa-lkz" secondAttribute="leading" constant="10" id="Slv-Hi-8PP"/>
+                            <constraint firstItem="n2O-Wq-agv" firstAttribute="top" secondItem="o5A-s2-Gr7" secondAttribute="bottom" constant="45" id="VOh-DW-g1q"/>
                             <constraint firstAttribute="trailing" secondItem="GOU-ve-84E" secondAttribute="trailing" id="mhD-2d-wIz"/>
+                            <constraint firstItem="GOU-ve-84E" firstAttribute="top" secondItem="PgN-He-rug" secondAttribute="bottom" constant="42" id="p8V-ya-y7i"/>
+                            <constraint firstItem="o5A-s2-Gr7" firstAttribute="top" secondItem="GOU-ve-84E" secondAttribute="bottom" constant="8" symbolic="YES" id="zKo-yy-ImL"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="submissionPickerView" destination="GOU-ve-84E" id="b5n-7J-Mwm"/>
+                        <outlet property="topOrBottomSegmentedControl" destination="Ci4-wE-3Tf" id="SyO-w7-6fq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6X-aN-9RK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1276" y="78"/>
+        </scene>
+        <!--Date Added View Controller-->
+        <scene sceneID="CMW-lE-PDw">
+            <objects>
+                <viewController id="e5l-os-fJD" customClass="MODateAddedViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xUU-Ex-vmV"/>
+                        <viewControllerLayoutGuide type="bottom" id="OG1-fH-SMm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qA0-tJ-OFj" customClass="MODateAddedViewCOntroller">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Date Set:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbr-vV-wc9">
+                                <rect key="frame" x="20" y="73" width="134" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.2523953914642334" green="0.6568865180015564" blue="0.95531159639358521" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIG-1t-ec4">
+                                <rect key="frame" x="157" y="73" width="143" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDj-MC-q0D">
+                                <rect key="frame" x="85" y="293" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
+                                <state key="normal" title="Set Current Date">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="setCurrentDateButtonPressed:" destination="e5l-os-fJD" eventType="touchUpInside" id="Ixu-Hk-ZHs"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="XdG-9L-Fg7">
+                                <rect key="frame" x="0.0" y="108" width="320" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="428418233.57198501">
+                                    <!--2014-07-30 13:03:53 +0000-->
+                                </date>
+                                <timeZone key="timeZone" name="America/Los_Angeles">
+                                    <data key="data">
+VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
+y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
+5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
+8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
+AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
+DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
+HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
+KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
+OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
+Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
+VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
+Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
+cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
+f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
+</data>
+                                </timeZone>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vad-ZN-fT7">
+                                <rect key="frame" x="20" y="343" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="22"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="e5l-os-fJD" eventType="touchUpInside" id="v3F-cC-IcR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abe-K9-BsP">
+                                <rect key="frame" x="235" y="343" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="e5l-os-fJD" eventType="touchUpInside" id="0Nu-9Q-ZdJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="XdG-9L-Fg7" id="Jpy-XG-cVB"/>
+                        <outlet property="objectDate" destination="vIG-1t-ec4" id="CNy-yK-clr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NTG-3c-V9a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1899" y="223"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

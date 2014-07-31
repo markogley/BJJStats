@@ -15,7 +15,7 @@
 
 @property (strong, nonatomic) NSArray *submittedArray;
 @property (strong, nonatomic) NSArray *submittedPositionArray;
-@property (strong, nonatomic) NSArray *topOrBottomArray;
+//@property (strong, nonatomic) NSArray *topOrBottomArray;
 
 @end
 
@@ -54,6 +54,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark UIPickerViewDataSourceAndDelegateMethods
 
@@ -167,7 +168,10 @@
 */
 - (IBAction)addedButtonPressed:(UIButton *)sender {
     
+    NSLog(@"Added new submission button pressed");
     MOSubmissionObject *newSubmissionObject = [self returnNewSubmissionObject];
+    
+    NSLog(@"finished returning new submission object");
     
     [self.delegate addSubmitted:newSubmissionObject];
     
@@ -183,6 +187,9 @@
 
 -(MOSubmissionObject *)returnNewSubmissionObject{
     
+    
+    NSLog(@"Started returning new submission object");
+    
     MOSubmissionObject *addedSubmissionObject = [[MOSubmissionObject alloc] init];
     
     NSInteger indexSubmissions = [self.submittedPickerView selectedRowInComponent:0];
@@ -197,10 +204,14 @@
         topOrBottom = @"Bottom";
     }
     
+    
+    //sets properties for new submissionObject
     addedSubmissionObject.submissionType = [self.submittedArray objectAtIndex:indexSubmissions];
     addedSubmissionObject.submissionPosition = [self.submittedPositionArray objectAtIndex:indexPositions];
     addedSubmissionObject.topOrBottom = topOrBottom;
     addedSubmissionObject.counter = 1;
+    
+
     
     return addedSubmissionObject;
     
