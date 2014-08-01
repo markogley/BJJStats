@@ -100,7 +100,6 @@
 
 #pragma mark HelperMethods
 
-//create method to to persist submitted/submissions, check for duplicates for both 
 
 
 

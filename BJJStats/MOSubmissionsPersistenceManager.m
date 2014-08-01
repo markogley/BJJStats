@@ -58,16 +58,12 @@
     //creates new converter from MOObjectConverter class
     MOObjectConverter *converter = [[MOObjectConverter alloc] init];
     NSDictionary *newSub = [converter submissionObjectAsPropertyList:newObject];
-    
-    //NSMutableDictionary *objectsAsPropertyListDictionary = [[NSMutableDictionary alloc] init];
-    
-    //for (MOSubmissionObject *object in objectsAsPropertyList){
-        //[objectsAsPropertyListDictionary addEntriesFromDictionary:[converter submissionObjectAsPropertyList:object]];
-    //}
+    NSLog(@"The new submissionObject as dict is %@", newSub);
+
     
     BOOL alreadyInArray = NO;
     int index = 0;
-    
+    //compares the oldSubmission object already saved to the new one submitted to the method by three criteria: submission position/ToporBottom/Type
     for (NSDictionary *entry in objectsAsPropertyList) {
         //need to compare submissionType, submissionPosition and submissionTopOrBottom but not counter
         if ([[entry valueForKey:SUBMISSION_POSITION] isEqualToString:[newSub valueForKey:SUBMISSION_POSITION]] && [[entry valueForKey:SUBMISSION_TYPE] isEqualToString: [newSub valueForKey:SUBMISSION_TYPE]] && [[entry valueForKey:SUBMISSION_TOP_OR_BOTTOM] isEqualToString:[newSub valueForKey:SUBMISSION_TOP_OR_BOTTOM]] ) {
@@ -84,36 +80,24 @@
         [objectsAsPropertyList addObject:[converter submissionObjectAsPropertyList:newObject]];
         NSLog(@"Submission added to the array");
     }
-    //object is being initialized with counter of 1
+    //if the object is already in the array its counter is incremented by 1 and the date is added. The dates can be checked later to see how many times they appear and can be subtracted from the total counter to get a picture of when and how many times on that date the submission happened. This is a work around till I figure out a better data model or a better method to compare.
     if (alreadyInArray == YES) {
-        MOSubmissionObject *updatedEntry = [converter submissionObjectForDictionary:objectsAsPropertyList[index]];
-        [updatedEntry incrementCounter];
-        NSLog(@"object counter %d", updatedEntry.counter);
+        MOSubmissionObject *entryToUpdate = [converter submissionObjectForDictionary:objectsAsPropertyList[index]];
+        //increments the counter
+        [entryToUpdate incrementCounter];
         
-        NSDate *date = [NSDate date];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-        NSString *today = [dateFormatter stringFromDate:date];
-        for (NSString *dates in updatedEntry.datesArray){
-            if ([dates isEqualToString:today]) {
-                NSDictionary *updatedEntryComplete = [converter submissionObjectAsPropertyList:updatedEntry];
-                //objectsAsPropertyList[index] = updatedEntryComplete;
-                [objectsAsPropertyList replaceObjectAtIndex:index withObject:updatedEntryComplete];
-        }else{
-        
-        NSMutableArray *newDatesArray = updatedEntry.datesArray;
-        for (NSString *i in newObject.datesArray) {
-            [newDatesArray addObject:i];
-        }
-        NSLog(@"newDatesArray%@", newDatesArray);
-        updatedEntry.datesArray = [newDatesArray mutableCopy];
-        NSLog(@"object dates are %@", updatedEntry.datesArray);
-        NSDictionary *updatedEntryComplete = [converter submissionObjectAsPropertyList:updatedEntry];
-        //objectsAsPropertyList[index] = updatedEntryComplete;
+        //creates a new array to dump the old dates array in to.
+        NSMutableArray *newDatesArray = [entryToUpdate.datesArray mutableCopy];
+        //copies the date from the new submission submitted to the compare method
+        [newDatesArray addObject:newSub[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_DATE][0]];
+        //sets the newDates array to the old one on the submissionObject that needed to be updated using mutabkle copy
+        entryToUpdate.datesArray = [newDatesArray mutableCopy];
+        //converts the updated submissionObject back to a dictionary
+        NSDictionary *updatedEntryComplete = [converter submissionObjectAsPropertyList:entryToUpdate];
+        //replaces the new dictionary over the old one in the same index spot
         [objectsAsPropertyList replaceObjectAtIndex:index withObject:updatedEntryComplete];
-            }
         }
-    }
+    
     return objectsAsPropertyList;
 }
 

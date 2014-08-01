@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (strong, nonatomic) IBOutlet UILabel *objectDate;
 
+
 @end
 
 @implementation MODateAddedViewController
@@ -29,6 +30,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.datePicker.datePickerMode = UIDatePickerModeDate;
+    NSDate *todaysDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMMM dd, yyyy"];
+    NSString *dateAsString = [dateFormatter stringFromDate:todaysDate];
+    
+    self.objectDate.text = dateAsString;
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,11 +56,12 @@
 }
 */
 
-- (IBAction)setCurrentDateButtonPressed:(UIButton *)sender {
-}
-
-
 - (IBAction)doneButtonPressed:(UIButton *)sender {
+    
+    
+    [self.delegate setDate:(self.datePicker.date)];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 - (IBAction)cancelButtonPressed:(UIButton *)sender {

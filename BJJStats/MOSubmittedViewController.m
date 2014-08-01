@@ -112,13 +112,7 @@
 
 //sets width of row to display text in each component of the UIPickerView
 -(CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component{
-    if (component == 0) {
-        return 140;
-    }else if (component == 1){
-        return 90;
-    }
-    
-    return 50;
+    return 160;
 }
 
 //sets font size and style for each row in the UIPickerView
@@ -129,12 +123,12 @@
     if (!tView){
         tView = [[UILabel alloc] init];
         //sets font size to 14pt
-        tView.font = [UIFont systemFontOfSize:14];
+        tView.font = [UIFont systemFontOfSize:16];
     }
     
     //depending on the component the text is aligned differently and the text for that row is set from its array.
     if (component == 0) {
-        tView.textAlignment = NSTextAlignmentLeft;
+        tView.textAlignment = NSTextAlignmentCenter;
         tView.text = self.submittedArray[row];
         
     }else if(component == 1){

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MOSubmissionObject.h"
+#import "MODateAddedViewController.h"
 
 @protocol MOSubmissionsViewControllerDelegate <NSObject>
 
@@ -17,7 +18,7 @@
 
 @end
 
-@interface MOSubmissionsViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface MOSubmissionsViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, MODateAddedViewControllerDelegate>
 
 @property(weak, nonatomic) id <MOSubmissionsViewControllerDelegate> delegate;
 

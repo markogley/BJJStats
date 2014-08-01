@@ -14,7 +14,11 @@
 
 @property (strong, nonatomic) NSArray *submissionsArray;
 @property (strong, nonatomic) NSArray *submissionPositionsArray;
-//@property (strong, nonatomic) NSArray *topOrBottomArray;
+@property (strong, nonatomic) IBOutlet UILabel *dateForObjectLabel;
+
+@property (strong, nonatomic) NSString *dateAsStringFull;
+@property (strong, nonatomic) NSString *dateAsStringStats;
+
 
 @end
 
@@ -42,8 +46,15 @@
     NSURL *positions = [[NSBundle mainBundle] URLForResource:@"Positions" withExtension:@"plist"];
     self.submissionPositionsArray = [NSArray arrayWithContentsOfURL:positions];
     
-    //NSURL *topBottom = [[NSBundle mainBundle] URLForResource:@"TopBottom" withExtension:@"plist"];
-    //self.topOrBottomArray = [NSArray arrayWithContentsOfURL:topBottom];
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMMM dd, yyyy"];
+    self.dateAsStringFull = [dateFormatter stringFromDate:date];
+    
+    self.dateForObjectLabel.text = self.dateAsStringFull;
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,10 +79,7 @@
         
         result = [self.submissionPositionsArray count];
         
-    }//else if (component == 2){
-        
-        //result = [self.topOrBottomArray count];
-    //}
+    }
     
     return result;
 }
@@ -97,10 +105,7 @@
         
         result =  self.submissionPositionsArray[row];
     
-    }//else if (component == 2){
-        
-        //result = self.topOrBottomArray[row];
-    //}
+    }
     
     return result;
 }
@@ -108,13 +113,10 @@
 
 //sets width of row to display text in each component of the UIPickerView
 -(CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component{
-    if (component == 0) {
-        return 140;
-    }else if (component == 1){
-        return 90;
-    }
     
-    return 50;
+        return 160;
+    
+    
 }
 
 //sets font size and style for each row in the UIPickerView
@@ -125,12 +127,12 @@
     if (!tView){
         tView = [[UILabel alloc] init];
         //sets font size to 14pt
-        tView.font = [UIFont systemFontOfSize:14];
+        tView.font = [UIFont systemFontOfSize:16];
     }
     
     //depending on the component the text is aligned differently and the text for that row is set from its array.
     if (component == 0) {
-        tView.textAlignment = NSTextAlignmentLeft;
+        tView.textAlignment = NSTextAlignmentCenter;
         tView.text = self.submissionsArray[row];
         
     }else if(component == 1){
@@ -151,7 +153,7 @@
     //NSLog(@"Select row %ld from submissions, %ld from positions, %ld from top/Bottom", (long)[self.informationPickerView selectedRowInComponent:0], (long)[self.informationPickerView selectedRowInComponent:1], (long)[self.informationPickerView selectedRowInComponent:2]);
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -159,8 +161,12 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.destinationViewController isKindOfClass:[MODateAddedViewController class]]) {
+        MODateAddedViewController *dateAddedVC = segue.destinationViewController;
+        dateAddedVC.delegate = self;
+    }
 }
-*/
+
 
 
 - (IBAction)addSubmissionButtonPressed:(UIButton *)sender {
@@ -193,7 +199,6 @@
     
     NSInteger indexSubmissions = [self.submissionPickerView selectedRowInComponent:0];
     NSInteger indexPositions = [self.submissionPickerView selectedRowInComponent:1];
-    //NSInteger indexTopBottom = [self.submissionPickerView selectedRowInComponent:2];
     
     NSString *topOrBottom;
     
@@ -204,24 +209,48 @@
         topOrBottom = @"Bottom";
     }
     
+    //adds the correct date to the new object depending on whether the user used the change date option or not.
+    if (self.dateAsStringStats == nil) {
+        NSDate *today = [NSDate date];
+        NSDateFormatter *shortFormat = [[NSDateFormatter alloc] init];
+        [shortFormat setDateFormat:@"yyyy-MM-dd"];
+        NSString *todayAsString =[shortFormat stringFromDate:today];
+        NSLog(@"the addedSubmissionObject.datesArray is %@", addedSubmissionObject.datesArray);
+        [addedSubmissionObject.datesArray addObject:todayAsString];
+    }else{
+        NSLog(@"self.dateAsStringStats is %@", self.dateAsStringStats);
+        [addedSubmissionObject.datesArray addObject:self.dateAsStringStats];
+        NSLog(@"the addedSubmissionObject.datesArray is %@", addedSubmissionObject.datesArray);
+        
+    }
     
     addedSubmissionObject.submissionType = [self.submissionsArray objectAtIndex:indexSubmissions];
     addedSubmissionObject.submissionPosition = [self.submissionPositionsArray objectAtIndex:indexPositions];
-    addedSubmissionObject.topOrBottom = topOrBottom; //[self.topOrBottomArray objectAtIndex:indexTopBottom];
+    addedSubmissionObject.topOrBottom = topOrBottom;
     addedSubmissionObject.counter = 1;
     
-    //testing date object for future statistics
-    NSDate *date = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *dateAsString = [dateFormatter stringFromDate:date];
-    
-    [addedSubmissionObject.datesArray addObject:dateAsString];
-    
-    NSLog(@"The date set is %@", addedSubmissionObject.datesArray);
     
     
     return addedSubmissionObject;
+    
+}
+
+#pragma mark MODateAddedViewControllerDelegate Methods
+
+//creates strings of dates to be set in the viewController and the submission object when the change date button option is used.
+-(void)setDate:(NSDate *)datePicked{
+    
+    //testing date object for future statistics
+    NSDateFormatter *dateFormatterFull = [[NSDateFormatter alloc] init];
+    [dateFormatterFull setDateFormat:@"MMMM dd, yyyy"];
+    self.dateAsStringFull = [dateFormatterFull stringFromDate:datePicked];
+    
+    self.dateForObjectLabel.text = self.dateAsStringFull;
+    
+    NSDateFormatter *dateFormatterStats = [[NSDateFormatter alloc] init];
+    [dateFormatterStats setDateFormat:@"yyyy-MM-dd"];
+    self.dateAsStringStats = [dateFormatterStats stringFromDate:datePicked];
+    
     
 }
 
