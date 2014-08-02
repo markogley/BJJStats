@@ -139,10 +139,7 @@
         tView.textAlignment = NSTextAlignmentCenter;
         tView.text =  self.submissionPositionsArray[row];
         
-    }//else if (component == 2){
-        //tView.textAlignment = NSTextAlignmentCenter;
-        //tView.text = self.topOrBottomArray[row];
-    //}
+    }
     
     return tView;
 }
@@ -183,6 +180,7 @@
     MOSubmissionObject *newSubmissionObject = [self returnNewSubmissionObject];
     
     [self.delegate addSubmission:newSubmissionObject];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
@@ -253,5 +251,14 @@
     
     
 }
+
+//- (IBAction)unwindFromDateViewController:(UIStoryboardSegue *)segue
+//{
+    // UIViewController *detailViewController = [segue sourceViewController];
+    //NSLog(@"%@", segue.identifier);
+//}
+
+
+
 
 @end

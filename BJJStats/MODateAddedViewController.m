@@ -37,6 +37,7 @@
     NSString *dateAsString = [dateFormatter stringFromDate:todaysDate];
     
     self.objectDate.text = dateAsString;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,6 +45,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation
@@ -68,6 +70,8 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 
 
 

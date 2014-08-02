@@ -15,7 +15,11 @@
 
 @property (strong, nonatomic) NSArray *submittedArray;
 @property (strong, nonatomic) NSArray *submittedPositionArray;
-//@property (strong, nonatomic) NSArray *topOrBottomArray;
+@property (strong, nonatomic) IBOutlet UILabel *dateForObjectLabel;
+
+
+@property (strong, nonatomic) NSString *dateAsStringFull;
+@property (strong, nonatomic) NSString *dateAsStringStats;
 
 @end
 
@@ -45,8 +49,13 @@
     NSURL *positions = [[NSBundle mainBundle] URLForResource:@"Positions" withExtension:@"plist"];
     self.submittedPositionArray = [NSArray arrayWithContentsOfURL:positions];
     
-    //NSURL *topBottom = [[NSBundle mainBundle] URLForResource:@"TopBottom" withExtension:@"plist"];
-    //self.topOrBottomArray = [NSArray arrayWithContentsOfURL:topBottom];
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMMM dd, yyyy"];
+    self.dateAsStringFull = [dateFormatter stringFromDate:date];
+    
+    self.dateForObjectLabel.text = self.dateAsStringFull;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,10 +81,7 @@
         
         result = [self.submittedPositionArray count];
         
-    }//else if (component == 2){
-        
-        //result = [self.topOrBottomArray count];
-    //}
+    }
     
     return result;
 }
@@ -101,10 +107,7 @@
         
         result =  self.submittedPositionArray[row];
         
-    }//else if (component == 2){
-        
-        //result = self.topOrBottomArray[row];
-    //}
+    }
     
     return result;
 }
@@ -150,7 +153,7 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -158,16 +161,21 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.destinationViewController isKindOfClass:[MODateAddedViewController class]]) {
+        MODateAddedViewController *dateAddedVC = segue.destinationViewController;
+        dateAddedVC.delegate = self;
+    
+        }
 }
-*/
+
+
 - (IBAction)addedButtonPressed:(UIButton *)sender {
     
-    NSLog(@"Added new submission button pressed");
     MOSubmissionObject *newSubmissionObject = [self returnNewSubmissionObject];
     
-    NSLog(@"finished returning new submission object");
-    
     [self.delegate addSubmitted:newSubmissionObject];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
     
     
 }
@@ -198,6 +206,22 @@
         topOrBottom = @"Bottom";
     }
     
+    //adds the correct date to the new object depending on whether the user used the change date option or not.
+    if (self.dateAsStringStats == nil) {
+        NSDate *today = [NSDate date];
+        NSDateFormatter *shortFormat = [[NSDateFormatter alloc] init];
+        [shortFormat setDateFormat:@"yyyy-MM-dd"];
+        NSString *todayAsString =[shortFormat stringFromDate:today];
+        NSLog(@"the addedSubmissionObject.datesArray is %@", addedSubmissionObject.datesArray);
+        [addedSubmissionObject.datesArray addObject:todayAsString];
+    }else{
+        NSLog(@"self.dateAsStringStats is %@", self.dateAsStringStats);
+        [addedSubmissionObject.datesArray addObject:self.dateAsStringStats];
+        NSLog(@"the addedSubmissionObject.datesArray is %@", addedSubmissionObject.datesArray);
+        
+    }
+
+    
     
     //sets properties for new submissionObject
     addedSubmissionObject.submissionType = [self.submittedArray objectAtIndex:indexSubmissions];
@@ -208,6 +232,21 @@
 
     
     return addedSubmissionObject;
+    
+}
+
+-(void)setDate:(NSDate *)datePicked{
+    
+    //testing date object for future statistics
+    NSDateFormatter *dateFormatterFull = [[NSDateFormatter alloc] init];
+    [dateFormatterFull setDateFormat:@"MMMM dd, yyyy"];
+    self.dateAsStringFull = [dateFormatterFull stringFromDate:datePicked];
+    
+    self.dateForObjectLabel.text = self.dateAsStringFull;
+    
+    NSDateFormatter *dateFormatterStats = [[NSDateFormatter alloc] init];
+    [dateFormatterStats setDateFormat:@"yyyy-MM-dd"];
+    self.dateAsStringStats = [dateFormatterStats stringFromDate:datePicked];
     
 }
 
