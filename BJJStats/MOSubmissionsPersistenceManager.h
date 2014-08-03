@@ -18,5 +18,7 @@
 
 -(void)addSubmissionObject:(MOSubmissionObject *)submissionObject;
 -(void)addSubmittedObject:(MOSubmissionObject *)submissionObject;
+-(NSMutableArray *)compareNewSubmissionObjectToSavedData:(NSMutableArray *)objectsAsPropertyList newSubmissionObject:(MOSubmissionObject *)newObject;
+-(NSMutableArray *)compareEditedSubmissionObjectToSavedData:(NSMutableArray *)objectsAsPropertyList newSubmissionObject:(MOSubmissionObject *)newObject;
 
 @end

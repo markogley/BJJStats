@@ -47,10 +47,10 @@
     self.counter = self.counter + 1;
 }
 
--(void)addDate{
+
+-(void)decrementCounter{
     
-    
-    
+    self.counter = self.counter - 1;
 }
 
 

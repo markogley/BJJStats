@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "MOSubmissionObject.h"
 #import "MOObjectConverter.h"
+#import "MOSubmissionsPersistenceManager.h"
 
 @interface MODeleteViewController : UIViewController
 
-@property (strong, nonatomic) NSDictionary *submissionObject;
+@property (strong, nonatomic) NSDictionary *submissionObjectDict;
+@property (strong, nonatomic) NSString *sectionHeaderRecieved;
 
 
 @property (strong, nonatomic) IBOutlet UILabel *submissionTypeLabel;

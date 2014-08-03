@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSMutableArray *mySubmittedAsPropertyList;
 @property (strong, nonatomic) NSDictionary *selectedObject;
 @property (strong, nonatomic) MOObjectConverter *converter;
+@property (strong, nonatomic) NSString *sectionHeader;
 
 
 @end
@@ -42,6 +43,16 @@
     return _selectedObject;
 }
 
+-(NSString *)sectionHeader{
+    
+    if (!_sectionHeader) {
+        _sectionHeader = [[NSString alloc] init];
+    }
+    
+    return _sectionHeader;
+    
+}
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -66,7 +77,17 @@
     //Gets the data stored in NSUserDefaults for submitted
     self.mySubmittedAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_SUBMITTED_OBJECTS_KEY] mutableCopy];
     
+    
+    
     NSLog(@"mySubmittedAsPropertyList %@", self.mySubmittedAsPropertyList);
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:YES];
+    [self viewDidLoad];
+    [self.tableView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -132,10 +153,11 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog(@"The indexpath row %d", indexPath.row);
-    
     self.selectedObject = [self.mySubmissionsAsPropertyList objectAtIndex:indexPath.row];
-    NSLog(@"%@", [self.mySubmissionsAsPropertyList objectAtIndex:indexPath.row]);
+    
+    UITableViewHeaderFooterView *headerTitle = [self.tableView headerViewForSection:indexPath.section];
+    self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
+
     
     [self performSegueWithIdentifier:@"pushToDeleteViewController" sender:indexPath];
     
@@ -209,9 +231,11 @@
     
     MODeleteViewController *deleteVC = segue.destinationViewController;
     
-    NSLog(@"self.selectedObject %@", self.selectedObject[SUBMISSION_TYPE]);
+    deleteVC.submissionObjectDict = self.selectedObject;
+    NSLog(@"The sections header is %@", self.sectionHeader);
     
-    deleteVC.submissionObject = self.selectedObject;
+    deleteVC.sectionHeaderRecieved = self.sectionHeader;
+    
 }
 
 

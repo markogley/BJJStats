@@ -22,7 +22,7 @@
 
 -(id)initWithData:(NSDictionary *)data;
 -(void)incrementCounter;
--(void)addDate;
+-(void)decrementCounter;
 
 
 

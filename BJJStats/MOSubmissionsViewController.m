@@ -180,7 +180,8 @@
     MOSubmissionObject *newSubmissionObject = [self returnNewSubmissionObject];
     
     [self.delegate addSubmission:newSubmissionObject];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
 

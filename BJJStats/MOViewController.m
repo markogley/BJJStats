@@ -87,6 +87,7 @@
 #pragma mark MOSubmittedViewControllerDelegate
 
 -(void)addSubmitted:(MOSubmissionObject *)newSubmittedObject{
+    
     MOSubmissionsPersistenceManager *manger = [[MOSubmissionsPersistenceManager alloc] init];
     [manger addSubmittedObject:newSubmittedObject];
     

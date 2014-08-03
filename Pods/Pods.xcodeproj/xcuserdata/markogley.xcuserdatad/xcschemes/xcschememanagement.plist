@@ -4,6 +4,21 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-BlurryModalSegue.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MZAppearance.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-UIImage+BlurredFrame.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-XYPieChart.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3E23EA2EDDDE49408F9204B5</key>
+		<key>2A158765F72D487DBAADB419</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A8F7FCB614AD4505B550C8B6</key>
+		<key>312026F7F38A42E59A5981DA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>62A66674818245A0AF87491E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>635392E542A640D7A85CF64E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>662FB0F689004F33A18CD18C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
