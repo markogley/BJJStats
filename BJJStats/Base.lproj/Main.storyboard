@@ -38,7 +38,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="8Qo-eX-feR" kind="custom" identifier="pushToDeleteViewController" customClass="BlurryModalSegue" trigger="accessoryAction" id="eys-mI-P2H"/>
+                                    <segue destination="8Qo-eX-feR" kind="modal" identifier="pushToDeleteViewController" customClass="BlurryModalSegue" trigger="accessoryAction" id="eys-mI-P2H"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -125,10 +125,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jh-o5-kVo">
-                                        <rect key="frame" x="240" y="225" width="60" height="30"/>
+                                        <rect key="frame" x="209" y="228" width="70" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
-                                        <state key="normal" title="Cancel">
+                                        <state key="normal" title="Finished">
                                             <color key="titleColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -191,51 +191,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4La-gd-K0t">
-                                <rect key="frame" x="20" y="222" width="120" height="37"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
-                                <state key="normal" title="Submission">
-                                    <color key="titleColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="7UW-10-7tF" kind="push" id="mm4-y5-4ye"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQf-mO-nho">
-                                <rect key="frame" x="180" y="222" width="120" height="37"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
-                                <state key="normal" title="Submitted">
-                                    <color key="titleColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="NV4-TG-6cj" kind="push" id="6ry-5e-FK4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLf-qY-rmu">
-                                <rect key="frame" x="100" y="324" width="120" height="37"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
-                                <state key="normal" title="Statistics">
-                                    <color key="titleColor" red="0.2523953914642334" green="0.6568865180015564" blue="0.95531159639358521" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Z7Y-SN-28Z" kind="push" id="xNh-QE-bPA"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AlC-uU-p2i">
+                                <rect key="frame" x="10" y="71" width="300" height="213"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="kg7-7m-KtN">
+                                        <rect key="frame" x="10" y="20" width="280" height="131"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" red="0.25239539150000001" green="0.65688651799999997" blue="0.95531159639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oE2-JD-oeL">
+                                        <rect key="frame" x="150" y="172" width="140" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                        <color key="textColor" red="0.25239539150000001" green="0.65688651799999997" blue="0.95531159639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="1iC-aa-8PP"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pm-OH-cqe">
+                                <rect key="frame" x="10" y="305" width="300" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLf-qY-rmu">
+                                        <rect key="frame" x="90" y="65" width="120" height="37"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
+                                        <state key="normal" title="Statistics">
+                                            <color key="titleColor" red="0.2523953914642334" green="0.6568865180015564" blue="0.95531159639358521" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Z7Y-SN-28Z" kind="push" id="xNh-QE-bPA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4La-gd-K0t">
+                                        <rect key="frame" x="0.0" y="20" width="120" height="37"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
+                                        <state key="normal" title="Submission">
+                                            <color key="titleColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="7UW-10-7tF" kind="push" id="mm4-y5-4ye"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQf-mO-nho">
+                                        <rect key="frame" x="180" y="20" width="120" height="37"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
+                                        <state key="normal" title="Submitted">
+                                            <color key="titleColor" red="0.73139125108718872" green="0.56676185131072998" blue="0.84179538488388062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="NV4-TG-6cj" kind="push" id="6ry-5e-FK4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4La-gd-K0t" firstAttribute="baseline" secondItem="OQf-mO-nho" secondAttribute="baseline" id="7eL-tm-J2b"/>
-                            <constraint firstItem="4La-gd-K0t" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="FMJ-nR-sKj"/>
-                            <constraint firstAttribute="trailing" secondItem="SLf-qY-rmu" secondAttribute="trailing" constant="100" id="Ksj-jd-zSk"/>
-                            <constraint firstItem="SLf-qY-rmu" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="100" id="X37-jo-8NA"/>
-                            <constraint firstItem="SLf-qY-rmu" firstAttribute="top" secondItem="OQf-mO-nho" secondAttribute="bottom" constant="65" id="aip-Q3-TPw"/>
-                            <constraint firstItem="SLf-qY-rmu" firstAttribute="leading" secondItem="4La-gd-K0t" secondAttribute="trailing" constant="-40" id="fr5-BR-aFS"/>
-                            <constraint firstAttribute="trailing" secondItem="OQf-mO-nho" secondAttribute="trailing" constant="20" id="yJH-KN-UsJ"/>
-                            <constraint firstItem="4La-gd-K0t" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="zNk-tt-1Ss"/>
-                            <constraint firstItem="OQf-mO-nho" firstAttribute="leading" secondItem="4La-gd-K0t" secondAttribute="trailing" constant="40" id="zky-8i-Ftb"/>
+                            <constraint firstItem="5pm-OH-cqe" firstAttribute="top" secondItem="AlC-uU-p2i" secondAttribute="bottom" constant="21" id="8Hy-LV-qBJ"/>
+                            <constraint firstItem="AlC-uU-p2i" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="10" id="Cbn-8Q-pEq"/>
+                            <constraint firstAttribute="centerX" secondItem="5pm-OH-cqe" secondAttribute="centerX" id="Evh-na-M5x"/>
+                            <constraint firstAttribute="centerX" secondItem="AlC-uU-p2i" secondAttribute="centerX" id="KLt-A2-iqU"/>
+                            <constraint firstItem="5pm-OH-cqe" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="305" id="UaK-RC-Yx8"/>
+                            <constraint firstItem="5pm-OH-cqe" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="10" id="bmb-Vc-a7D"/>
+                            <constraint firstItem="5pm-OH-cqe" firstAttribute="top" secondItem="AlC-uU-p2i" secondAttribute="bottom" constant="21" id="dT6-nt-870"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="5pm-OH-cqe" secondAttribute="bottom" constant="53" id="eQs-bF-yIR"/>
+                            <constraint firstItem="AlC-uU-p2i" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="7" id="vR3-3C-Y6k"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="BJJ Stats" id="xkx-6I-OdU">
@@ -246,6 +277,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="authorLabel" destination="oE2-JD-oeL" id="6d8-6u-WCh"/>
+                        <outlet property="buttonView" destination="5pm-OH-cqe" id="yaM-an-GPM"/>
+                        <outlet property="quotesLabel" destination="kg7-7m-KtN" id="zj9-fL-54H"/>
+                        <outlet property="quotesView" destination="AlC-uU-p2i" id="UnK-1B-4gL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

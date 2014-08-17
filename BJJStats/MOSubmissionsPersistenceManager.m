@@ -153,21 +153,21 @@
             //replaces the new dictionary over the old one in the same index spot
             [objectsAsPropertyList replaceObjectAtIndex:index withObject:updatedEntryComplete];
             
-        }else{
+        }//else{
             //increments the counter
-            [entryToUpdate incrementCounter];
+            //[entryToUpdate incrementCounter];
             
             //creates a new array to dump the old dates array in to.
-            NSMutableArray *newDatesArray = [entryToUpdate.datesArray mutableCopy];
+            //NSMutableArray *newDatesArray = [entryToUpdate.datesArray mutableCopy];
             //copies the date from the new submission submitted to the compare method
-            [newDatesArray addObject:newSub[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_DATE][0]];
+            //[newDatesArray addObject:newSub[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_DATE][0]];
             //sets the newDates array to the old one on the submissionObject that needed to be updated using mutabkle copy
-            entryToUpdate.datesArray = [newDatesArray mutableCopy];
+            //entryToUpdate.datesArray = [newDatesArray mutableCopy];
             //converts the updated submissionObject back to a dictionary
-            NSDictionary *updatedEntryComplete = [converter submissionObjectAsPropertyList:entryToUpdate];
+            //NSDictionary *updatedEntryComplete = [converter submissionObjectAsPropertyList:entryToUpdate];
             //replaces the new dictionary over the old one in the same index spot
-            [objectsAsPropertyList replaceObjectAtIndex:index withObject:updatedEntryComplete];
-        }
+            //[objectsAsPropertyList replaceObjectAtIndex:index withObject:updatedEntryComplete];
+        //}
     }
     
     return objectsAsPropertyList;

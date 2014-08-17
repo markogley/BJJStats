@@ -136,7 +136,7 @@
         
         cell.textLabel.text = selectedSubmissionObject[SUBMISSION_TYPE];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@", selectedSubmissionObject[SUBMISSION_POSITION], selectedSubmissionObject[SUBMISSION_TOP_OR_BOTTOM]];
-    }else{
+    }else if(indexPath.section == 1){
         NSDictionary *selectedSubmittedObject = [self.mySubmittedAsPropertyList objectAtIndex:indexPath.row];
         
         cell.textLabel.text = selectedSubmittedObject[SUBMISSION_TYPE];
@@ -153,6 +153,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if (indexPath.section == 0) {
+        
     self.selectedObject = [self.mySubmissionsAsPropertyList objectAtIndex:indexPath.row];
     
     UITableViewHeaderFooterView *headerTitle = [self.tableView headerViewForSection:indexPath.section];
@@ -160,6 +162,18 @@
 
     
     [self performSegueWithIdentifier:@"pushToDeleteViewController" sender:indexPath];
+        
+    }else if (indexPath.section == 1){
+        
+        self.selectedObject = [self.mySubmittedAsPropertyList objectAtIndex:indexPath.row];
+        
+        UITableViewHeaderFooterView *headerTitle = [self.tableView headerViewForSection:indexPath.section];
+        self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
+        
+        
+        [self performSegueWithIdentifier:@"pushToDeleteViewController" sender:indexPath];
+        
+    }
     
 }
 
@@ -173,7 +187,7 @@
             break;
         case 1:
             sectionName = @"Submitted";
-            
+            break;
         default:
             break;
     }
