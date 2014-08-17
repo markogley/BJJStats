@@ -1,5 +1,0 @@
-platform :ios, '7.1'
-
-
-pod 'XYPieChart', '~> 0.2'
-pod 'BlurryModalSegue'
