@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSMutableDictionary *counterAndDate;
 
 @property (strong, nonatomic) NSMutableArray *datesArray;
+//look at converting this to NSInteger
 @property int counter;
 
 

@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) NSDictionary *submissionObjectDict;
 @property (strong, nonatomic) NSString *sectionHeaderRecieved;
+@property (strong, nonatomic) NSIndexPath *indexOfSubmissionObject;
 
 
 @property (strong, nonatomic) IBOutlet UILabel *submissionTypeLabel;

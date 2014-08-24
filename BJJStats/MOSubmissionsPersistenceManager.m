@@ -69,6 +69,7 @@
         if ([[entry valueForKey:SUBMISSION_POSITION] isEqualToString:[newSub valueForKey:SUBMISSION_POSITION]] && [[entry valueForKey:SUBMISSION_TYPE] isEqualToString: [newSub valueForKey:SUBMISSION_TYPE]] && [[entry valueForKey:SUBMISSION_TOP_OR_BOTTOM] isEqualToString:[newSub valueForKey:SUBMISSION_TOP_OR_BOTTOM]] ) {
             alreadyInArray = YES;
             NSLog(@"This submission is already in the array");
+            break;
         }else{
             
             index++;
@@ -77,7 +78,7 @@
     }
     
     if (alreadyInArray == NO) {
-        [objectsAsPropertyList addObject:[converter submissionObjectAsPropertyList:newObject]];
+        [objectsAsPropertyList insertObject: [converter submissionObjectAsPropertyList:newObject] atIndex:index];
         NSLog(@"Submission added to the array");
     }
     //if the object is already in the array its counter is incremented by 1 and the date is added. The dates can be checked later to see how many times they appear and can be subtracted from the total counter to get a picture of when and how many times on that date the submission happened. This is a work around till I figure out a better data model or a better method to compare.
@@ -102,7 +103,7 @@
 }
 
 //used to compare an edited object from the deleted view controller series to its original form
--(NSMutableArray *)compareEditedSubmissionObjectToSavedData:(NSMutableArray *)objectsAsPropertyList newSubmissionObject:(MOSubmissionObject *)newObject{
+-(void)compareEditedSubmissionObjectToSavedData:(NSMutableArray *)objectsAsPropertyList newSubmissionObject:(MOSubmissionObject *)newObject sectionHeader:(NSString *)sectionHeader{
     
     //creates new converter from MOObjectConverter class
     MOObjectConverter *converter = [[MOObjectConverter alloc] init];
@@ -118,6 +119,7 @@
         if ([[entry valueForKey:SUBMISSION_POSITION] isEqualToString:[newSub valueForKey:SUBMISSION_POSITION]] && [[entry valueForKey:SUBMISSION_TYPE] isEqualToString: [newSub valueForKey:SUBMISSION_TYPE]] && [[entry valueForKey:SUBMISSION_TOP_OR_BOTTOM] isEqualToString:[newSub valueForKey:SUBMISSION_TOP_OR_BOTTOM]] ) {
             alreadyInArray = YES;
             NSLog(@"Persistance Manager: This submission is already in the array");
+            break;
         }else{
             
             index++;
@@ -125,10 +127,10 @@
         }
     }
     
-    if (alreadyInArray == NO) {
-        [objectsAsPropertyList addObject:[converter submissionObjectAsPropertyList:newObject]];
-        NSLog(@"Persistance Manager: Submission added to the array");
-    }
+    //if (alreadyInArray == NO) {
+        //[objectsAsPropertyList addObject:[converter submissionObjectAsPropertyList:newObject]];
+        //NSLog(@"Persistance Manager: Submission added to the array");
+    //}
     //if the object is already in the array its counter is incremented by 1 and the date is added. The dates can be checked later to see how many times they appear and can be subtracted from the total counter to get a picture of when and how many times on that date the submission happened. This is a work around till I figure out a better data model or a better method to compare.
     if (alreadyInArray == YES) {
         MOSubmissionObject *entryToUpdate = [converter submissionObjectForDictionary:objectsAsPropertyList[index]];
@@ -144,34 +146,27 @@
                 
                 [objectsAsPropertyList removeObjectAtIndex:index];
                 NSLog(@"Persistance Manager: The counter is 0 and the object as propertylist is %@", objectsAsPropertyList);
-                return objectsAsPropertyList;
+                //return objectsAsPropertyList;
             }
             //sets the newDates array to the old one on the submissionObject that needed to be updated using mutabkle copy
-            entryToUpdate.datesArray = [newDatesArray mutableCopy];
+            entryToUpdate.datesArray = [newDatesArray copy];
             //converts the updated submissionObject back to a dictionary
             NSDictionary *updatedEntryComplete = [converter submissionObjectAsPropertyList:entryToUpdate];
             //replaces the new dictionary over the old one in the same index spot
             [objectsAsPropertyList replaceObjectAtIndex:index withObject:updatedEntryComplete];
             
-        }//else{
-            //increments the counter
-            //[entryToUpdate incrementCounter];
-            
-            //creates a new array to dump the old dates array in to.
-            //NSMutableArray *newDatesArray = [entryToUpdate.datesArray mutableCopy];
-            //copies the date from the new submission submitted to the compare method
-            //[newDatesArray addObject:newSub[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_DATE][0]];
-            //sets the newDates array to the old one on the submissionObject that needed to be updated using mutabkle copy
-            //entryToUpdate.datesArray = [newDatesArray mutableCopy];
-            //converts the updated submissionObject back to a dictionary
-            //NSDictionary *updatedEntryComplete = [converter submissionObjectAsPropertyList:entryToUpdate];
-            //replaces the new dictionary over the old one in the same index spot
-            //[objectsAsPropertyList replaceObjectAtIndex:index withObject:updatedEntryComplete];
-        //}
+        }
     }
     
-    return objectsAsPropertyList;
-    
+    if ([sectionHeader isEqualToString:@"SUBMISSIONS"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:objectsAsPropertyList forKey:ADDED_SUBMISSION_OBJECTS_KEY];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        
+    }else if ([sectionHeader isEqualToString:@"Submitted"]){
+        [[NSUserDefaults standardUserDefaults] setObject:objectsAsPropertyList forKey:ADDED_SUBMITTED_OBJECTS_KEY];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
 }
 

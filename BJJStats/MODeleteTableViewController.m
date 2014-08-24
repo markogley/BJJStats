@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSDictionary *selectedObject;
 @property (strong, nonatomic) MOObjectConverter *converter;
 @property (strong, nonatomic) NSString *sectionHeader;
+@property (strong, nonatomic) NSIndexPath *indexPathStored;
 
 
 @end
@@ -153,12 +154,15 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    self.indexPathStored = indexPath;
+    
     if (indexPath.section == 0) {
         
     self.selectedObject = [self.mySubmissionsAsPropertyList objectAtIndex:indexPath.row];
     
     UITableViewHeaderFooterView *headerTitle = [self.tableView headerViewForSection:indexPath.section];
     self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
+        
 
     
     [self performSegueWithIdentifier:@"pushToDeleteViewController" sender:indexPath];
@@ -249,6 +253,8 @@
     NSLog(@"The sections header is %@", self.sectionHeader);
     
     deleteVC.sectionHeaderRecieved = self.sectionHeader;
+    
+    deleteVC.indexOfSubmissionObject = self.indexPathStored;
     
 }
 
