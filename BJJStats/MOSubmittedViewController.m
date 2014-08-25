@@ -181,11 +181,6 @@
 }
 
 
-- (IBAction)cancelButtonPressed:(UIButton *)sender {
-    
-    NSLog(@"Submitted Cancel Button  Pressed");
-    [self.delegate  didCancelSubmitted];
-}
 
 -(MOSubmissionObject *)returnNewSubmissionObject{
     

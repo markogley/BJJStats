@@ -52,6 +52,48 @@
     
 }
 
+//-(void)addDrawObject:(MOSubmissionObject *)submissionObject{
+    
+    //open preveous submissions saved in NSUserDefaults
+    //NSMutableArray *drawObjectsAsPropertyLists = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_DRAW_OBJECTS_KEY] mutableCopy];
+    
+    //if submissionsObjectAsPropertyList does not exist allocate and initialize it
+    //if (!drawObjectsAsPropertyLists) {
+        //drawObjectsAsPropertyLists = [[NSMutableArray alloc] init];
+    //}
+    
+    //NSLog(@"PersitanceManager: drawObjectsAsPropertyList %@", drawObjectsAsPropertyLists);
+    //comapres the new object to the already saved data and either increments or adds the newObject to the array to be saved to NSUserDefaults.
+    //drawObjectsAsPropertyLists =  [self compareNewSubmissionObjectToSavedData:drawObjectsAsPropertyLists newSubmissionObject:submissionObject];
+    
+    //NSLog(@"submitted Objects %@", drawObjectsAsPropertyLists);
+    
+    //[[NSUserDefaults standardUserDefaults] setObject:drawObjectsAsPropertyLists forKey:ADDED_DRAW_OBJECTS_KEY];
+    //[[NSUserDefaults standardUserDefaults] synchronize];
+
+    
+    
+//}
+
+-(void)addMatchObject:(MOMatchObject *)matchObject{
+    
+    NSMutableArray *matchObjectsAsPropertyLists = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_MATCH_OBJECTS_KEY] mutableCopy];
+    
+    if (!matchObjectsAsPropertyLists) {
+        matchObjectsAsPropertyLists = [[NSMutableArray alloc] init];
+    }
+    
+    matchObjectsAsPropertyLists = [self compareNewMatchObjectToSavedMatchData:matchObjectsAsPropertyLists newMatchObject:matchObject];
+    
+    NSLog(@"submitted Objects %@", matchObjectsAsPropertyLists);
+    
+    [[NSUserDefaults standardUserDefaults] setObject:matchObjectsAsPropertyLists forKey:ADDED_MATCH_OBJECTS_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
+
+
+
 -(NSMutableArray *)compareNewSubmissionObjectToSavedData:(NSMutableArray *)objectsAsPropertyList newSubmissionObject:(MOSubmissionObject *)newObject{
     
     
@@ -135,7 +177,7 @@
     if (alreadyInArray == YES) {
         MOSubmissionObject *entryToUpdate = [converter submissionObjectForDictionary:objectsAsPropertyList[index]];
         
-        if (entryToUpdate.counter > newObject.counter) {
+        if (entryToUpdate.counter > newObject.counter | newObject.counter == 0) {
             NSLog(@"Persistance Manager: entryToUpdate Counter is larger than newObject");
             NSMutableArray *newDatesArray = [newObject.datesArray mutableCopy];
             //sets entry counter to equal new counter
@@ -147,26 +189,86 @@
                 [objectsAsPropertyList removeObjectAtIndex:index];
                 NSLog(@"Persistance Manager: The counter is 0 and the object as propertylist is %@", objectsAsPropertyList);
                 //return objectsAsPropertyList;
-            }
+            }else{
             //sets the newDates array to the old one on the submissionObject that needed to be updated using mutabkle copy
             entryToUpdate.datesArray = [newDatesArray copy];
             //converts the updated submissionObject back to a dictionary
             NSDictionary *updatedEntryComplete = [converter submissionObjectAsPropertyList:entryToUpdate];
             //replaces the new dictionary over the old one in the same index spot
             [objectsAsPropertyList replaceObjectAtIndex:index withObject:updatedEntryComplete];
+         
+            }
+        }
+        
+        if ([sectionHeader isEqualToString:@"SUBMISSIONS"]) {
+            [[NSUserDefaults standardUserDefaults] setObject:objectsAsPropertyList forKey:ADDED_SUBMISSION_OBJECTS_KEY];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
             
         }
+        
+        if ([sectionHeader isEqualToString:@"SUBMITTED"]){
+            [[NSUserDefaults standardUserDefaults] setObject:objectsAsPropertyList forKey:ADDED_SUBMITTED_OBJECTS_KEY];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+        //}else if ([sectionHeader isEqualToString:@"DRAW"]){
+            //[[NSUserDefaults standardUserDefaults] setObject:objectsAsPropertyList forKey:ADDED_DRAW_OBJECTS_KEY];
+            //[[NSUserDefaults standardUserDefaults] synchronize];
+            
+        }
+
+        
     }
     
-    if ([sectionHeader isEqualToString:@"SUBMISSIONS"]) {
-        [[NSUserDefaults standardUserDefaults] setObject:objectsAsPropertyList forKey:ADDED_SUBMISSION_OBJECTS_KEY];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        
-    }else if ([sectionHeader isEqualToString:@"Submitted"]){
-        [[NSUserDefaults standardUserDefaults] setObject:objectsAsPropertyList forKey:ADDED_SUBMITTED_OBJECTS_KEY];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
+
+-(NSMutableArray *)compareNewMatchObjectToSavedMatchData:(NSMutableArray *)objectAsPropertyList newMatchObject:(MOMatchObject *)newObject{
+    
+    MOObjectConverter *converter = [[MOObjectConverter alloc] init];
+    NSDictionary *newMatch = [converter matchObjectAsPropertyList:newObject];
+    NSLog(@"The new submissionObject match as dict is %@", newMatch);
+    
+    
+    BOOL alreadyInArray = NO;
+    int index = 0;
+    //compares the oldSubmission object already saved to the new one submitted to the method by three criteria: submission position/ToporBottom/Type
+    for (NSDictionary *entry in objectAsPropertyList) {
+        //need to compare submissionType, submissionPosition and submissionTopOrBottom but not counter
+        if ([[entry valueForKey:MATCH_DATE] isEqualToString:[newMatch valueForKey:MATCH_DATE]] ) {
+            alreadyInArray = YES;
+            NSLog(@"This matchDate is already in the array");
+            break;
+        }else{
+            
+            index++;
+            NSLog(@"index is %d", index);
+        }
     }
+
+    if (alreadyInArray == NO) {
+        [objectAsPropertyList insertObject: [converter matchObjectAsPropertyList:newObject] atIndex:index];
+        NSLog(@"Submission added to the array");
+    }
+    //if the object is already in the array its counter is incremented by 1 and the date is added. The dates can be checked later to see how many times they appear and can be subtracted from the total counter to get a picture of when and how many times on that date the submission happened. This is a work around till I figure out a better data model or a better method to compare.
+    if (alreadyInArray == YES) {
+        MOMatchObject *entryToUpdate = [converter matchObjectForDictionary:objectAsPropertyList[index]];
+        
+        [objectAsPropertyList replaceObjectAtIndex:index withObject:entryToUpdate];
+        
+    }
+    
+    return objectAsPropertyList;
+    
+    
+    
+    
+}
+
+-(void)compareEditedMatchObjectToSavedData:(NSMutableArray *)objectAsPropertyList newMatchObject:(MOMatchObject *)newObject{
+    
+    
+    
     
 }
 

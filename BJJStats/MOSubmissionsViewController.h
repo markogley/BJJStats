@@ -14,7 +14,7 @@
 
 @required
 -(void)addSubmission:(MOSubmissionObject *)newSubmissionObject;
--(void)didCancelSubmission;
+
 
 @end
 

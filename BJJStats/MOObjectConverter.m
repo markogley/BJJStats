@@ -32,4 +32,22 @@
     
 }
 
+-(NSDictionary *)matchObjectAsPropertyList:(MOMatchObject *)matchObject{
+    
+    NSDictionary *matchDictionary = @{MATCH_DATE : matchObject.matchDate, NUMBER_OF_MATCHES : @(matchObject.numberOfMatches)};
+    
+    return matchDictionary;
+    
+    
+}
+
+-(MOMatchObject *)matchObjectForDictionary:(NSDictionary *)dictionary{
+    
+    
+    MOMatchObject *matchObject = [[MOMatchObject alloc] initMatchObjectWithData:dictionary];
+    
+    return matchObject;
+}
+
+
 @end

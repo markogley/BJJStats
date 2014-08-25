@@ -15,8 +15,6 @@
 @property (strong, nonatomic) NSMutableArray *mySubmittedAsPropertyList;
 @property (strong, nonatomic) NSArray *sliceColors;
 @property (strong, nonatomic) NSMutableArray *percentageCalculated;
-//@property (strong, nonatomic) NSMutableArray *percentageCalaculatedSubmissions;
-//@property (strong, nonatomic) NSMutableArray *percentageCalculatedSubmitted;
 @property (strong, nonatomic) NSMutableArray *submissionsStatisticsArray;
 @property (strong, nonatomic) NSMutableArray *submittedStatisticsArray;
 

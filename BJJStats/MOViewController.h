@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "MOSubmissionsViewController.h"
 #import "MOSubmittedViewController.h"
+#import "MOMatchesViewController.h"
 #import "MOObjectConverter.h"
 #import "MOSubmissionsPersistenceManager.h"
 
-@interface MOViewController : UIViewController <MOSubmissionsViewControllerDelegate, MOSubmittedViewControllerDelegate>
+@interface MOViewController : UIViewController <MOSubmissionsViewControllerDelegate, MOSubmittedViewControllerDelegate, MOMatchesViewControllerDelegate>
 
 
 @end

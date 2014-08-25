@@ -167,16 +167,7 @@
 
 
 - (IBAction)addSubmissionButtonPressed:(UIButton *)sender {
-    /*NSInteger indexSubmissions = [self.informationPickerView selectedRowInComponent:0];
-    NSInteger indexPositions = [self.informationPickerView selectedRowInComponent:1];
-    NSInteger indexTopBottom = [self.informationPickerView selectedRowInComponent:2];
     
-    NSString *message = [NSString stringWithFormat:@"Your picked %@ from submission, %@ from positions and your were on the %@", [self.submissionsArray objectAtIndex:indexSubmissions], [self.positionsArray objectAtIndex:indexPositions], [self.topBottomArray objectAtIndex:indexTopBottom]];
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm" message:message delegate:nil cancelButtonTitle:@"Confirm" otherButtonTitles: nil];
-    
-    [alert show];
-    */
     MOSubmissionObject *newSubmissionObject = [self returnNewSubmissionObject];
     
     [self.delegate addSubmission:newSubmissionObject];
@@ -185,12 +176,7 @@
     
 }
 
-//dismisses back to the main screen on pushing the cancel button.
-- (IBAction)cancelButtonPressed:(UIButton *)sender {
-    
-    [self.delegate didCancelSubmission];
-    
-}
+
 
 -(MOSubmissionObject *)returnNewSubmissionObject{
     
@@ -253,11 +239,6 @@
     
 }
 
-//- (IBAction)unwindFromDateViewController:(UIStoryboardSegue *)segue
-//{
-    // UIViewController *detailViewController = [segue sourceViewController];
-    //NSLog(@"%@", segue.identifier);
-//}
 
 
 

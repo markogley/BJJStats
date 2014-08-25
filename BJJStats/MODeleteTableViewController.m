@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSMutableArray *mySubmissionsAsPropertyList;
 @property (strong, nonatomic) NSMutableArray *mySubmittedAsPropertyList;
+//@property (strong, nonatomic) NSMutableArray *myDrawAsPropertyList;
 @property (strong, nonatomic) NSDictionary *selectedObject;
 @property (strong, nonatomic) MOObjectConverter *converter;
 @property (strong, nonatomic) NSString *sectionHeader;
@@ -36,6 +37,15 @@
     
     return _mySubmittedAsPropertyList;
 }
+
+//-(NSMutableArray *)myDrawAsPropertyList{
+    
+    //if (!_myDrawAsPropertyList) {
+        //_myDrawAsPropertyList = [[NSMutableArray alloc] init];
+    //}
+    
+    //return _myDrawAsPropertyList;
+//}
 
 -(NSDictionary *)selectedObject{
     if (!_selectedObject) {
@@ -78,6 +88,8 @@
     //Gets the data stored in NSUserDefaults for submitted
     self.mySubmittedAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_SUBMITTED_OBJECTS_KEY] mutableCopy];
     
+    //self.myDrawAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_DRAW_OBJECTS_KEY] mutableCopy];
+    
     
     
     NSLog(@"mySubmittedAsPropertyList %@", self.mySubmittedAsPropertyList);
@@ -103,12 +115,12 @@
 {
 
     // Return the number of sections.
-    if ([self.mySubmittedAsPropertyList count] && ![self.mySubmissionsAsPropertyList count] | ![self.mySubmittedAsPropertyList count] && [self.mySubmissionsAsPropertyList count]) {
+    //if ([self.mySubmittedAsPropertyList count] && ![self.mySubmissionsAsPropertyList count] | ![self.mySubmittedAsPropertyList count] && [self.mySubmissionsAsPropertyList count]) {
         //return 1;
-    }else{
-        return 2;
-    }
-    return 0;
+    //}else{
+        //return 2;
+    //}
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -116,9 +128,12 @@
     // Return the number of rows in the section.
     if (section == 0) {
         return [self.mySubmissionsAsPropertyList count];
-    }else{
+    }else if(section == 1){
         return [self.mySubmittedAsPropertyList count];
-    }
+    }//else if(section == 2){
+        //return [self.myDrawAsPropertyList count];
+    //}
+    return 0;
 }
 
 
@@ -142,7 +157,14 @@
         
         cell.textLabel.text = selectedSubmittedObject[SUBMISSION_TYPE];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@", selectedSubmittedObject[SUBMISSION_POSITION], selectedSubmittedObject[SUBMISSION_TOP_OR_BOTTOM]];
-    }
+    }//else if (indexPath.section == 2){
+        
+        //NSDictionary *selectedDrawObject = [self.myDrawAsPropertyList objectAtIndex:indexPath.row];
+        
+        //cell.textLabel.text = selectedDrawObject[SUBMISSION_TYPE];
+        
+        
+    //}
     
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.textColor = [UIColor colorWithRed: 0.29 green: 0.47 blue: 0.75 alpha: 1.0];
@@ -179,6 +201,18 @@
         
     }
     
+    //else if (indexPath.section == 2){
+        
+        //self.selectedObject = [self.myDrawAsPropertyList objectAtIndex:indexPath.row];
+        
+        //UITableViewHeaderFooterView *headerTitle = [self.tableView headerViewForSection:indexPath.section];
+        //self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
+        
+        
+        //[self performSegueWithIdentifier:@"pushToDeleteViewController" sender:indexPath];
+        
+    //}
+    
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -192,6 +226,8 @@
         case 1:
             sectionName = @"Submitted";
             break;
+        case 2:
+            sectionName = @"Draw";
         default:
             break;
     }

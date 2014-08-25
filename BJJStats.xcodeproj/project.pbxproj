@@ -12,8 +12,12 @@
 		5B1FB21A19892D0100B81387 /* MODateAddedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1FB21919892D0100B81387 /* MODateAddedViewController.m */; };
 		5B202820197B937300105D36 /* MOSubmissionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B20281F197B937300105D36 /* MOSubmissionObject.m */; };
 		5B202823197BA2BC00105D36 /* MOStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B202822197BA2BC00105D36 /* MOStatisticsViewController.m */; };
+		5B4BE43019A9F371006536CE /* MOMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE42F19A9F371006536CE /* MOMoreViewController.m */; };
+		5B4BE43419A9FFED006536CE /* MOMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE43319A9FFED006536CE /* MOMatchesViewController.m */; };
 		5B617F0B198D04EB008837DD /* MODeleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B617F0A198D04EB008837DD /* MODeleteTableViewController.m */; };
 		5B617F0F198D15B7008837DD /* MODeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B617F0E198D15B7008837DD /* MODeleteViewController.m */; };
+		5B640E5E19AB6C45000EAD45 /* MOMatchObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B640E5D19AB6C45000EAD45 /* MOMatchObject.m */; };
+		5B640E6119AB6E3E000EAD45 /* MOMatchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B640E6019AB6E3E000EAD45 /* MOMatchData.m */; };
 		5BABB284197A5F77009B636E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB283197A5F77009B636E /* Foundation.framework */; };
 		5BABB286197A5F77009B636E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB285197A5F77009B636E /* CoreGraphics.framework */; };
 		5BABB288197A5F77009B636E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB287197A5F77009B636E /* UIKit.framework */; };
@@ -58,10 +62,18 @@
 		5B20281F197B937300105D36 /* MOSubmissionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSubmissionObject.m; sourceTree = "<group>"; };
 		5B202821197BA2BC00105D36 /* MOStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOStatisticsViewController.h; sourceTree = "<group>"; };
 		5B202822197BA2BC00105D36 /* MOStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOStatisticsViewController.m; sourceTree = "<group>"; };
+		5B4BE42E19A9F371006536CE /* MOMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMoreViewController.h; sourceTree = "<group>"; };
+		5B4BE42F19A9F371006536CE /* MOMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMoreViewController.m; sourceTree = "<group>"; };
+		5B4BE43219A9FFED006536CE /* MOMatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMatchesViewController.h; sourceTree = "<group>"; };
+		5B4BE43319A9FFED006536CE /* MOMatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMatchesViewController.m; sourceTree = "<group>"; };
 		5B617F09198D04EB008837DD /* MODeleteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MODeleteTableViewController.h; sourceTree = "<group>"; };
 		5B617F0A198D04EB008837DD /* MODeleteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MODeleteTableViewController.m; sourceTree = "<group>"; };
 		5B617F0D198D15B7008837DD /* MODeleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MODeleteViewController.h; sourceTree = "<group>"; };
 		5B617F0E198D15B7008837DD /* MODeleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MODeleteViewController.m; sourceTree = "<group>"; };
+		5B640E5C19AB6C45000EAD45 /* MOMatchObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMatchObject.h; sourceTree = "<group>"; };
+		5B640E5D19AB6C45000EAD45 /* MOMatchObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMatchObject.m; sourceTree = "<group>"; };
+		5B640E5F19AB6E3E000EAD45 /* MOMatchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMatchData.h; sourceTree = "<group>"; };
+		5B640E6019AB6E3E000EAD45 /* MOMatchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMatchData.m; sourceTree = "<group>"; };
 		5BABB280197A5F77009B636E /* BJJStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BJJStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BABB283197A5F77009B636E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5BABB285197A5F77009B636E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -122,6 +134,8 @@
 		5B1CAF161983F44F00383D97 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B4BE43119A9FFBA006536CE /* Match */,
+				5B4BE42D19A9F335006536CE /* More */,
 				5B617F0C198D04F5008837DD /*  Delete TableView */,
 				5BABB2C6197A9EDE009B636E /* Submissions */,
 				5BABB2C7197A9EED009B636E /* Submitted */,
@@ -139,6 +153,7 @@
 				5BEB4511197E5DA7008F6355 /* MOObjectConverter.m */,
 				5B1CAF181983F49300383D97 /* MOSubmissionsPersistenceManager.h */,
 				5B1CAF191983F49300383D97 /* MOSubmissionsPersistenceManager.m */,
+				5B640E5B19AB6C17000EAD45 /* Match Object */,
 				5BEB450F197E5D85008F6355 /* SubmissionObject */,
 			);
 			name = Model;
@@ -162,6 +177,24 @@
 			name = Statistics;
 			sourceTree = "<group>";
 		};
+		5B4BE42D19A9F335006536CE /* More */ = {
+			isa = PBXGroup;
+			children = (
+				5B4BE42E19A9F371006536CE /* MOMoreViewController.h */,
+				5B4BE42F19A9F371006536CE /* MOMoreViewController.m */,
+			);
+			name = More;
+			sourceTree = "<group>";
+		};
+		5B4BE43119A9FFBA006536CE /* Match */ = {
+			isa = PBXGroup;
+			children = (
+				5B4BE43219A9FFED006536CE /* MOMatchesViewController.h */,
+				5B4BE43319A9FFED006536CE /* MOMatchesViewController.m */,
+			);
+			name = Match;
+			sourceTree = "<group>";
+		};
 		5B617F0C198D04F5008837DD /*  Delete TableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +204,15 @@
 				5B617F0E198D15B7008837DD /* MODeleteViewController.m */,
 			);
 			name = " Delete TableView";
+			sourceTree = "<group>";
+		};
+		5B640E5B19AB6C17000EAD45 /* Match Object */ = {
+			isa = PBXGroup;
+			children = (
+				5B640E5C19AB6C45000EAD45 /* MOMatchObject.h */,
+				5B640E5D19AB6C45000EAD45 /* MOMatchObject.m */,
+			);
+			name = "Match Object";
 			sourceTree = "<group>";
 		};
 		5BABB277197A5F77009B636E = {
@@ -227,6 +269,8 @@
 				5BABB28C197A5F77009B636E /* InfoPlist.strings */,
 				5BABB28F197A5F77009B636E /* main.m */,
 				5BABB291197A5F77009B636E /* BJJStats-Prefix.pch */,
+				5B640E5F19AB6E3E000EAD45 /* MOMatchData.h */,
+				5B640E6019AB6E3E000EAD45 /* MOMatchData.m */,
 				5B067DC8197C00F1000C7B56 /* MOSubmissionData.h */,
 				5B067DC9197C00F1000C7B56 /* MOSubmissionData.m */,
 			);
@@ -412,12 +456,16 @@
 				5B1FB21A19892D0100B81387 /* MODateAddedViewController.m in Sources */,
 				5B617F0F198D15B7008837DD /* MODeleteViewController.m in Sources */,
 				5BABB29A197A5F77009B636E /* MOViewController.m in Sources */,
+				5B640E6119AB6E3E000EAD45 /* MOMatchData.m in Sources */,
 				5B202823197BA2BC00105D36 /* MOStatisticsViewController.m in Sources */,
 				5BABB2C1197A6CAA009B636E /* MOSubmissionsViewController.m in Sources */,
 				5BABB2C4197A6CBB009B636E /* MOSubmittedViewController.m in Sources */,
 				5BEB4512197E5DA7008F6355 /* MOObjectConverter.m in Sources */,
+				5B640E5E19AB6C45000EAD45 /* MOMatchObject.m in Sources */,
 				5B202820197B937300105D36 /* MOSubmissionObject.m in Sources */,
+				5B4BE43419A9FFED006536CE /* MOMatchesViewController.m in Sources */,
 				5BABB290197A5F77009B636E /* main.m in Sources */,
+				5B4BE43019A9F371006536CE /* MOMoreViewController.m in Sources */,
 				5B617F0B198D04EB008837DD /* MODeleteTableViewController.m in Sources */,
 				5BD5BB4A19A0CAE600E2F1F8 /* XYPieChart.m in Sources */,
 				5B067DCA197C00F1000C7B56 /* MOSubmissionData.m in Sources */,

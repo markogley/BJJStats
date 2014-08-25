@@ -115,10 +115,6 @@
 
 #pragma mark MOAddSubmissionsViewControllerDelegate
 
--(void)didCancelSubmission{
-    NSLog(@"didCancel");
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 -(void)addSubmission:(MOSubmissionObject *)newSubmissionObject{
     
@@ -127,7 +123,6 @@
     
     [manger addSubmissionObject:newSubmissionObject];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
@@ -136,17 +131,23 @@
 -(void)addSubmitted:(MOSubmissionObject *)newSubmittedObject{
     
     MOSubmissionsPersistenceManager *manger = [[MOSubmissionsPersistenceManager alloc] init];
+    
     [manger addSubmittedObject:newSubmittedObject];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
     
 }
 
--(void)didCancelSubmitted{
+#pragma mark MOMatchesObjectViewControllerDelegate
+
+-(void)addMatch:(MOMatchObject *)newMatchObject{
     
-    NSLog(@"Submitted Cancel Button Success");
-    [self dismissViewControllerAnimated:YES completion:nil];
+    MOSubmissionsPersistenceManager *manager = [[MOSubmissionsPersistenceManager alloc] init];
+    
+    [manager addMatchObject:newMatchObject];
+    
 }
+
 
 #pragma mark HelperMethods
 
