@@ -1,0 +1,356 @@
+{
+    "assets": [
+        {
+            "asset": "BJJStats/TopBottom.plist", 
+            "target": "TopBottom.plist"
+        }, 
+        {
+            "asset": "BJJStats/en.lproj/InfoPlist.strings", 
+            "target": "en.lproj/InfoPlist.strings"
+        }, 
+        {
+            "asset": "BJJStats/Submissions.plist", 
+            "target": "Submissions.plist"
+        }, 
+        {
+            "asset": "BJJStats/Positions.plist", 
+            "target": "Positions.plist"
+        }, 
+        {
+            "asset": "BJJStats/Images.xcassets", 
+            "target": null
+        }
+    ], 
+    "config": {
+        "APPLICATION_FULL_NAME": "BJJStats", 
+        "APPLICATION_IDENTIFIER": "com.mogley.BJJStats", 
+        "APPLICATION_NAME": "BJJStats", 
+        "LONG_VERSION": "1.0", 
+        "SHORT_VERSION": "1.0", 
+        "TEMPLATE_VALUES": {
+            "EXECUTABLE_NAME": "BJJStats", 
+            "PRODUCT_NAME": "BJJStats"
+        }
+    }, 
+    "defines": {
+        "NS_BLOCK_ASSERTIONS": 1, 
+        "__IPHONE_OS_VERSION_MIN_REQUIRED": 70100
+    }, 
+    "deps": [
+        "UIKit", 
+        "CoreGraphics", 
+        "UIKit", 
+        "Foundation"
+    ], 
+    "flags": [
+        "-fobjc-arc", 
+        "-fasm-blocks", 
+        {
+            "flag": "-std=gnu99", 
+            "not_type": "c++"
+        }, 
+        {
+            "flag": "-fgnu-keywords", 
+            "not_type": "c++"
+        }, 
+        "-fno-asm", 
+        "-fpascal-strings", 
+        "-Wempty-body", 
+        "-Wshorten-64-to-32", 
+        "-Wno-deprecated-declarations", 
+        "-Wswitch", 
+        "-Wparentheses", 
+        "-Wformat", 
+        "-Wunused-function", 
+        "-Wunused-value", 
+        "-Wunused-variable", 
+        {
+            "flag": "-Winvalid-offsetof", 
+            "type": "c++"
+        }, 
+        {
+            "flag": "-Wprotocol", 
+            "type": "objc"
+        }, 
+        {
+            "flag": "-Wundeclared-selector", 
+            "type": "objc"
+        }
+    ], 
+    "header_paths": [
+        {
+            "header_path": "BJJStats-generated-files.hmap", 
+            "hmap": {}, 
+            "type": "iquote"
+        }, 
+        {
+            "header_path": "BJJStats-own-target-headers.hmap", 
+            "hmap": {}, 
+            "type": "I"
+        }, 
+        {
+            "header_path": "BJJStats-all-target-headers.hmap", 
+            "hmap": {}, 
+            "type": "I"
+        }, 
+        {
+            "header_path": "BJJStats-project-headers.hmap", 
+            "hmap": {
+                "BJJStats-Prefix.pch": {
+                    "key": "BJJStats-Prefix.pch", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "BJJStats-Prefix.pch"
+                }, 
+                "MOAppDelegate.h": {
+                    "key": "MOAppDelegate.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MOAppDelegate.h"
+                }, 
+                "MODateAddedViewController.h": {
+                    "key": "MODateAddedViewController.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MODateAddedViewController.h"
+                }, 
+                "MODeleteTableViewController.h": {
+                    "key": "MODeleteTableViewController.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MODeleteTableViewController.h"
+                }, 
+                "MODeleteViewController.h": {
+                    "key": "MODeleteViewController.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MODeleteViewController.h"
+                }, 
+                "MOMatchData.h": {
+                    "key": "MOMatchData.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MOMatchData.h"
+                }, 
+                "MOMatchObject.h": {
+                    "key": "MOMatchObject.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MOMatchObject.h"
+                }, 
+                "MOMatchesViewController.h": {
+                    "key": "MOMatchesViewController.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MOMatchesViewController.h"
+                }, 
+                "MOMoreViewController.h": {
+                    "key": "MOMoreViewController.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MOMoreViewController.h"
+                }, 
+                "MOObjectConverter.h": {
+                    "key": "MOObjectConverter.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MOObjectConverter.h"
+                }, 
+                "MOStatisticsViewController.h": {
+                    "key": "MOStatisticsViewController.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MOStatisticsViewController.h"
+                }, 
+                "MOSubmissionData.h": {
+                    "key": "MOSubmissionData.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MOSubmissionData.h"
+                }, 
+                "MOSubmissionObject.h": {
+                    "key": "MOSubmissionObject.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MOSubmissionObject.h"
+                }, 
+                "MOSubmissionsPersistenceManager.h": {
+                    "key": "MOSubmissionsPersistenceManager.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MOSubmissionsPersistenceManager.h"
+                }, 
+                "MOSubmissionsViewController.h": {
+                    "key": "MOSubmissionsViewController.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MOSubmissionsViewController.h"
+                }, 
+                "MOSubmittedViewController.h": {
+                    "key": "MOSubmittedViewController.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MOSubmittedViewController.h"
+                }, 
+                "MOViewController.h": {
+                    "key": "MOViewController.h", 
+                    "prefix": "BJJStats/", 
+                    "suffix": "MOViewController.h"
+                }, 
+                "XYPieChart.h": {
+                    "key": "XYPieChart.h", 
+                    "prefix": "BJJStats/XYPieChart/", 
+                    "suffix": "XYPieChart.h"
+                }
+            }, 
+            "type": "iquote"
+        }, 
+        {
+            "header_path": "/var/folders/16/tz3h_8b90r5fvcny1d_57r4m0000gn/T/tmpMD_SE6/BUILT_PRODUCTS_DIR/include", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "/var/folders/16/tz3h_8b90r5fvcny1d_57r4m0000gn/T/tmpMD_SE6/DERIVED_FILE_DIR/armv7", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "/var/folders/16/tz3h_8b90r5fvcny1d_57r4m0000gn/T/tmpMD_SE6/DERIVED_FILE_DIR", 
+            "type": "I"
+        }
+    ], 
+    "infoplists": [
+        "./BJJStats/BJJStats-Info.plist"
+    ], 
+    "libs": [], 
+    "modules": [], 
+    "pchs": [
+        "./BJJStats/BJJStats-Prefix.pch"
+    ], 
+    "sources": [
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MOAppDelegate.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MODateAddedViewController.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MODeleteTableViewController.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MODeleteViewController.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MOMatchData.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MOMatchObject.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MOMatchesViewController.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MOMoreViewController.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MOObjectConverter.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MOStatisticsViewController.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MOSubmissionData.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MOSubmissionObject.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MOSubmissionsPersistenceManager.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MOSubmissionsViewController.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MOSubmittedViewController.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/MOViewController.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/XYPieChart/XYPieChart.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "BJJStats/main.m"
+        }
+    ], 
+    "storyboards": [
+        {
+            "storyboard": "BJJStats/Base.lproj/Main.storyboard", 
+            "target": null
+        }
+    ], 
+    "type": "app", 
+    "version": "3", 
+    "xcdatamodels": [], 
+    "xcode_project": "BJJStats.xcodeproj", 
+    "xibs": []
+}

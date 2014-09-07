@@ -49,7 +49,6 @@
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.75 green:0.56 blue:0.83 alpha:1.0];
     
     [self setupView];
-    [self addQuotesToHomePage];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,6 +56,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self addQuotesToHomePage];
+    
+}
+
 
 -(void)setupView{
     self.view.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0];
@@ -111,6 +117,11 @@
         addSubmittedVC.delegate = self;
     }
     
+    if ([segue.destinationViewController isKindOfClass:[MOMatchesViewController class]]) {
+        MOMatchesViewController *addMatchVC = segue.destinationViewController;
+        addMatchVC.delegate = self;
+    }
+    
 }
 
 #pragma mark MOAddSubmissionsViewControllerDelegate
@@ -144,6 +155,7 @@
     
     MOSubmissionsPersistenceManager *manager = [[MOSubmissionsPersistenceManager alloc] init];
     
+    NSLog(@"HomeViewController: Sending match object.");
     [manager addMatchObject:newMatchObject];
     
 }

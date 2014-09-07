@@ -90,6 +90,9 @@
     newMatchObject.matchDate = todayAsString;
     newMatchObject.numberOfMatches = self.counter;
     
+    NSLog(@"MatchViewController: New match object is %@", newMatchObject);
+    NSLog(@"MatchViewCOntroller: new match object count is %i and date is %@", newMatchObject.numberOfMatches, newMatchObject.matchDate);
+    
     
     return newMatchObject;
 }

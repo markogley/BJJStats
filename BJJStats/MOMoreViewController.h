@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MOUICollectionResuableViewHeader.h"    
 
-@interface MOMoreViewController : UIViewController
+@interface MOMoreViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *strongestSubmissionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *mostSubmittedByLabel;
+
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

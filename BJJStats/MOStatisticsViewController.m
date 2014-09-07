@@ -239,7 +239,7 @@
         //grabs the string literal from the dictionary version of the submission object
         NSDictionary *dictOb = [self.mySubmissionsAsPropertyList objectAtIndex:index];
         //converts this value to an int
-        int valueOfCounter = [[[dictOb valueForKey:SUBMISSION_COUNTER_AND_DATE ] valueForKey:@"Counter"] integerValue];
+        int valueOfCounter = [[[dictOb valueForKey:SUBMISSION_COUNTER_AND_DATE ] valueForKey:@"Counter"] intValue];
         
         //calculates the percentage using the valueOfCounter from the object with the total calculated above
         float percentage = (valueOfCounter / [total floatValue]) * 100;
@@ -266,7 +266,7 @@
         //grabs the string literal from the dictionary version of the submission object
         NSDictionary *dictOb = [self.mySubmittedAsPropertyList objectAtIndex:index];
         //converts this value to an int
-        int valueOfCounter = [[[dictOb valueForKey:SUBMISSION_COUNTER_AND_DATE] valueForKey:@"Counter"] integerValue];
+        int valueOfCounter = [[[dictOb valueForKey:SUBMISSION_COUNTER_AND_DATE] valueForKey:@"Counter"] intValue];
         
         //calculates the percentage using the valueOfCounter from the object with the total calculated above
         float percentage = (valueOfCounter / [total floatValue]) * 100;

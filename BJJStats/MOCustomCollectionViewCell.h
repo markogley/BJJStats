@@ -1,0 +1,14 @@
+//
+//  MOCustomCollectionViewCell.h
+//  BJJStats
+//
+//  Created by Mark Ogley on 2014-09-07.
+//  Copyright (c) 2014 Mark Ogley. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface MOCustomCollectionViewCell : UICollectionViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
+@end
