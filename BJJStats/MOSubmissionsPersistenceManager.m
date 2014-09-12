@@ -252,10 +252,20 @@
     }
     //if the object is already in the array its counter is incremented by 1 and the date is added. The dates can be checked later to see how many times they appear and can be subtracted from the total counter to get a picture of when and how many times on that date the submission happened. This is a work around till I figure out a better data model or a better method to compare.
     if (alreadyInArray == YES) {
-        MOMatchObject *entryToUpdate = [converter matchObjectForDictionary:objectAsPropertyList[index]];
         
-        [objectAsPropertyList replaceObjectAtIndex:index withObject:entryToUpdate];
+        NSLog(@"PersitanceManager: new entry is %@", newObject);
+        NSLog(@"PersitanceManager: old objectAsPropertyListEntry at index is %@", objectAsPropertyList[index]);
         
+        
+        
+         int newTotalMatches = [newMatch[NUMBER_OF_MATCHES]intValue] + [objectAsPropertyList[index][NUMBER_OF_MATCHES] intValue];
+        
+        NSNumber *newNumber = [NSNumber numberWithInt:newTotalMatches];
+        
+        objectAsPropertyList[index][NUMBER_OF_MATCHES] = newNumber;
+        
+        
+        NSLog(@"PersistanceManager: finished replacing match object, objectAsPropertyList is %@", objectAsPropertyList);
     }
     
     return objectAsPropertyList;

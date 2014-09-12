@@ -25,9 +25,6 @@
 
 
 
-
-- (IBAction)backButtonPressed:(UIButton *)sender;
-
 @end
 
 @implementation MOMoreViewController
@@ -82,6 +79,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
+        if (status == AFNetworkReachabilityStatusReachableViaWiFi || status == AFNetworkReachabilityStatusReachableViaWWAN){
+            
+            [self retrieveYouTubeVideoLinks];
+        }else if (status == AFNetworkReachabilityStatusNotReachable){
+            
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No Internet Connection" message:@"This application needs to be on the internet to be used to its fullest." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+            
+        }
+        
+     
+        }];
+    
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
     
@@ -96,7 +109,6 @@
     [self submittedTheMostBy];
     self.numberOfMatchesLabel.text = [self numberOfRolls];
     
-    [self retrieveYouTubeVideoLinks];
 }
 
 - (void)didReceiveMemoryWarning
@@ -270,6 +282,7 @@
         
                 dispatch_async(dispatch_get_main_queue(), ^{
                     cell.imageView.image = [[UIImage alloc] initWithData:imgData];
+                    cell.videoTitleLabel.text =[NSString stringWithFormat:@"%@", [self.youTubeJSONResponseAsArray[indexPath.row] valueForKeyPath:@"snippet.title"]];
                 });
             });
         }
@@ -328,8 +341,4 @@
 
 #pragma mark IBActions
 
-- (IBAction)backButtonPressed:(UIButton *)sender {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 @end
