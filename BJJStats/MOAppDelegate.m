@@ -9,11 +9,13 @@
 #import "MOAppDelegate.h"
 #import "AFNetworking.h"
 
+
 @implementation MOAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
     
     return YES;
 }
@@ -44,5 +46,23 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+//Added condition for MPVideoPlayer of YouTubeVideos
+//- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
+//    NSUInteger orientations = UIInterfaceOrientationMaskPortrait;
+//    if (self.fullScreenVideoIsPlaying == YES) {
+//        return UIInterfaceOrientationMaskAllButUpsideDown;
+//    }
+//    else if(self.fullScreenVideoIsPlaying == NO) {
+//        //if(self.window.rootViewController){
+//            //UIViewController *presentedViewController = [[(UINavigationController  *)self.window.rootViewController viewControllers] lastObject];
+//            //orientations = [presentedViewController supportedInterfaceOrientations];
+//        
+//        return UIInterfaceOrientationMaskPortrait;
+//            
+//        }
+//        return orientations;
+//    }
+////}
 
 @end

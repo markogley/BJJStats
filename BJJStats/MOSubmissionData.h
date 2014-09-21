@@ -15,6 +15,8 @@
 #define SUBMISSION_COUNTER @"Counter"
 #define SUBMISSION_DATE @"Date"
 
+#define TOP_TEN @"Top Ten"
+
 @interface MOSubmissionData : NSObject
 
 @end

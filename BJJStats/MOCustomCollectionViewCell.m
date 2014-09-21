@@ -36,6 +36,8 @@
 -(void)setup{
     
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectInset(self.bounds, IMAGEVIEW_BORDER_LENGTH, IMAGEVIEW_BORDER_LENGTH)];
+    self.youtubeVideoWebView = [[UIWebView alloc] init];
+    self.webviewActivityIndicator = [[UIActivityIndicatorView alloc] init];
     [self.contentView addSubview:self.imageView];
 }
 
