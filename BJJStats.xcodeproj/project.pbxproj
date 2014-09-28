@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		5B067DCA197C00F1000C7B56 /* MOSubmissionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B067DC9197C00F1000C7B56 /* MOSubmissionData.m */; };
 		5B1CAF1A1983F49300383D97 /* MOSubmissionsPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CAF191983F49300383D97 /* MOSubmissionsPersistenceManager.m */; };
+		5B1D761C19D16FAA002D3D58 /* MOMoreCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D761B19D16FAA002D3D58 /* MOMoreCollectionViewController.m */; };
 		5B1FB21A19892D0100B81387 /* MODateAddedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1FB21919892D0100B81387 /* MODateAddedViewController.m */; };
 		5B202820197B937300105D36 /* MOSubmissionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B20281F197B937300105D36 /* MOSubmissionObject.m */; };
 		5B202823197BA2BC00105D36 /* MOStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B202822197BA2BC00105D36 /* MOStatisticsViewController.m */; };
+		5B23BE3219D7C34100C862D6 /* CSStickyHeaderFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B23BE2F19D7C34100C862D6 /* CSStickyHeaderFlowLayout.m */; };
+		5B23BE3319D7C34100C862D6 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B23BE3119D7C34100C862D6 /* CSStickyHeaderFlowLayoutAttributes.m */; };
 		5B24DFCA19B3553A007223BA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B24DFA619B3553A007223BA /* AFHTTPRequestOperation.m */; };
 		5B24DFCB19B3553A007223BA /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B24DFA819B3553A007223BA /* AFHTTPRequestOperationManager.m */; };
 		5B24DFCC19B3553A007223BA /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B24DFAA19B3553A007223BA /* AFHTTPSessionManager.m */; };
@@ -30,12 +33,12 @@
 		5B24DFD919B3553A007223BA /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B24DFC719B3553A007223BA /* UIRefreshControl+AFNetworking.m */; };
 		5B24DFDA19B3553A007223BA /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B24DFC919B3553A007223BA /* UIWebView+AFNetworking.m */; };
 		5B3253F219CE8E6C007D4174 /* MOTopTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3253F119CE8E6C007D4174 /* MOTopTableTableViewController.m */; };
-		5B4BE43019A9F371006536CE /* MOMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE42F19A9F371006536CE /* MOMoreViewController.m */; };
 		5B4BE43419A9FFED006536CE /* MOMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE43319A9FFED006536CE /* MOMatchesViewController.m */; };
 		5B617F0B198D04EB008837DD /* MODeleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B617F0A198D04EB008837DD /* MODeleteTableViewController.m */; };
 		5B617F0F198D15B7008837DD /* MODeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B617F0E198D15B7008837DD /* MODeleteViewController.m */; };
 		5B640E5E19AB6C45000EAD45 /* MOMatchObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B640E5D19AB6C45000EAD45 /* MOMatchObject.m */; };
 		5B640E6119AB6E3E000EAD45 /* MOMatchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B640E6019AB6E3E000EAD45 /* MOMatchData.m */; };
+		5B868D7E19D8006300DB7644 /* CollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B868D7D19D8006300DB7644 /* CollectionViewHeader.xib */; };
 		5BABB284197A5F77009B636E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB283197A5F77009B636E /* Foundation.framework */; };
 		5BABB286197A5F77009B636E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB285197A5F77009B636E /* CoreGraphics.framework */; };
 		5BABB288197A5F77009B636E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB287197A5F77009B636E /* UIKit.framework */; };
@@ -56,7 +59,6 @@
 		5BABB2C4197A6CBB009B636E /* MOSubmittedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BABB2C3197A6CBB009B636E /* MOSubmittedViewController.m */; };
 		5BD5BB4A19A0CAE600E2F1F8 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5BB4919A0CAE600E2F1F8 /* XYPieChart.m */; };
 		5BEB4512197E5DA7008F6355 /* MOObjectConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB4511197E5DA7008F6355 /* MOObjectConverter.m */; };
-		5BF1E75919BCC1F400FD3AE7 /* MOUICollectionResuableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF1E75819BCC1F400FD3AE7 /* MOUICollectionResuableViewHeader.m */; };
 		5BF89FD619BC5FEB002C1084 /* MOCustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF89FD519BC5FEB002C1084 /* MOCustomCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -75,12 +77,18 @@
 		5B067DC9197C00F1000C7B56 /* MOSubmissionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSubmissionData.m; sourceTree = "<group>"; };
 		5B1CAF181983F49300383D97 /* MOSubmissionsPersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSubmissionsPersistenceManager.h; sourceTree = "<group>"; };
 		5B1CAF191983F49300383D97 /* MOSubmissionsPersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSubmissionsPersistenceManager.m; sourceTree = "<group>"; };
+		5B1D761A19D16FAA002D3D58 /* MOMoreCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMoreCollectionViewController.h; sourceTree = "<group>"; };
+		5B1D761B19D16FAA002D3D58 /* MOMoreCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMoreCollectionViewController.m; sourceTree = "<group>"; };
 		5B1FB21819892D0100B81387 /* MODateAddedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MODateAddedViewController.h; sourceTree = "<group>"; };
 		5B1FB21919892D0100B81387 /* MODateAddedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MODateAddedViewController.m; sourceTree = "<group>"; };
 		5B20281E197B937300105D36 /* MOSubmissionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSubmissionObject.h; sourceTree = "<group>"; };
 		5B20281F197B937300105D36 /* MOSubmissionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSubmissionObject.m; sourceTree = "<group>"; };
 		5B202821197BA2BC00105D36 /* MOStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOStatisticsViewController.h; sourceTree = "<group>"; };
 		5B202822197BA2BC00105D36 /* MOStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOStatisticsViewController.m; sourceTree = "<group>"; };
+		5B23BE2E19D7C34000C862D6 /* CSStickyHeaderFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSStickyHeaderFlowLayout.h; sourceTree = "<group>"; };
+		5B23BE2F19D7C34100C862D6 /* CSStickyHeaderFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSStickyHeaderFlowLayout.m; sourceTree = "<group>"; };
+		5B23BE3019D7C34100C862D6 /* CSStickyHeaderFlowLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSStickyHeaderFlowLayoutAttributes.h; sourceTree = "<group>"; };
+		5B23BE3119D7C34100C862D6 /* CSStickyHeaderFlowLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSStickyHeaderFlowLayoutAttributes.m; sourceTree = "<group>"; };
 		5B24DFA519B3553A007223BA /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		5B24DFA619B3553A007223BA /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		5B24DFA719B3553A007223BA /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -119,8 +127,6 @@
 		5B24DFC919B3553A007223BA /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		5B3253F019CE8E6C007D4174 /* MOTopTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOTopTableTableViewController.h; sourceTree = "<group>"; };
 		5B3253F119CE8E6C007D4174 /* MOTopTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOTopTableTableViewController.m; sourceTree = "<group>"; };
-		5B4BE42E19A9F371006536CE /* MOMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMoreViewController.h; sourceTree = "<group>"; };
-		5B4BE42F19A9F371006536CE /* MOMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMoreViewController.m; sourceTree = "<group>"; };
 		5B4BE43219A9FFED006536CE /* MOMatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMatchesViewController.h; sourceTree = "<group>"; };
 		5B4BE43319A9FFED006536CE /* MOMatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMatchesViewController.m; sourceTree = "<group>"; };
 		5B617F09198D04EB008837DD /* MODeleteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MODeleteTableViewController.h; sourceTree = "<group>"; };
@@ -131,6 +137,7 @@
 		5B640E5D19AB6C45000EAD45 /* MOMatchObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMatchObject.m; sourceTree = "<group>"; };
 		5B640E5F19AB6E3E000EAD45 /* MOMatchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMatchData.h; sourceTree = "<group>"; };
 		5B640E6019AB6E3E000EAD45 /* MOMatchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMatchData.m; sourceTree = "<group>"; };
+		5B868D7D19D8006300DB7644 /* CollectionViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewHeader.xib; sourceTree = "<group>"; };
 		5BABB280197A5F77009B636E /* BJJStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BJJStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BABB283197A5F77009B636E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5BABB285197A5F77009B636E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -160,8 +167,6 @@
 		5BD5BB4919A0CAE600E2F1F8 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
 		5BEB4510197E5DA7008F6355 /* MOObjectConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOObjectConverter.h; sourceTree = "<group>"; };
 		5BEB4511197E5DA7008F6355 /* MOObjectConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOObjectConverter.m; sourceTree = "<group>"; };
-		5BF1E75719BCC1F400FD3AE7 /* MOUICollectionResuableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOUICollectionResuableViewHeader.h; sourceTree = "<group>"; };
-		5BF1E75819BCC1F400FD3AE7 /* MOUICollectionResuableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOUICollectionResuableViewHeader.m; sourceTree = "<group>"; };
 		5BF89FD419BC5FEB002C1084 /* MOCustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOCustomCollectionViewCell.h; sourceTree = "<group>"; };
 		5BF89FD519BC5FEB002C1084 /* MOCustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOCustomCollectionViewCell.m; sourceTree = "<group>"; };
 		9B46A7E952104401AFA43A29 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +243,17 @@
 			name = Statistics;
 			sourceTree = "<group>";
 		};
+		5B23BE2D19D7C31600C862D6 /* CSSStickyHeader */ = {
+			isa = PBXGroup;
+			children = (
+				5B23BE2E19D7C34000C862D6 /* CSStickyHeaderFlowLayout.h */,
+				5B23BE2F19D7C34100C862D6 /* CSStickyHeaderFlowLayout.m */,
+				5B23BE3019D7C34100C862D6 /* CSStickyHeaderFlowLayoutAttributes.h */,
+				5B23BE3119D7C34100C862D6 /* CSStickyHeaderFlowLayoutAttributes.m */,
+			);
+			name = CSSStickyHeader;
+			sourceTree = "<group>";
+		};
 		5B24DFA419B3553A007223BA /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +316,7 @@
 		5B24DFDC19B35556007223BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B23BE2D19D7C31600C862D6 /* CSSStickyHeader */,
 				5B24DFDB19B35543007223BA /* AFNetworking */,
 				5BD5BB4719A0CAE600E2F1F8 /* XYPieChart */,
 			);
@@ -318,12 +335,11 @@
 		5B4BE42D19A9F335006536CE /* More */ = {
 			isa = PBXGroup;
 			children = (
-				5B4BE42E19A9F371006536CE /* MOMoreViewController.h */,
-				5B4BE42F19A9F371006536CE /* MOMoreViewController.m */,
 				5BF89FD419BC5FEB002C1084 /* MOCustomCollectionViewCell.h */,
 				5BF89FD519BC5FEB002C1084 /* MOCustomCollectionViewCell.m */,
-				5BF1E75719BCC1F400FD3AE7 /* MOUICollectionResuableViewHeader.h */,
-				5BF1E75819BCC1F400FD3AE7 /* MOUICollectionResuableViewHeader.m */,
+				5B1D761A19D16FAA002D3D58 /* MOMoreCollectionViewController.h */,
+				5B1D761B19D16FAA002D3D58 /* MOMoreCollectionViewController.m */,
+				5B868D7D19D8006300DB7644 /* CollectionViewHeader.xib */,
 			);
 			name = More;
 			sourceTree = "<group>";
@@ -569,6 +585,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BABB29C197A5F77009B636E /* Images.xcassets in Resources */,
+				5B868D7E19D8006300DB7644 /* CollectionViewHeader.xib in Resources */,
 				5BABB28E197A5F77009B636E /* InfoPlist.strings in Resources */,
 				5BABB2BA197A5FA5009B636E /* Submissions.plist in Resources */,
 				5BABB2BC197A5FC8009B636E /* Positions.plist in Resources */,
@@ -592,7 +609,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BABB294197A5F77009B636E /* MOAppDelegate.m in Sources */,
-				5BF1E75919BCC1F400FD3AE7 /* MOUICollectionResuableViewHeader.m in Sources */,
 				5B1CAF1A1983F49300383D97 /* MOSubmissionsPersistenceManager.m in Sources */,
 				5B24DFCE19B3553A007223BA /* AFSecurityPolicy.m in Sources */,
 				5B24DFCB19B3553A007223BA /* AFHTTPRequestOperationManager.m in Sources */,
@@ -606,6 +622,7 @@
 				5B24DFD719B3553A007223BA /* UIImageView+AFNetworking.m in Sources */,
 				5BABB2C1197A6CAA009B636E /* MOSubmissionsViewController.m in Sources */,
 				5B24DFD819B3553A007223BA /* UIProgressView+AFNetworking.m in Sources */,
+				5B23BE3319D7C34100C862D6 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,
 				5BABB2C4197A6CBB009B636E /* MOSubmittedViewController.m in Sources */,
 				5B24DFD319B3553A007223BA /* AFNetworkActivityIndicatorManager.m in Sources */,
 				5BEB4512197E5DA7008F6355 /* MOObjectConverter.m in Sources */,
@@ -616,6 +633,7 @@
 				5B24DFCF19B3553A007223BA /* AFURLConnectionOperation.m in Sources */,
 				5B24DFD019B3553A007223BA /* AFURLRequestSerialization.m in Sources */,
 				5B24DFD219B3553A007223BA /* AFURLSessionManager.m in Sources */,
+				5B23BE3219D7C34100C862D6 /* CSStickyHeaderFlowLayout.m in Sources */,
 				5B24DFD119B3553A007223BA /* AFURLResponseSerialization.m in Sources */,
 				5B24DFD919B3553A007223BA /* UIRefreshControl+AFNetworking.m in Sources */,
 				5B4BE43419A9FFED006536CE /* MOMatchesViewController.m in Sources */,
@@ -624,7 +642,7 @@
 				5BF89FD619BC5FEB002C1084 /* MOCustomCollectionViewCell.m in Sources */,
 				5B24DFD519B3553A007223BA /* UIAlertView+AFNetworking.m in Sources */,
 				5B3253F219CE8E6C007D4174 /* MOTopTableTableViewController.m in Sources */,
-				5B4BE43019A9F371006536CE /* MOMoreViewController.m in Sources */,
+				5B1D761C19D16FAA002D3D58 /* MOMoreCollectionViewController.m in Sources */,
 				5B617F0B198D04EB008837DD /* MODeleteTableViewController.m in Sources */,
 				5BD5BB4A19A0CAE600E2F1F8 /* XYPieChart.m in Sources */,
 				5B24DFCD19B3553A007223BA /* AFNetworkReachabilityManager.m in Sources */,

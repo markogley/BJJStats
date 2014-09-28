@@ -62,7 +62,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    self.tableViewTitle.title = self.position;
     
     
     self.tableView.delegate = self;
@@ -146,7 +146,7 @@
     }
     
     NSLog(@"DidselectRow: %@", self.cellLabel);
-    
+    //[self.navigationController performSegueWithIdentifier:@"collectionViewSegue" sender:self];
 }
 
 /*
@@ -192,8 +192,8 @@
     // Pass the selected object to the new view controller.
     
     if ([sender isKindOfClass:[UITableViewCell class]]) {
-        if ([segue.destinationViewController isKindOfClass:[MOMoreViewController class]]) {
-            MOMoreViewController *destinVC = segue.destinationViewController;
+        if ([segue.destinationViewController isKindOfClass:[MOMoreCollectionViewController class]]) {
+            MOMoreCollectionViewController *destinVC = segue.destinationViewController;
             NSIndexPath *path = [self.tableView indexPathForCell:sender];
             if (self.segmentIndex == 0) {
                 self.cellLabel = self.submissions[path.row][SUBMISSION_TYPE];

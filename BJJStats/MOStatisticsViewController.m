@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSMutableArray *submissionPositionsLabels;
 @property (strong, nonatomic) NSMutableArray *submittedPositionsLabels;
 @property (strong, nonatomic) NSMutableArray *objectsForPosition;
+@property (strong, nonatomic) NSString *positionSelected;
 
 
 //@property (strong, nonatomic) NSNumber *total;
@@ -283,6 +284,7 @@
 -(void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index{
     
     self.objectsForPosition = NULL;
+    self.positionSelected = [[NSString alloc] init];
     NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
     
     if (self.pieChartSegmentControl.selectedSegmentIndex == 0) {
@@ -298,7 +300,7 @@
             }
             
         }
-        
+        self.positionSelected = self.submissionPositionsLabels[index];
 //        //sets up a new submissionObject from an object in the submissionArray
 //        MOSubmissionObject *objectFromArray = self.submissionsStatisticsArray[index];
 //        //sets all the labels for the display for all the object properties underneath the pie chart
@@ -338,6 +340,8 @@
             }
 
         }
+        
+        self.positionSelected = self.submittedPositionsLabels[index];
 //        //sets up a new submissionObject from an object in the submissionArray
 //        MOSubmissionObject *objectFromArray = self.submittedStatisticsArray[index];
 //        
@@ -368,7 +372,6 @@
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
     self.objectsForPosition = [[tmpArray sortedArrayUsingDescriptors:sortDescriptors] mutableCopy];
     
-    
     [self performSegueWithIdentifier:@"pushTopTenTableViewSegue" sender:self];
     
 }
@@ -387,13 +390,17 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
+    
+    //if ([sender isKindOfClass:[XYPieChart class]]) {
     if ([segue.destinationViewController isKindOfClass:[MOTopTableTableViewController class]]) {
         MOTopTableTableViewController *destinVC = segue.destinationViewController;
         
         if (self.pieChartSegmentControl.selectedSegmentIndex == 0) {
             
+            
             destinVC.submissions = self.objectsForPosition;
             destinVC.segmentIndex = 0;
+            destinVC.position = self.positionSelected;
             
         }
         
@@ -401,13 +408,15 @@
             
             destinVC.submitted = self.objectsForPosition;
             destinVC.segmentIndex = 1;
+            destinVC.position = self.positionSelected;
         }
         
     }
     
+//}
 }
 
-    
+
 
 
 #pragma mark HelperMethods

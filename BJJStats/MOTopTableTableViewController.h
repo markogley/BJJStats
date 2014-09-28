@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MOMoreViewController.h"
+//#import "MOMoreViewController.h"
+#import "MOMoreCollectionViewController.h"
 
 @interface MOTopTableTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *submissions;
 @property (strong, nonatomic) NSMutableArray *submitted;
+@property (strong, nonatomic) NSString *position;
 @property int segmentIndex;
+@property (strong, nonatomic) IBOutlet UINavigationItem *tableViewTitle;
 
 @end

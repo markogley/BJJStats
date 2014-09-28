@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface MOCustomCollectionViewCell : UICollectionViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
 @property (strong, nonatomic) IBOutlet UILabel *videoTitleLabel;
+
 @property (strong, nonatomic) IBOutlet UIWebView *youtubeVideoWebView;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *webviewActivityIndicator;
+
 
 @end
