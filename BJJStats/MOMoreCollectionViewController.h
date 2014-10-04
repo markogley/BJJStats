@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) NSString *labelFromCell;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navigationTitle;
+@property int segmentIndexCollectionView;
 
 @end

@@ -45,7 +45,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:0.75 green:0.56 blue:0.83 alpha:1.0], NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:18.0]}];
     self.view.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1.0];
+    //BlueColor
     //self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0.29 green:0.47 blue:0.75 alpha:1.0];
+    //Purple Color
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.75 green:0.56 blue:0.83 alpha:1.0];
     self.navigationController.navigationBar.translucent = NO;
     
@@ -82,7 +84,7 @@
     //size of shadow raidius
     view.layer.shadowRadius = 1;
     //tweak to allow iPhone 4 to load shadows without hindering performace of XYPieChart animations
-    view.layer.shadowPath = [[UIBezierPath bezierPathWithRect:view.bounds] CGPath];
+    //view.layer.shadowPath = [[UIBezierPath bezierPathWithRect:view.bounds] CGPath];
     //how the shadow is oriented to the view
     view.layer.shadowOffset = CGSizeMake(0, 1);
     //sets alpha for shadow

@@ -14,7 +14,6 @@
 #import "AFNetworking.h"
 #import "MOCustomCollectionViewCell.h"
 #import "CSStickyHeaderFlowLayout.h"
-#import "MOUICollectionResuableViewHeader.h"
 #import "CSStickyHeaderFlowLayoutAttributes.h"
 
 
@@ -129,7 +128,7 @@
     
     //static NSString *reuseIdentifier = @"Cell";
     
-    //UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
     
     NSDictionary *item = self.youTubeJSONResponseAsArray[indexPath.section];
     
@@ -211,22 +210,6 @@
         
 }
 
-        //if (indexPath.section == 0) {
-        //NSLog(@"MoreViewController: labelFromCell %@", self.labelFromCell);
-       //NSString *title = [NSString stringWithFormat:@"%@", self.labelFromCell]; //self.mySubmissionsAsPropertyList[self.randomIndex][SUBMISSION_TYPE]];
-        //header.collectionViewHeader.text = self.labelFromCell;
-        //}
-        
-            
-        //reusableView = header;
-        //reusableView.hidden = NO;
-        //NSLog(@"MoreViewController: reusableView %i", reusableView.hidden);
-    //}
-    
-    //return nil;
-    
-//}
-
 
 
 #pragma mark <UICollectionViewDelegate>
@@ -266,8 +249,13 @@
     
     NSString *youtubeAPIKey = @"AIzaSyCNCsK_dknS6n1PokMBNC_BLumsza_LwxA";
     NSString *baseURL = @"https://www.googleapis.com/youtube/v3/search?part=snippet&q=";
+    NSString *searchTerm;
     
-    NSString *searchTerm = [NSString stringWithFormat:@"%@", self.labelFromCell];
+    if (self.segmentIndexCollectionView == 0) {
+        searchTerm = [NSString stringWithFormat:@"%@", self.labelFromCell];
+    }else if (self.segmentIndexCollectionView == 1){
+        searchTerm = [NSString stringWithFormat:@"%@ Escapes", self.labelFromCell];
+    }
     
     
     NSLog(@"MoreViewController: searchTerm is %@", searchTerm);

@@ -63,7 +63,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tableViewTitle.title = self.position;
-    
+    self.navigationItem.backBarButtonItem.title = @"";
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -197,9 +197,11 @@
             NSIndexPath *path = [self.tableView indexPathForCell:sender];
             if (self.segmentIndex == 0) {
                 self.cellLabel = self.submissions[path.row][SUBMISSION_TYPE];
+                destinVC.segmentIndexCollectionView = self.segmentIndex;
             }
             if(self.segmentIndex == 1){
                 self.cellLabel = self.submitted[path.row][SUBMISSION_TYPE];
+                destinVC.segmentIndexCollectionView = self.segmentIndex;
             }
             
             destinVC.labelFromCell = self.cellLabel;

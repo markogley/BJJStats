@@ -39,6 +39,19 @@
 		5B640E5E19AB6C45000EAD45 /* MOMatchObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B640E5D19AB6C45000EAD45 /* MOMatchObject.m */; };
 		5B640E6119AB6E3E000EAD45 /* MOMatchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B640E6019AB6E3E000EAD45 /* MOMatchData.m */; };
 		5B868D7E19D8006300DB7644 /* CollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B868D7D19D8006300DB7644 /* CollectionViewHeader.xib */; };
+		5B8FEEF119DEE52A00B40FFF /* MOOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEEF019DEE52A00B40FFF /* MOOptionsViewController.m */; };
+		5B8FEF1619DEF13E00B40FFF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B8FEF1519DEF13E00B40FFF /* QuartzCore.framework */; };
+		5B8FEF2E19DEF71600B40FFF /* MZFormSheetBackgroundWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF2019DEF71600B40FFF /* MZFormSheetBackgroundWindow.m */; };
+		5B8FEF2F19DEF71600B40FFF /* MZFormSheetBackgroundWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF2219DEF71600B40FFF /* MZFormSheetBackgroundWindowViewController.m */; };
+		5B8FEF3019DEF71600B40FFF /* MZFormSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF2419DEF71600B40FFF /* MZFormSheetController.m */; };
+		5B8FEF3119DEF71600B40FFF /* MZFormSheetSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF2619DEF71600B40FFF /* MZFormSheetSegue.m */; };
+		5B8FEF3219DEF71600B40FFF /* MZTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF2919DEF71600B40FFF /* MZTransition.m */; };
+		5B8FEF3319DEF71600B40FFF /* UIImage+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF2B19DEF71600B40FFF /* UIImage+Additional.m */; };
+		5B8FEF3419DEF71600B40FFF /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF2D19DEF71600B40FFF /* UIViewController+TargetViewController.m */; };
+		5B8FEF3A19DEF83600B40FFF /* MZAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF3719DEF83600B40FFF /* MZAppearance.m */; };
+		5B8FEF3B19DEF83600B40FFF /* NSInvocation+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF3919DEF83600B40FFF /* NSInvocation+Copy.m */; };
+		5B9CF52D19DFC3C2004FBB5C /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9CF52C19DFC3C2004FBB5C /* Launch Screen.xib */; };
+		5B9CF53019DFD247004FBB5C /* MOStatisticsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9CF52F19DFD247004FBB5C /* MOStatisticsCollectionViewCell.m */; };
 		5BABB284197A5F77009B636E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB283197A5F77009B636E /* Foundation.framework */; };
 		5BABB286197A5F77009B636E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB285197A5F77009B636E /* CoreGraphics.framework */; };
 		5BABB288197A5F77009B636E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB287197A5F77009B636E /* UIKit.framework */; };
@@ -48,7 +61,6 @@
 		5BABB297197A5F77009B636E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BABB295197A5F77009B636E /* Main.storyboard */; };
 		5BABB29A197A5F77009B636E /* MOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BABB299197A5F77009B636E /* MOViewController.m */; };
 		5BABB29C197A5F77009B636E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BABB29B197A5F77009B636E /* Images.xcassets */; };
-		5BABB2A3197A5F77009B636E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB2A2197A5F77009B636E /* XCTest.framework */; };
 		5BABB2A4197A5F77009B636E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB283197A5F77009B636E /* Foundation.framework */; };
 		5BABB2A5197A5F77009B636E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB287197A5F77009B636E /* UIKit.framework */; };
 		5BABB2AD197A5F77009B636E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BABB2AB197A5F77009B636E /* InfoPlist.strings */; };
@@ -138,6 +150,31 @@
 		5B640E5F19AB6E3E000EAD45 /* MOMatchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMatchData.h; sourceTree = "<group>"; };
 		5B640E6019AB6E3E000EAD45 /* MOMatchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMatchData.m; sourceTree = "<group>"; };
 		5B868D7D19D8006300DB7644 /* CollectionViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewHeader.xib; sourceTree = "<group>"; };
+		5B8FEEEF19DEE52A00B40FFF /* MOOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOptionsViewController.h; sourceTree = "<group>"; };
+		5B8FEEF019DEE52A00B40FFF /* MOOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOptionsViewController.m; sourceTree = "<group>"; };
+		5B8FEF1519DEF13E00B40FFF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5B8FEF1F19DEF71600B40FFF /* MZFormSheetBackgroundWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetBackgroundWindow.h; sourceTree = "<group>"; };
+		5B8FEF2019DEF71600B40FFF /* MZFormSheetBackgroundWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetBackgroundWindow.m; sourceTree = "<group>"; };
+		5B8FEF2119DEF71600B40FFF /* MZFormSheetBackgroundWindowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetBackgroundWindowViewController.h; sourceTree = "<group>"; };
+		5B8FEF2219DEF71600B40FFF /* MZFormSheetBackgroundWindowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetBackgroundWindowViewController.m; sourceTree = "<group>"; };
+		5B8FEF2319DEF71600B40FFF /* MZFormSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetController.h; sourceTree = "<group>"; };
+		5B8FEF2419DEF71600B40FFF /* MZFormSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetController.m; sourceTree = "<group>"; };
+		5B8FEF2519DEF71600B40FFF /* MZFormSheetSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetSegue.h; sourceTree = "<group>"; };
+		5B8FEF2619DEF71600B40FFF /* MZFormSheetSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetSegue.m; sourceTree = "<group>"; };
+		5B8FEF2719DEF71600B40FFF /* MZMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMacro.h; sourceTree = "<group>"; };
+		5B8FEF2819DEF71600B40FFF /* MZTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZTransition.h; sourceTree = "<group>"; };
+		5B8FEF2919DEF71600B40FFF /* MZTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTransition.m; sourceTree = "<group>"; };
+		5B8FEF2A19DEF71600B40FFF /* UIImage+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additional.h"; sourceTree = "<group>"; };
+		5B8FEF2B19DEF71600B40FFF /* UIImage+Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additional.m"; sourceTree = "<group>"; };
+		5B8FEF2C19DEF71600B40FFF /* UIViewController+TargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TargetViewController.h"; sourceTree = "<group>"; };
+		5B8FEF2D19DEF71600B40FFF /* UIViewController+TargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TargetViewController.m"; sourceTree = "<group>"; };
+		5B8FEF3619DEF83600B40FFF /* MZAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZAppearance.h; sourceTree = "<group>"; };
+		5B8FEF3719DEF83600B40FFF /* MZAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZAppearance.m; sourceTree = "<group>"; };
+		5B8FEF3819DEF83600B40FFF /* NSInvocation+Copy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Copy.h"; sourceTree = "<group>"; };
+		5B8FEF3919DEF83600B40FFF /* NSInvocation+Copy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Copy.m"; sourceTree = "<group>"; };
+		5B9CF52C19DFC3C2004FBB5C /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		5B9CF52E19DFD247004FBB5C /* MOStatisticsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOStatisticsCollectionViewCell.h; sourceTree = "<group>"; };
+		5B9CF52F19DFD247004FBB5C /* MOStatisticsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOStatisticsCollectionViewCell.m; sourceTree = "<group>"; };
 		5BABB280197A5F77009B636E /* BJJStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BJJStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BABB283197A5F77009B636E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5BABB285197A5F77009B636E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -153,7 +190,6 @@
 		5BABB299197A5F77009B636E /* MOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOViewController.m; sourceTree = "<group>"; };
 		5BABB29B197A5F77009B636E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5BABB2A1197A5F77009B636E /* BJJStatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BJJStatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BABB2A2197A5F77009B636E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		5BABB2AA197A5F77009B636E /* BJJStatsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BJJStatsTests-Info.plist"; sourceTree = "<group>"; };
 		5BABB2AC197A5F77009B636E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5BABB2AE197A5F77009B636E /* BJJStatsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BJJStatsTests.m; sourceTree = "<group>"; };
@@ -169,7 +205,6 @@
 		5BEB4511197E5DA7008F6355 /* MOObjectConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOObjectConverter.m; sourceTree = "<group>"; };
 		5BF89FD419BC5FEB002C1084 /* MOCustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOCustomCollectionViewCell.h; sourceTree = "<group>"; };
 		5BF89FD519BC5FEB002C1084 /* MOCustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOCustomCollectionViewCell.m; sourceTree = "<group>"; };
-		9B46A7E952104401AFA43A29 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B8FEF1619DEF13E00B40FFF /* QuartzCore.framework in Frameworks */,
 				5BABB286197A5F77009B636E /* CoreGraphics.framework in Frameworks */,
 				5BABB288197A5F77009B636E /* UIKit.framework in Frameworks */,
 				5BABB284197A5F77009B636E /* Foundation.framework in Frameworks */,
@@ -187,7 +223,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BABB2A3197A5F77009B636E /* XCTest.framework in Frameworks */,
 				5BABB2A5197A5F77009B636E /* UIKit.framework in Frameworks */,
 				5BABB2A4197A5F77009B636E /* Foundation.framework in Frameworks */,
 			);
@@ -202,12 +237,13 @@
 				5B3253EF19CE8E37007D4174 /* Top TableView */,
 				5B4BE43119A9FFBA006536CE /* Match */,
 				5B4BE42D19A9F335006536CE /* More */,
-				5B617F0C198D04F5008837DD /*  Delete TableView */,
+				5B617F0C198D04F5008837DD /* Delete TableView */,
 				5BABB2C6197A9EDE009B636E /* Submissions */,
 				5BABB2C7197A9EED009B636E /* Submitted */,
 				5B202824197BA2C100105D36 /* Statistics */,
 				5BABB2C8197A9EF6009B636E /* Home */,
 				5B1FB21B19892D0700B81387 /* Date Added */,
+				5B9CF53319E06C3B004FBB5C /* Options Segue */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -239,6 +275,8 @@
 			children = (
 				5B202821197BA2BC00105D36 /* MOStatisticsViewController.h */,
 				5B202822197BA2BC00105D36 /* MOStatisticsViewController.m */,
+				5B9CF52E19DFD247004FBB5C /* MOStatisticsCollectionViewCell.h */,
+				5B9CF52F19DFD247004FBB5C /* MOStatisticsCollectionViewCell.m */,
 			);
 			name = Statistics;
 			sourceTree = "<group>";
@@ -313,14 +351,15 @@
 			name = AFNetworking;
 			sourceTree = "<group>";
 		};
-		5B24DFDC19B35556007223BA /* Frameworks */ = {
+		5B24DFDC19B35556007223BA /* Imported Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B8FEF1E19DEF71600B40FFF /* MZFormSheetController */,
 				5B23BE2D19D7C31600C862D6 /* CSSStickyHeader */,
 				5B24DFDB19B35543007223BA /* AFNetworking */,
 				5BD5BB4719A0CAE600E2F1F8 /* XYPieChart */,
 			);
-			name = Frameworks;
+			name = "Imported Frameworks";
 			sourceTree = "<group>";
 		};
 		5B3253EF19CE8E37007D4174 /* Top TableView */ = {
@@ -353,7 +392,7 @@
 			name = Match;
 			sourceTree = "<group>";
 		};
-		5B617F0C198D04F5008837DD /*  Delete TableView */ = {
+		5B617F0C198D04F5008837DD /* Delete TableView */ = {
 			isa = PBXGroup;
 			children = (
 				5B617F09198D04EB008837DD /* MODeleteTableViewController.h */,
@@ -361,7 +400,7 @@
 				5B617F0D198D15B7008837DD /* MODeleteViewController.h */,
 				5B617F0E198D15B7008837DD /* MODeleteViewController.m */,
 			);
-			name = " Delete TableView";
+			name = "Delete TableView";
 			sourceTree = "<group>";
 		};
 		5B640E5B19AB6C17000EAD45 /* Match Object */ = {
@@ -371,6 +410,49 @@
 				5B640E5D19AB6C45000EAD45 /* MOMatchObject.m */,
 			);
 			name = "Match Object";
+			sourceTree = "<group>";
+		};
+		5B8FEF1E19DEF71600B40FFF /* MZFormSheetController */ = {
+			isa = PBXGroup;
+			children = (
+				5B8FEF3519DEF83600B40FFF /* Additional */,
+				5B8FEF1F19DEF71600B40FFF /* MZFormSheetBackgroundWindow.h */,
+				5B8FEF2019DEF71600B40FFF /* MZFormSheetBackgroundWindow.m */,
+				5B8FEF2119DEF71600B40FFF /* MZFormSheetBackgroundWindowViewController.h */,
+				5B8FEF2219DEF71600B40FFF /* MZFormSheetBackgroundWindowViewController.m */,
+				5B8FEF2319DEF71600B40FFF /* MZFormSheetController.h */,
+				5B8FEF2419DEF71600B40FFF /* MZFormSheetController.m */,
+				5B8FEF2519DEF71600B40FFF /* MZFormSheetSegue.h */,
+				5B8FEF2619DEF71600B40FFF /* MZFormSheetSegue.m */,
+				5B8FEF2719DEF71600B40FFF /* MZMacro.h */,
+				5B8FEF2819DEF71600B40FFF /* MZTransition.h */,
+				5B8FEF2919DEF71600B40FFF /* MZTransition.m */,
+				5B8FEF2A19DEF71600B40FFF /* UIImage+Additional.h */,
+				5B8FEF2B19DEF71600B40FFF /* UIImage+Additional.m */,
+				5B8FEF2C19DEF71600B40FFF /* UIViewController+TargetViewController.h */,
+				5B8FEF2D19DEF71600B40FFF /* UIViewController+TargetViewController.m */,
+			);
+			path = MZFormSheetController;
+			sourceTree = "<group>";
+		};
+		5B8FEF3519DEF83600B40FFF /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				5B8FEF3619DEF83600B40FFF /* MZAppearance.h */,
+				5B8FEF3719DEF83600B40FFF /* MZAppearance.m */,
+				5B8FEF3819DEF83600B40FFF /* NSInvocation+Copy.h */,
+				5B8FEF3919DEF83600B40FFF /* NSInvocation+Copy.m */,
+			);
+			path = Additional;
+			sourceTree = "<group>";
+		};
+		5B9CF53319E06C3B004FBB5C /* Options Segue */ = {
+			isa = PBXGroup;
+			children = (
+				5B8FEEEF19DEE52A00B40FFF /* MOOptionsViewController.h */,
+				5B8FEEF019DEE52A00B40FFF /* MOOptionsViewController.m */,
+			);
+			name = "Options Segue";
 			sourceTree = "<group>";
 		};
 		5BABB277197A5F77009B636E = {
@@ -395,11 +477,10 @@
 		5BABB282197A5F77009B636E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B8FEF1519DEF13E00B40FFF /* QuartzCore.framework */,
 				5BABB283197A5F77009B636E /* Foundation.framework */,
 				5BABB285197A5F77009B636E /* CoreGraphics.framework */,
 				5BABB287197A5F77009B636E /* UIKit.framework */,
-				5BABB2A2197A5F77009B636E /* XCTest.framework */,
-				9B46A7E952104401AFA43A29 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -407,12 +488,13 @@
 		5BABB289197A5F77009B636E /* BJJStats */ = {
 			isa = PBXGroup;
 			children = (
-				5B24DFDC19B35556007223BA /* Frameworks */,
+				5B24DFDC19B35556007223BA /* Imported Frameworks */,
 				5BABB2B8197A5F87009B636E /* Data */,
 				5BABB292197A5F77009B636E /* MOAppDelegate.h */,
 				5BABB293197A5F77009B636E /* MOAppDelegate.m */,
 				5B1CAF171983F45C00383D97 /* Model */,
 				5BABB295197A5F77009B636E /* Main.storyboard */,
+				5B9CF52C19DFC3C2004FBB5C /* Launch Screen.xib */,
 				5B1CAF161983F44F00383D97 /* View */,
 				5BABB29B197A5F77009B636E /* Images.xcassets */,
 				5BABB28A197A5F77009B636E /* Supporting Files */,
@@ -589,6 +671,7 @@
 				5BABB28E197A5F77009B636E /* InfoPlist.strings in Resources */,
 				5BABB2BA197A5FA5009B636E /* Submissions.plist in Resources */,
 				5BABB2BC197A5FC8009B636E /* Positions.plist in Resources */,
+				5B9CF52D19DFC3C2004FBB5C /* Launch Screen.xib in Resources */,
 				5BABB297197A5F77009B636E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -609,6 +692,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BABB294197A5F77009B636E /* MOAppDelegate.m in Sources */,
+				5B8FEF2F19DEF71600B40FFF /* MZFormSheetBackgroundWindowViewController.m in Sources */,
 				5B1CAF1A1983F49300383D97 /* MOSubmissionsPersistenceManager.m in Sources */,
 				5B24DFCE19B3553A007223BA /* AFSecurityPolicy.m in Sources */,
 				5B24DFCB19B3553A007223BA /* AFHTTPRequestOperationManager.m in Sources */,
@@ -619,11 +703,15 @@
 				5B640E6119AB6E3E000EAD45 /* MOMatchData.m in Sources */,
 				5B24DFD619B3553A007223BA /* UIButton+AFNetworking.m in Sources */,
 				5B202823197BA2BC00105D36 /* MOStatisticsViewController.m in Sources */,
+				5B8FEEF119DEE52A00B40FFF /* MOOptionsViewController.m in Sources */,
+				5B8FEF3B19DEF83600B40FFF /* NSInvocation+Copy.m in Sources */,
+				5B8FEF3119DEF71600B40FFF /* MZFormSheetSegue.m in Sources */,
 				5B24DFD719B3553A007223BA /* UIImageView+AFNetworking.m in Sources */,
 				5BABB2C1197A6CAA009B636E /* MOSubmissionsViewController.m in Sources */,
 				5B24DFD819B3553A007223BA /* UIProgressView+AFNetworking.m in Sources */,
 				5B23BE3319D7C34100C862D6 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,
 				5BABB2C4197A6CBB009B636E /* MOSubmittedViewController.m in Sources */,
+				5B8FEF3319DEF71600B40FFF /* UIImage+Additional.m in Sources */,
 				5B24DFD319B3553A007223BA /* AFNetworkActivityIndicatorManager.m in Sources */,
 				5BEB4512197E5DA7008F6355 /* MOObjectConverter.m in Sources */,
 				5B24DFDA19B3553A007223BA /* UIWebView+AFNetworking.m in Sources */,
@@ -637,13 +725,19 @@
 				5B24DFD119B3553A007223BA /* AFURLResponseSerialization.m in Sources */,
 				5B24DFD919B3553A007223BA /* UIRefreshControl+AFNetworking.m in Sources */,
 				5B4BE43419A9FFED006536CE /* MOMatchesViewController.m in Sources */,
+				5B9CF53019DFD247004FBB5C /* MOStatisticsCollectionViewCell.m in Sources */,
 				5B24DFD419B3553A007223BA /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				5BABB290197A5F77009B636E /* main.m in Sources */,
 				5BF89FD619BC5FEB002C1084 /* MOCustomCollectionViewCell.m in Sources */,
+				5B8FEF3419DEF71600B40FFF /* UIViewController+TargetViewController.m in Sources */,
+				5B8FEF3A19DEF83600B40FFF /* MZAppearance.m in Sources */,
+				5B8FEF3019DEF71600B40FFF /* MZFormSheetController.m in Sources */,
+				5B8FEF3219DEF71600B40FFF /* MZTransition.m in Sources */,
 				5B24DFD519B3553A007223BA /* UIAlertView+AFNetworking.m in Sources */,
 				5B3253F219CE8E6C007D4174 /* MOTopTableTableViewController.m in Sources */,
 				5B1D761C19D16FAA002D3D58 /* MOMoreCollectionViewController.m in Sources */,
 				5B617F0B198D04EB008837DD /* MODeleteTableViewController.m in Sources */,
+				5B8FEF2E19DEF71600B40FFF /* MZFormSheetBackgroundWindow.m in Sources */,
 				5BD5BB4A19A0CAE600E2F1F8 /* XYPieChart.m in Sources */,
 				5B24DFCD19B3553A007223BA /* AFNetworkReachabilityManager.m in Sources */,
 				5B067DCA197C00F1000C7B56 /* MOSubmissionData.m in Sources */,

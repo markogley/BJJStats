@@ -7,24 +7,28 @@
 //
 
 #import "MOStatisticsViewController.h"
-#import "MOViewController.h"
-#import "MOTopTableTableViewController.h"
+
+
 
 @interface MOStatisticsViewController ()
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *navButton;
+
+
 
 @property (strong, nonatomic) NSMutableArray *mySubmissionsAsPropertyList;
 @property (strong, nonatomic) NSMutableArray *mySubmittedAsPropertyList;
 @property (strong, nonatomic) NSArray *sliceColors;
-@property (strong, nonatomic) NSMutableArray *percentageCalculated;
-@property (strong, nonatomic) NSMutableArray *submissionsStatisticsArray;
-@property (strong, nonatomic) NSMutableArray *submittedStatisticsArray;
-@property (strong, nonatomic) NSMutableArray *submissionPositionsLabels;
-@property (strong, nonatomic) NSMutableArray *submittedPositionsLabels;
+@property (strong, nonatomic) NSMutableArray *percentageCalculatedSubmission;
+@property (strong, nonatomic) NSMutableArray *percentageCalculatedSubmitted;
 @property (strong, nonatomic) NSMutableArray *objectsForPosition;
 @property (strong, nonatomic) NSString *positionSelected;
+@property (strong, nonatomic) NSArray *submissionsFromPlistArray;
+@property (strong, nonatomic) IBOutlet UIView *collectionHolder;
 
+@property int totalSubmissions;
+@property int totalSubmitted;
 
-//@property (strong, nonatomic) NSNumber *total;
 
 @end
 
@@ -32,51 +36,16 @@
 
 #pragma mark LazyInstantiation
 
--(NSMutableArray *)objectsForPosition{
-    
-    if (!_objectsForPosition) {
-        _objectsForPosition = [[NSMutableArray alloc] init];
-    }
-    
-    return _objectsForPosition;
-}
-
--(NSMutableArray *)submissionPositionsLabels{
-    if(!_submissionPositionsLabels){
-        _submissionPositionsLabels = [[NSMutableArray alloc] init];
-    }
-    
-    return _submissionPositionsLabels;
-}
-
--(NSMutableArray *)submittedPositionsLabels{
-    
-    if(!_submittedPositionsLabels){
-        _submittedPositionsLabels = [[NSMutableArray alloc] init];
-    }
-    
-    return _submittedPositionsLabels;
-    
-}
 
 
--(NSMutableArray *)submissionsStatisticsArray{
-    if(!_submissionsStatisticsArray){
-        _submissionsStatisticsArray = [[NSMutableArray alloc] init];
+-(NSMutableArray *)mySubmittedAsPropertyList{
+    if(!_mySubmittedAsPropertyList){
+        _mySubmittedAsPropertyList = [[NSMutableArray alloc] init];
     }
     
-    return _submissionsStatisticsArray;
+    return _mySubmittedAsPropertyList;
 }
 
--(NSMutableArray *)submittedStatisticsArray{
-    
-    if (!_submittedStatisticsArray) {
-        _submittedStatisticsArray = [[NSMutableArray alloc] init];
-    }
-    
-    return _submittedStatisticsArray;
-    
-}
 
 -(NSMutableArray *)mySubmissionsAsPropertyList{
     if(!_mySubmissionsAsPropertyList){
@@ -87,13 +56,22 @@
 }
 
 
--(NSMutableArray *)percentageCalaculated{
-    if(!_percentageCalculated){
-        _percentageCalculated = [[NSMutableArray alloc] init];
+-(NSMutableArray *)percentageCalaculatedSubmission{
+    if(!_percentageCalculatedSubmission){
+        _percentageCalculatedSubmission = [[NSMutableArray alloc] init];
     }
     
-    return _percentageCalculated;
+    return _percentageCalculatedSubmission;
 }
+
+-(NSMutableArray *)percentageCalaculatedSubmitted{
+    if(!_percentageCalculatedSubmitted){
+        _percentageCalculatedSubmitted = [[NSMutableArray alloc] init];
+    }
+    
+    return _percentageCalculatedSubmitted;
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -114,15 +92,15 @@
     
     [self.pieChart setStartPieAngle:M_PI_2];	//optional
     [self.pieChart setAnimationSpeed:1.0];	//optional
-    [self.pieChart setShowLabel:YES];
-    [self.pieChart setLabelFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];	//optional
+    [self.pieChart setShowLabel:NO];
+    [self.pieChart setLabelFont:[UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:12]];	//optional
     [self.pieChart setLabelColor:[UIColor whiteColor]];	//optional, defaults to white
     //[self.pieChart setLabelShadowColor:[UIColor blackColor]];	//optional, defaults to none (nil)
-    [self.pieChart setLabelRadius:75];	//optional
+    [self.pieChart setLabelRadius:120];	//optional
     [self.pieChart setShowPercentage:NO];	//optional
-    [self.pieChart setPieBackgroundColor:[UIColor colorWithWhite:0.95 alpha:1]];	//optional
-    //[self.pieChart setPieCenter:CGPointMake(240, 240)];	//optional
-    
+    [self.pieChart setPieBackgroundColor:[UIColor colorWithWhite:0.96 alpha:1]];	//optional
+    [self.pieChart setPieCenter:CGPointMake(self.pieChart.frame.size.width/2 + 5, self.pieChart.frame.size.height/2 + 15)];
+    [self.pieChart setPieRadius:self.pieChart.frame.size.width/2.05]; //optional
     
     self.sliceColors = [NSArray arrayWithObjects:[UIColor colorWithRed:85/255.0 green:98/255.0 blue:112/255.0 alpha:1.0],[UIColor colorWithRed:78/255.0 green:205/255.0 blue:196./255.0 alpha:1.0],[UIColor colorWithRed:199/255.0 green:244/255.0 blue:100/255.0 alpha:1.0],[UIColor colorWithRed:255/255.0 green:107/255.0 blue:107/255.0 alpha:1.0], [UIColor colorWithRed:196/255.0 green:77/255.0 blue:88/255.0 alpha:1.0],[UIColor colorWithRed:76/255.0 green:75/255.0 blue:90/255.0 alpha:1.0],[UIColor colorWithRed:244/255.0 green:37/255.0 blue:111/255.0 alpha:1.0],[UIColor colorWithRed:255/255.0 green:113/255.0 blue:81/255.0 alpha:1.0],[UIColor colorWithRed:199/255.0 green:212/255.0 blue:34/255.0 alpha:1.0], [UIColor colorWithRed:142/255.0 green:211/255.0 blue:190/255.0 alpha:1.0], nil];
     
@@ -133,9 +111,26 @@
     self.mySubmittedAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_SUBMITTED_OBJECTS_KEY] mutableCopy];
     
     
+    self.percentageCalculatedSubmission = [self getTotalSubmissionForEachPosition:self.mySubmissionsAsPropertyList];
+    self.percentageCalculatedSubmitted = [self getTotalSubmissionForEachPosition:self.mySubmittedAsPropertyList];
     
-    [self convertMultipleObjectsToDictionary:self.mySubmissionsAsPropertyList storeInStatisticsArray:self.submissionsStatisticsArray];
-    [self convertMultipleObjectsToDictionary:self.mySubmittedAsPropertyList storeInStatisticsArray:self.submittedStatisticsArray];
+    [[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
+    [[MZFormSheetBackgroundWindow appearance] setBlurRadius:5.0];
+    [[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
+    
+    self.pieChartKey.dataSource = self;
+    self.pieChartKey.delegate = self;
+    
+    self.selectedView = 0;
+    self.showPercentageCurrent = 0;
+    
+    [self setupTitle];
+    
+    //NSArray *title = [[NSBundle mainBundle] loadNibNamed:@"TitleView" owner:self options:nil];
+    
+    //self.navigationItem.titleView = [title objectAtIndex:0];
+    
+    
     
     
 }
@@ -154,11 +149,40 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)setupTitle{
+    
+    UIView *navBarView = [[UIView alloc] initWithFrame:CGRectMake(96, 6, 128, 36)];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 128, 21)];
+    title.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:18];
+    title.textAlignment = NSTextAlignmentCenter;
+    title.text = @"Statistics";
+    title.textColor = [UIColor colorWithRed:0.75 green:0.56 blue:0.83 alpha:1.0];
+    [navBarView addSubview:title];
+    
+    UILabel *subTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 18, 128, 15)];
+    subTitle.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12];
+    subTitle.textAlignment = NSTextAlignmentCenter;
+    subTitle.textColor = [UIColor colorWithRed:0.75 green:0.56 blue:0.83 alpha:1.0];
+    if(self.selectedView == 0){
+        
+        subTitle.text = @"Submissions";
+        
+        
+    }else if (self.selectedView == 1){
+        
+        subTitle.text = @"Submitted";
+        
+    }
+    [navBarView addSubview:subTitle];
+    self.navigationItem.titleView = navBarView;
+    
+}
+
 -(void)setupView{
     self.view.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0];
     
     [self addShadowForView:self.pieChart];
-    [self addShadowForView:self.statisticsLabelView];
+    [self addShadowForView:self.collectionHolder];
     //do want to clip any subviews of the imageView
 }
 
@@ -183,73 +207,56 @@
 
 - (NSString *)pieChart:(XYPieChart *)pieChart textForSliceAtIndex:(NSUInteger)index{
     
-    NSString *label;
+    //NSString *label;
     
-    if (self.pieChartSegmentControl.selectedSegmentIndex == 0) {
-        label = self.submissionPositionsLabels[index];
-    }
+    //if (self.selectedView == 0) {
+        //label = self.percentageCalculatedSubmission[index][0];
+    //}
     
-    if (self.pieChartSegmentControl.selectedSegmentIndex == 1) {
-        label = self.submittedPositionsLabels[index];
-    }
+    //if (self.selectedView == 1) {
+        //label = self.percentageCalculatedSubmitted[index][0];
+    //}
     
-    return label;
-    
+    //return label;
+    return nil;
     
 }
 
-
+//need to recalculate percentages based on position not submission
 -(CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index{
     
     int valueOfCounter = 0;
-    NSNumber *percentage = 0;
+    float percentage = 0;
     
-    if (self.pieChartSegmentControl.selectedSegmentIndex == 0) {
-        
-        
-        NSDictionary *dictOb = [self.mySubmissionsAsPropertyList objectAtIndex:index];
-        valueOfCounter = (int)[[[dictOb valueForKey:SUBMISSION_COUNTER_AND_DATE ] valueForKey:@"Counter"] integerValue];
-        
-        percentage = [NSNumber numberWithInt:valueOfCounter];
-        [self.percentageCalaculated addObject:percentage];
-        
-    }else if (self.pieChartSegmentControl.selectedSegmentIndex == 1){
-        
-        NSDictionary *dictOb = [self.mySubmittedAsPropertyList objectAtIndex:index];
-        valueOfCounter = (int)[[[dictOb valueForKey:SUBMISSION_COUNTER_AND_DATE ] valueForKey:@"Counter"] integerValue];
-        percentage = [NSNumber numberWithInt:valueOfCounter];
-        [self.percentageCalaculated addObject:percentage];
-        
-        
-    }
-    return valueOfCounter;
+    
+    valueOfCounter = [self.percentageCalculatedSubmission[index][1] intValue];
+    
+    
+    percentage = (float)valueOfCounter/self.totalSubmissions * 100;
+    
+    
+    return percentage;
     
 }
 
 -(NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart{
     
     //gets unique values from an array and adds them to the new array
-    if (self.mySubmissionsAsPropertyList.count > 0) {
-        self.submissionPositionsLabels = [self.mySubmissionsAsPropertyList valueForKeyPath:[NSString stringWithFormat:@"@distinctUnionOfObjects.%@", @"Submission Position"]];
-    }
+//    if (self.mySubmissionsAsPropertyList.count > 0) {
+//        self.submissionPositionsLabels = [self.mySubmissionsAsPropertyList valueForKeyPath:[NSString stringWithFormat:@"@distinctUnionOfObjects.%@", @"Submission Position"]];
+//    }
     
-    NSLog(@"StatisticsViewController: submissionPositionLabels %@", self.submissionPositionsLabels);
-    
-    if (self.mySubmittedAsPropertyList.count > 0) {
-        self.submittedPositionsLabels = [self.mySubmittedAsPropertyList valueForKeyPath:[NSString stringWithFormat:@"@distinctUnionOfObjects.%@", @"Submission Position"]];
-    }
-    
-    NSLog(@"StatisticsViewController: submittedPositionLabels %@", self.submittedPositionsLabels);
-    
-    if(self.pieChartSegmentControl.selectedSegmentIndex == 0 && [self.submissionPositionsLabels count] > 0){
+    if(self.selectedView == 0 && [self.percentageCalculatedSubmission count] > 0){
         
-        return [self.submissionPositionsLabels count];
+        //return [self.submissionPositionsLabels count];
+        return [self.percentageCalculatedSubmission count];
     }
     
-    if (self.pieChartSegmentControl.selectedSegmentIndex == 1 && [self.submittedPositionsLabels count] > 0){
+    if (self.selectedView == 1 && [self.percentageCalculatedSubmitted count] > 0){
         
-        //return [self.submittedStatisticsArray count];
-        return [self.submittedPositionsLabels count];
+        //return [self.submittedPositionsLabels count];
+        return [self.percentageCalculatedSubmitted count];
+
     }
 
         return 0;
@@ -261,22 +268,6 @@
     
 }
 
-//-(NSString *)pieChart:(XYPieChart *)pieChart textForSliceAtIndex:(NSUInteger)index{
-    
-//    if (self.pieChartSegmentControl.selectedSegmentIndex ==  0) {
-        
-//        MOSubmissionObject *objectFromArray = self.submissionsStatisticsArray[index];
-//        return objectFromArray.submissionType;
-        
-//    }else if(self.pieChartSegmentControl.selectedSegmentIndex ==1){
-        
-//        MOSubmissionObject *objectFromArray = self.submittedStatisticsArray[index];
-//        return objectFromArray.submissionType;
-//    }
-    
-//    return @"None";
-    
-//}
 
 #pragma mark XYPieChartDelegateMethods
 
@@ -284,87 +275,33 @@
 -(void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index{
     
     self.objectsForPosition = NULL;
-    self.positionSelected = [[NSString alloc] init];
+    //self.positionSelected = [[NSString alloc] init];
     NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
     
-    if (self.pieChartSegmentControl.selectedSegmentIndex == 0) {
-        
-        NSLog(@"StatisticsViewController: submittedPositionsLabel at index %i is %@", index, self.submissionPositionsLabels[index]);
+    if (self.selectedView == 0) {
         
         for (NSDictionary *items in self.mySubmissionsAsPropertyList){
-            if ([items[SUBMISSION_POSITION] isEqualToString:self.submissionPositionsLabels[index]]){
-                NSLog(@"StaticsViewController: items is %@", items);
-                
+            if ([items[SUBMISSION_POSITION] isEqualToString:self.percentageCalculatedSubmission[index][0]]) {
+            
+                [tmpArray addObject:items];
+            }
+            
+    }
+        self.positionSelected = self.percentageCalculatedSubmission[index][0];
+        
+    }else if (self.selectedView == 1){
+        
+        for(NSDictionary *items in self.mySubmittedAsPropertyList){
+            if ([items[SUBMISSION_POSITION] isEqualToString:self.percentageCalculatedSubmitted[index][0]]) {
                 
                 [tmpArray addObject:items];
             }
             
         }
-        self.positionSelected = self.submissionPositionsLabels[index];
-//        //sets up a new submissionObject from an object in the submissionArray
-//        MOSubmissionObject *objectFromArray = self.submissionsStatisticsArray[index];
-//        //sets all the labels for the display for all the object properties underneath the pie chart
-//        self.submissionSelectedLabel.text = objectFromArray.submissionType;
-//        self.submissionPositionLabel.text = objectFromArray.submissionPosition;
-//        self.topOrBottomLabel.text = objectFromArray.topOrBottom;
-//        
-//        //calculates the total number value of counters for all the objects in the submissionsArray
-//        NSNumber *total = [[NSNumber alloc] init];
-//        for (NSNumber *i in self.percentageCalaculated) {
-//            total = [NSNumber numberWithInt:([total intValue] + [i intValue])];
-//        }
-//        NSLog(@"The submissions total is %@", total);
-//        
-//        //grabs the string literal from the dictionary version of the submission object
-//        NSDictionary *dictOb = [self.mySubmissionsAsPropertyList objectAtIndex:index];
-//        //converts this value to an int
-//        int valueOfCounter = [[[dictOb valueForKey:SUBMISSION_COUNTER_AND_DATE ] valueForKey:@"Counter"] intValue];
-//        
-//        //calculates the percentage using the valueOfCounter from the object with the total calculated above
-//        float percentage = (valueOfCounter / [total floatValue]) * 100;
-//        //rounds off the total to 2 decimals and converts it to a string to put in the percentageLabel
-//        NSString *percentageAsString = [NSString stringWithFormat:@"%.2f%%", percentage];
-//        self.percentageLabel.text = percentageAsString;
-        
-    }else if (self.pieChartSegmentControl.selectedSegmentIndex == 1){
+        self.positionSelected = self.percentageCalculatedSubmitted[index][0];
         
         
-        NSLog(@"StatisticsViewController: submittedPositionsLabel at index %i is %@", index, self.submittedPositionsLabels[index]);
-        
-        for (NSDictionary *items in self.mySubmittedAsPropertyList){
-            if ([items[SUBMISSION_POSITION] isEqualToString:self.submittedPositionsLabels[index]]){
-                NSLog(@"StaticsViewController: items is %@", items);
-                
-                
-                [tmpArray addObject:items];
-            }
-
-        }
-        
-        self.positionSelected = self.submittedPositionsLabels[index];
-//        //sets up a new submissionObject from an object in the submissionArray
-//        MOSubmissionObject *objectFromArray = self.submittedStatisticsArray[index];
-//        
-//        //sets all the labels for the display for all the object properties underneath the pie chart
-//        self.submissionSelectedLabel.text = objectFromArray.submissionType;
-//        self.submissionPositionLabel.text = objectFromArray.submissionPosition;
-//        self.topOrBottomLabel.text = objectFromArray.topOrBottom;
-//        
-//        //calculates the total number value of counters for all the objects in the submissionsArray
-//        NSNumber *total = [[NSNumber alloc] init];
-//        for (NSNumber *i in self.percentageCalaculated) {
-//            total = [NSNumber numberWithInt:([total intValue] + [i intValue])];
-//        }
-//        
-//        //grabs the string literal from the dictionary version of the submission object
-//        NSDictionary *dictOb = [self.mySubmittedAsPropertyList objectAtIndex:index];
-//        //converts this value to an int
-//        int valueOfCounter = [[[dictOb valueForKey:SUBMISSION_COUNTER_AND_DATE] valueForKey:@"Counter"] intValue];
-//        
-//        //calculates the percentage using the valueOfCounter from the object with the total calculated above
-//        float percentage = (valueOfCounter / [total floatValue]) * 100;
-//        NSString *percentageAsString = [NSString stringWithFormat:@"%.2f%%", percentage];
-//        self.percentageLabel.text = percentageAsString;
+       
     }
     
     NSSortDescriptor *sortDescriptor;
@@ -376,15 +313,6 @@
     
 }
 
--(void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index{
-    
-    //erases all the labels when the user deselects a slice of the pie chart
-    self.submissionSelectedLabel.text = nil;
-    self.submissionPositionLabel.text = nil;
-    self.topOrBottomLabel.text = nil;
-    self.percentageLabel.text = nil;
-    
-}
 
 #pragma mark - Navigation
 
@@ -395,7 +323,7 @@
     if ([segue.destinationViewController isKindOfClass:[MOTopTableTableViewController class]]) {
         MOTopTableTableViewController *destinVC = segue.destinationViewController;
         
-        if (self.pieChartSegmentControl.selectedSegmentIndex == 0) {
+        if (self.selectedView == 0) {
             
             
             destinVC.submissions = self.objectsForPosition;
@@ -404,7 +332,7 @@
             
         }
         
-        if (self.pieChartSegmentControl.selectedSegmentIndex == 1) {
+        if (self.selectedView == 1) {
             
             destinVC.submitted = self.objectsForPosition;
             destinVC.segmentIndex = 1;
@@ -413,7 +341,33 @@
         
     }
     
-//}
+    if([segue.destinationViewController isKindOfClass:[MOOptionsViewController class]]){
+        
+        MZFormSheetSegue *formSheetSegue = (MZFormSheetSegue *)segue;
+        MZFormSheetController *formSheet = formSheetSegue.formSheetController;
+        formSheet.transitionStyle = MZFormSheetTransitionStyleBounce;
+        formSheet.cornerRadius = 8.0;
+        formSheet.didTapOnBackgroundViewCompletionHandler = ^(CGPoint location){
+            
+        };
+        
+        formSheet.shouldDismissOnBackgroundViewTap = NO;
+        formSheet.didPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
+        
+        };
+        
+        MOOptionsViewController *destinVC = segue.destinationViewController;
+        destinVC.deleagate = self;
+        destinVC.selectedViewSegmentController.selectedSegmentIndex = self.selectedView;
+        if (self.showPercentageCurrent == 0) {
+            [destinVC.percentageSwitch setOn:NO];
+        }else{
+            [destinVC.percentageSwitch setOn:YES];
+        }
+        
+        
+    }
+    
 }
 
 
@@ -438,20 +392,177 @@
 - (IBAction)segementControllerPressed:(UISegmentedControl *)sender {
     
     //erases all the labels when the user deselects a slice of the pie chart
-    self.submissionSelectedLabel.text = nil;
-    self.submissionPositionLabel.text = nil;
-    self.topOrBottomLabel.text = nil;
-    self.percentageLabel.text = nil;
+    //self.submissionSelectedLabel.text = nil;
+    //self.submissionPositionLabel.text = nil;
+    //self.topOrBottomLabel.text = nil;
+    //self.percentageLabel.text = nil;
     
-    //This solved the readding of the percentage totals in the the calculated percentage method of didSelectedSliceAtIndex
-    self.percentageCalculated = nil;
+    
     //reloads all the data for the new segment
     [self.pieChart reloadData];
+    
 }
 
 
 
+-(NSMutableArray *)getTotalSubmissionForEachPosition:(NSMutableArray *)submissionObjectsAsPlist{
+    
+    NSURL *positions = [[NSBundle mainBundle] URLForResource:@"Positions" withExtension:@"plist"];
+    self.submissionsFromPlistArray = [NSArray arrayWithContentsOfURL:positions];
+    
+    NSLog(@"StatisticsViewController: submissionFromPlist: %@", self.submissionsFromPlistArray);
+    
+    int tmpInt = 0;
+    NSArray *tmpDic = [[NSArray alloc] init];
+    NSMutableArray * testArray = [[NSMutableArray alloc] init];
+    
+        for (NSString *item in self.submissionsFromPlistArray){
+            for (NSDictionary *submission in submissionObjectsAsPlist) {
+                if ([item isEqualToString:submission[SUBMISSION_POSITION]]){
+                    
+                    tmpInt += [submission[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_COUNTER] intValue];
+                }
+                
+                
+            }
+            if (tmpInt > 0) {
+            tmpDic = @[item, [NSNumber numberWithInt:tmpInt]];
+            [testArray addObject:tmpDic];
+            }
+            tmpDic = @[];
+            tmpInt = 0;
+        }
+        
+    NSLog(@"StatisticsViewController: testArray: %@", testArray);
+    
+    
+    
+    for (NSArray *item in testArray) {
+        if ([self.mySubmissionsAsPropertyList isEqualToArray:submissionObjectsAsPlist]) {
+        self.totalSubmissions +=  [item[1] intValue];
+    }
+        else if ([self.mySubmittedAsPropertyList isEqualToArray:submissionObjectsAsPlist]){
+            self.totalSubmitted += [item[1] intValue];
+        }
+            
+    }
+    
+    return testArray;
+}
 
+- (IBAction)changePieChartDisplay:(id)sender {
+    
+//    if ([self.navButton.title isEqualToString:@"Percentage"]) {
+//    
+//    [self.pieChart setShowPercentage:YES];
+//    [self.pieChart setShowLabel:YES];
+//    
+//    self.navButton.title = @"Position";
+//        
+//    } else if ([self.navButton.title isEqualToString:@"Position"]){
+//        [self.pieChart setShowPercentage:NO];
+//        [self.pieChart setShowLabel:YES];
+//        
+//        self.navButton.title = @"Percentage";
+//        
+//    }
+//    
+//    [self.pieChart reloadData];
+    UIViewController *optionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"options"];
+    
+    MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithViewController:optionVC];
+    
+    formSheet.presentedFormSheetSize = CGSizeMake(300, 200);
+    
+    formSheet.shadowRadius = 2.0;
+    formSheet.shadowOpacity = 0.3;
+    formSheet.shouldDismissOnBackgroundViewTap = YES;
+    formSheet.shouldCenterVertically = YES;
+    
+
+    
+    formSheet.willPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
+        presentedFSViewController.view.autoresizingMask = presentedFSViewController.view.autoresizingMask | UIViewAutoresizingFlexibleWidth;
+    };
+    
+    [formSheet presentAnimated:YES completionHandler:^(UIViewController *presentedFSViewController) {
+        
+    }];
+    
+    
+    //[self performSegueWithIdentifier:@"optionsSegue" sender:nil];
+}
+
+#pragma mark UICollectionView DataSource and Delegate
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    
+    if (self.selectedView == 0) {
+        return [self.percentageCalculatedSubmission count];
+    }else if(self.selectedView == 1){
+        return [self.percentageCalculatedSubmitted count];
+    }else{
+        return 0;
+    }
+    
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    
+    return 1;
+    
+}
+
+
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *reuseIdentifier = @"Cell";
+    
+    MOStatisticsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    
+    if (self.selectedView == 0) {
+        cell.keyLabel.text = self.percentageCalculatedSubmission[indexPath.row][0];
+        cell.colorView.backgroundColor = [self.sliceColors objectAtIndex:(indexPath.row % [self.sliceColors count])];
+        //cell.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1.0];
+        
+        
+    }else if (self.selectedView == 1){
+        
+        cell.keyLabel.text = self.percentageCalculatedSubmitted[indexPath.row][0];
+        cell.colorView.backgroundColor = [self.sliceColors objectAtIndex:(indexPath.row % [self.sliceColors count])];
+        //cell.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1.0];
+    }
+    
+    return cell;
+    
+    
+}
+
+#pragma mark MOOptionsViewControllerDelegate
+
+-(void)updateOptions:(int)segmentViewSelected :(int)showPercentage{
+    
+    NSLog(@"Statistics: segmentViewSelected %d and showPercentageState %d", segmentViewSelected, showPercentage);
+    
+    self.selectedView = segmentViewSelected;
+    self.showPercentageCurrent = showPercentage;
+    
+    if (showPercentage == 1) {
+        [self.pieChart setShowPercentage:YES];
+        [self.pieChart setShowLabel:YES];
+    }else{
+        [self.pieChart setShowLabel:NO];
+        [self.pieChart setShowPercentage:NO];
+    }
+    
+    [self setupTitle];
+    [self.pieChart reloadData];
+    [self.pieChartKey reloadData];
+    
+    
+}
 
 
 @end

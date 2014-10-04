@@ -10,21 +10,25 @@
 #import "XYPieChart.h"
 #import "MOSubmissionObject.h"
 #import "MOObjectConverter.h"
+#import "MOViewController.h"
+#import "MOTopTableTableViewController.h"
+#import "MOAppDelegate.h" 
+#import "MOOptionsViewController.h"
+#import "MZFormSheetController.h"
+#import "MZFormSheetSegue.h"
+#import "MOStatisticsCollectionViewCell.h"
 
-@interface MOStatisticsViewController : UIViewController<XYPieChartDelegate, XYPieChartDataSource>
+@interface MOStatisticsViewController : UIViewController <XYPieChartDelegate, XYPieChartDataSource, UICollectionViewDataSource, UICollectionViewDelegate, MOOptionsViewControllerSegueDelegate>
 
 @property (strong, nonatomic) IBOutlet XYPieChart *pieChart;
-@property (strong, nonatomic) IBOutlet UIView *statisticsLabelView;
 
 
-@property (strong, nonatomic) IBOutlet UILabel *submissionSelectedLabel;
-@property (strong, nonatomic) IBOutlet UILabel *submissionPositionLabel;
-@property (strong, nonatomic) IBOutlet UILabel *topOrBottomLabel;
-@property (strong, nonatomic) IBOutlet UILabel *percentageLabel;
 
-@property (strong, nonatomic) IBOutlet UISegmentedControl *pieChartSegmentControl;
+@property (strong, nonatomic) IBOutlet UICollectionView *pieChartKey;
 
-- (IBAction)segementControllerPressed:(UISegmentedControl *)sender;
+@property int selectedView;
+@property int showPercentageCurrent;
+
 
 
 
