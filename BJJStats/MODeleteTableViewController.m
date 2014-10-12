@@ -91,15 +91,20 @@
     //self.myDrawAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_DRAW_OBJECTS_KEY] mutableCopy];
     
     
+    //[[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
+    //[[MZFormSheetBackgroundWindow appearance] setBlurRadius:5.0];
+    //[[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
     
-    NSLog(@"mySubmittedAsPropertyList %@", self.mySubmittedAsPropertyList);
+    
+    //NSLog(@"mySubmittedAsPropertyList %@", self.mySubmittedAsPropertyList);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    [super viewWillAppear:YES];
-    [self viewDidLoad];
+    
     [self.tableView reloadData];
+    [self viewDidLoad];
+    [super viewWillAppear:YES];
     
 }
 
@@ -178,16 +183,19 @@
     
     self.indexPathStored = indexPath;
     
+    
     if (indexPath.section == 0) {
         
-    self.selectedObject = [self.mySubmissionsAsPropertyList objectAtIndex:indexPath.row];
+        self.selectedObject = [self.mySubmissionsAsPropertyList objectAtIndex:indexPath.row];
     
-    UITableViewHeaderFooterView *headerTitle = [self.tableView headerViewForSection:indexPath.section];
-    self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
+        UITableViewHeaderFooterView *headerTitle = [[UITableViewHeaderFooterView alloc] init];
         
-
-    
-    [self performSegueWithIdentifier:@"pushToDeleteViewController" sender:indexPath];
+        headerTitle = [self.tableView headerViewForSection:indexPath.section];
+        
+        self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
+        
+        NSLog(@"DeletionTableView1: section header is %@", self.sectionHeader);
+        //[self performSegueWithIdentifier:@"pushToDeleteViewController" sender:indexPath];
         
     }else if (indexPath.section == 1){
         
@@ -197,9 +205,33 @@
         self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
         
         
-        [self performSegueWithIdentifier:@"pushToDeleteViewController" sender:indexPath];
+        //[self performSegueWithIdentifier:@"pushToDeleteViewController" sender:indexPath];
         
     }
+    
+//    UIViewController *deleteVC = [self.storyboard instantiateViewControllerWithIdentifier:@"deletionView"];
+//    
+//    MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithViewController:deleteVC];
+//    
+//    formSheet.presentedFormSheetSize = CGSizeMake(304, 312);
+//    
+//    formSheet.shadowRadius = 2.0;
+//    formSheet.shadowOpacity = 0.3;
+//    formSheet.shouldDismissOnBackgroundViewTap = YES;
+//    formSheet.shouldCenterVertically = YES;
+//    
+//    
+//    
+//    formSheet.willPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
+//        presentedFSViewController.view.autoresizingMask = presentedFSViewController.view.autoresizingMask | UIViewAutoresizingFlexibleWidth;
+//    };
+//    
+//    [formSheet presentAnimated:YES completionHandler:^(UIViewController *presentedFSViewController) {
+//
+//        
+//    }];
+
+    //[self performSegueWithIdentifier:@"pushToDeleteViewController" sender:self];
     
     //else if (indexPath.section == 2){
         
@@ -209,7 +241,7 @@
         //self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
         
         
-        //[self performSegueWithIdentifier:@"pushToDeleteViewController" sender:indexPath];
+        [self performSegueWithIdentifier:@"pushToDeleteViewController" sender:self];
         
     //}
     
@@ -282,16 +314,34 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
-    MODeleteViewController *deleteVC = segue.destinationViewController;
-    
-    deleteVC.submissionObjectDict = self.selectedObject;
-    NSLog(@"The sections header is %@", self.sectionHeader);
-    
-    deleteVC.sectionHeaderRecieved = self.sectionHeader;
-    
-    deleteVC.indexOfSubmissionObject = self.indexPathStored;
-    
+        if([segue.destinationViewController isKindOfClass:[MODeleteViewController class]]){
+            
+            MODeleteViewController *deleteVC = segue.destinationViewController;
+            
+                
+                deleteVC.submissionObjectDict = self.selectedObject;
+                
+                NSLog(@"DeletionTableView2: Prepare For Segue The sections header is %@ and seletectedObjectAsDict is %@", self.sectionHeader, self.selectedObject);
+                
+                deleteVC.sectionHeaderRecieved = self.sectionHeader;
+                
+                deleteVC.indexOfSubmissionObject = self.indexPathStored;
+
+            
+//            MZFormSheetSegue *formSheetSegue = (MZFormSheetSegue *)segue;
+//            MZFormSheetController *formSheet = formSheetSegue.formSheetController;
+//            formSheet.transitionStyle = MZFormSheetTransitionStyleBounce;
+//            formSheet.cornerRadius = 8.0;
+//            formSheet.didTapOnBackgroundViewCompletionHandler = ^(CGPoint location){
+//                
+//            };
+//            
+//            formSheet.shouldDismissOnBackgroundViewTap = NO;
+//            formSheet.didPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
+//                
+//            };
+//            
+    }
 }
 
 

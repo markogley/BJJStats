@@ -169,11 +169,6 @@
         }
     }
     
-    //if (alreadyInArray == NO) {
-        //[objectsAsPropertyList addObject:[converter submissionObjectAsPropertyList:newObject]];
-        //NSLog(@"Persistance Manager: Submission added to the array");
-    //}
-    //if the object is already in the array its counter is incremented by 1 and the date is added. The dates can be checked later to see how many times they appear and can be subtracted from the total counter to get a picture of when and how many times on that date the submission happened. This is a work around till I figure out a better data model or a better method to compare.
     if (alreadyInArray == YES) {
         MOSubmissionObject *entryToUpdate = [converter submissionObjectForDictionary:objectsAsPropertyList[index]];
         

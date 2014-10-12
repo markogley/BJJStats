@@ -11,6 +11,8 @@
 #import "MODeleteViewController.h"
 #import "MOSubmissionObject.h"
 #import "MOObjectConverter.h"
+#import "MZFormSheetController.h"
+#import "MZFormSheetSegue.h"
 
 @interface MODeleteTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 

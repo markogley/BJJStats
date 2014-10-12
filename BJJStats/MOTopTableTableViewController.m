@@ -125,29 +125,29 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    if (self.segmentIndex == 0) {
+    //if (self.segmentIndex == 0) {
         
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        self.cellLabel = cell.textLabel.text;
+        //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        //self.cellLabel = cell.textLabel.text;
         
         
         //self.cellLabel = [[[tableView cellForRowAtIndexPath:indexPath] textLabel] text];
-    }
+    //}
     
-    if (self.segmentIndex == 1) {
+    //if (self.segmentIndex == 1) {
         
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        self.cellLabel = cell.textLabel.text;
+     //   UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+     //   self.cellLabel = cell.textLabel.text;
         
         //self.cellLabel = [[[tableView cellForRowAtIndexPath:indexPath] textLabel] text];
-    }
+    //}
     
-    NSLog(@"DidselectRow: %@", self.cellLabel);
+    //NSLog(@"DidselectRow: %@", self.cellLabel);
     //[self.navigationController performSegueWithIdentifier:@"collectionViewSegue" sender:self];
-}
+//}
 
 /*
 // Override to support conditional editing of the table view.
