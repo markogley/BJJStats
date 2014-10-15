@@ -145,78 +145,78 @@
 }
 
 //used to compare an edited object from the deleted view controller series to its original form
--(void)compareEditedSubmissionObjectToSavedData:(NSMutableArray *)objectsAsPropertyList newSubmissionObject:(MOSubmissionObject *)newObject sectionHeader:(NSString *)sectionHeader{
+//-(void)compareEditedSubmissionObjectToSavedData:(NSMutableArray *)objectsAsPropertyList newSubmissionObject:(MOSubmissionObject *)newObject sectionHeader:(NSString *)sectionHeader{
     
     //creates new converter from MOObjectConverter class
-    MOObjectConverter *converter = [[MOObjectConverter alloc] init];
-    NSDictionary *newSub = [converter submissionObjectAsPropertyList:newObject];
-    NSLog(@"Persistance Manager: The new submissionObject as dict is %@", newSub);
+    //MOObjectConverter *converter = [[MOObjectConverter alloc] init];
+    //NSDictionary *newSub = [converter submissionObjectAsPropertyList:newObject];
+    //NSLog(@"Persistance Manager: The new submissionObject as dict is %@", newSub);
     
     
-    BOOL alreadyInArray = NO;
-    int index = 0;
+    //BOOL alreadyInArray = NO;
+    //int index = 0;
     //compares the oldSubmission object already saved to the new one submitted to the method by three criteria: submission position/ToporBottom/Type
-    for (NSDictionary *entry in objectsAsPropertyList) {
+    //for (NSDictionary *entry in objectsAsPropertyList) {
         //need to compare submissionType, submissionPosition and submissionTopOrBottom but not counter
-        if ([[entry valueForKey:SUBMISSION_POSITION] isEqualToString:[newSub valueForKey:SUBMISSION_POSITION]] && [[entry valueForKey:SUBMISSION_TYPE] isEqualToString: [newSub valueForKey:SUBMISSION_TYPE]] && [[entry valueForKey:SUBMISSION_TOP_OR_BOTTOM] isEqualToString:[newSub valueForKey:SUBMISSION_TOP_OR_BOTTOM]] ) {
-            alreadyInArray = YES;
-            NSLog(@"Persistance Manager: This submission is already in the array");
-            break;
-        }else{
+        //if ([[entry valueForKey:SUBMISSION_POSITION] isEqualToString:[newSub valueForKey:SUBMISSION_POSITION]] && [[entry valueForKey:SUBMISSION_TYPE] isEqualToString: [newSub valueForKey:SUBMISSION_TYPE]] && [[entry valueForKey:SUBMISSION_TOP_OR_BOTTOM] isEqualToString:[newSub valueForKey:SUBMISSION_TOP_OR_BOTTOM]] ) {
+            //alreadyInArray = YES;
+            //NSLog(@"Persistance Manager: This submission is already in the array");
+            //break;
+        //}else{
             
-            index++;
-            NSLog(@"index is %d", index);
-        }
-    }
+            //index++;
+            //NSLog(@"index is %d", index);
+        //}
+    //}
     
-    if (alreadyInArray == YES) {
-        MOSubmissionObject *entryToUpdate = [converter submissionObjectForDictionary:objectsAsPropertyList[index]];
+    //if (alreadyInArray == YES) {
+        //MOSubmissionObject *entryToUpdate = [converter submissionObjectForDictionary:objectsAsPropertyList[index]];
         
-        if (entryToUpdate.counter > newObject.counter | newObject.counter == 0) {
-            NSLog(@"Persistance Manager: entryToUpdate Counter is larger than newObject");
-            NSMutableArray *newDatesArray = [newObject.datesArray mutableCopy];
+        //if (entryToUpdate.counter > newObject.counter | newObject.counter == 0) {
+            //NSLog(@"Persistance Manager: entryToUpdate Counter is larger than newObject");
+            //NSMutableArray *newDatesArray = [newObject.datesArray mutableCopy];
             //sets entry counter to equal new counter
-            entryToUpdate.counter = newObject.counter;
-            NSLog(@"Persistence Manager: entryToUpdate counter is now %i", entryToUpdate.counter);
+            //entryToUpdate.counter = newObject.counter;
+            //NSLog(@"Persistence Manager: entryToUpdate counter is now %i", entryToUpdate.counter);
             
-            if(entryToUpdate.counter == 0){
+            //if(entryToUpdate.counter == 0){
                 
-                [objectsAsPropertyList removeObjectAtIndex:index];
-                NSLog(@"Persistance Manager: The counter is 0 and the object as propertylist is %@", objectsAsPropertyList);
+                //[objectsAsPropertyList removeObjectAtIndex:index];
+                //NSLog(@"Persistance Manager: The counter is 0 and the object as propertylist is %@", objectsAsPropertyList);
                 //return objectsAsPropertyList;
-            }else{
+            //}else{
             //sets the newDates array to the old one on the submissionObject that needed to be updated using mutabkle copy
-            entryToUpdate.datesArray = [newDatesArray copy];
+            //entryToUpdate.datesArray = [newDatesArray copy];
             //converts the updated submissionObject back to a dictionary
-            NSDictionary *updatedEntryComplete = [converter submissionObjectAsPropertyList:entryToUpdate];
+            //NSDictionary *updatedEntryComplete = [converter submissionObjectAsPropertyList:entryToUpdate];
             //replaces the new dictionary over the old one in the same index spot
-            [objectsAsPropertyList replaceObjectAtIndex:index withObject:updatedEntryComplete];
+            //[objectsAsPropertyList replaceObjectAtIndex:index withObject:updatedEntryComplete];
          
-            }
-        }
+            //}
+        //}
         
-        if ([sectionHeader isEqualToString:@"SUBMISSIONS"]) {
-            [[NSUserDefaults standardUserDefaults] setObject:objectsAsPropertyList forKey:ADDED_SUBMISSION_OBJECTS_KEY];
-            [[NSUserDefaults standardUserDefaults] synchronize];
+        //if ([sectionHeader isEqualToString:@"SUBMISSIONS"]) {
+            //[[NSUserDefaults standardUserDefaults] setObject:objectsAsPropertyList forKey:ADDED_SUBMISSION_OBJECTS_KEY];
+            //[[NSUserDefaults standardUserDefaults] synchronize];
             
             
-        }
+        //}
         
-        if ([sectionHeader isEqualToString:@"SUBMITTED"]){
-            [[NSUserDefaults standardUserDefaults] setObject:objectsAsPropertyList forKey:ADDED_SUBMITTED_OBJECTS_KEY];
-            [[NSUserDefaults standardUserDefaults] synchronize];
+        //if ([sectionHeader isEqualToString:@"SUBMITTED"]){
+            //[[NSUserDefaults standardUserDefaults] setObject:objectsAsPropertyList forKey:ADDED_SUBMITTED_OBJECTS_KEY];
+            //[[NSUserDefaults standardUserDefaults] synchronize];
             
         //}else if ([sectionHeader isEqualToString:@"DRAW"]){
             //[[NSUserDefaults standardUserDefaults] setObject:objectsAsPropertyList forKey:ADDED_DRAW_OBJECTS_KEY];
             //[[NSUserDefaults standardUserDefaults] synchronize];
             
-        }
+        //}
 
         
-    }
+    //}
     
     
-}
+//}
 
 -(NSMutableArray *)compareNewMatchObjectToSavedMatchData:(NSMutableArray *)objectAsPropertyList newMatchObject:(MOMatchObject *)newObject{
     
@@ -270,12 +270,12 @@
     
 }
 
--(void)compareEditedMatchObjectToSavedData:(NSMutableArray *)objectAsPropertyList newMatchObject:(MOMatchObject *)newObject{
+//-(void)compareEditedMatchObjectToSavedData:(NSMutableArray *)objectAsPropertyList newMatchObject:(MOMatchObject *)newObject{
     
     
     
     
-}
+//}
 
 
 @end

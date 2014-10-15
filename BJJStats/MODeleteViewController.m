@@ -13,12 +13,22 @@
 @property (strong, nonatomic) MOObjectConverter *converter;
 @property (strong, nonatomic) IBOutlet UIView *detailDeleteView;
 @property (strong, nonatomic) IBOutlet UITableView *datesTableView;
+@property (strong, nonatomic) NSMutableArray *objectsAsPropertyList;
 
 
 
 @end
 
 @implementation MODeleteViewController
+
+-(NSMutableArray *)objectsAsPropertyList{
+    
+    if (!_objectsAsPropertyList) {
+        _objectsAsPropertyList = [[NSMutableArray alloc] init];
+    }
+    
+    return _objectsAsPropertyList;
+}
 
 
 -(NSDictionary *)submissionObjectDict{
@@ -65,14 +75,22 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //sets delegates for information passing
     self.datesTableView.delegate = self;
     self.datesTableView.dataSource = self;
     
+    
+    
+    
+    //sets up the view
     [self setupSubmissionObjectDetails];
+    [self getObjectsFromUserDefaults];
     
     
     self.view.backgroundColor = [UIColor clearColor];
     
+    //sets parameters for the tableView
     self.datesTableView.layer.borderWidth = 1.0;
     self.datesTableView.layer.borderColor = [UIColor blackColor].CGColor;
     
@@ -91,10 +109,26 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-//sometimes crashes the app
+
+
+//deals with crash on tableview that was crashing after editing it.
+//-(void)dealloc{
+    
+    //self.datesTableView.editing = NO;
+//}
+
+
 -(IBAction)finishedButtonPressed:(id)sender{
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [self.delegate reloadTableData];
+    
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    //UINavigationController *nav = (UINavigationController *)self.presentingViewController;
+    [self dismissViewControllerAnimated:YES completion:^{
+        //[nav popViewControllerAnimated:YES];
+        
+    }];
     
 }
 
@@ -123,6 +157,7 @@
     //view.layer.shadowOpacity = 0.25;
 }
 
+//loads the details from the submissionObjectAsDict sent to the view controller
 -(void)setupSubmissionObjectDetails{
     
     self.submissionTypeLabel.text = self.submissionObjectDict[SUBMISSION_TYPE];
@@ -133,136 +168,78 @@
     
 }
 
-//crashes app if their is 1 date left in an object and you try to delete it. Might rewrite to bypass this function or change fuction to something simpler that only requires replacing a old object with a new edited object. 
--(void)saveNewObject{
-    
-    MOObjectConverter *converter = [[MOObjectConverter alloc] init];
-    MOSubmissionObject *editedObject = [converter submissionObjectForDictionary:self.submissionObjectDict];
-    //[deletedObject decrementCounter];
-    
-    //NSMutableArray *updatedDates = [deletedObject.datesArray mutableCopy];
-    //[updatedDates removeObjectAtIndex:index.row];
-    //deletedObject.datesArray = [updatedDates copy];
-    
-    //once the dates array is empty this might be the spot to remove the object from NSUserdefaults and dismiss the viewcontroller
-    
-    //self.counterLabel.text = [NSString stringWithFormat:@"%i", deletedObject.counter];
-    
-    MOSubmissionsPersistenceManager *saveEditedSubmissionObject = [[MOSubmissionsPersistenceManager alloc]init];
-    
+
+//loads the right NSUserDefaults array depending on the section header sent.
+-(void)getObjectsFromUserDefaults{
     
     if ([self.sectionHeaderRecieved isEqualToString:@"SUBMISSIONS"]) {
-        
-        //open preveous submissions saved in NSUserDefaults
-        NSMutableArray *submissionObjectsAsPropertyLists = [[[NSUserDefaults standardUserDefaults]arrayForKey:ADDED_SUBMISSION_OBJECTS_KEY] mutableCopy];
-        
-        
-        [saveEditedSubmissionObject compareEditedSubmissionObjectToSavedData:submissionObjectsAsPropertyLists newSubmissionObject:editedObject sectionHeader:self.sectionHeaderRecieved];
-        
-        
-        //[[NSUserDefaults standardUserDefaults] setObject:submissionObjectsAsPropertyLists forKey:ADDED_SUBMISSION_OBJECTS_KEY];
-        //[[NSUserDefaults standardUserDefaults] synchronize];
+    
+    self.objectsAsPropertyList = [[[NSUserDefaults standardUserDefaults]arrayForKey:ADDED_SUBMISSION_OBJECTS_KEY] mutableCopy];
+    
+    NSLog(@"DeleteViewController: submissionObjectsAsPlist for SUBMISSIONS Header before %@", self.objectsAsPropertyList);
         
     }else if ([self.sectionHeaderRecieved isEqualToString:@"SUBMITTED"]){
         
-        //open preveous submitted saved in NSUserDefaults
-        NSMutableArray *submittedObjectsAsPropertyLists = [[[NSUserDefaults standardUserDefaults]arrayForKey:ADDED_SUBMITTED_OBJECTS_KEY] mutableCopy];
+        self.objectsAsPropertyList = [[[NSUserDefaults standardUserDefaults]arrayForKey:ADDED_SUBMITTED_OBJECTS_KEY] mutableCopy];
         
         
-        [saveEditedSubmissionObject compareEditedSubmissionObjectToSavedData:submittedObjectsAsPropertyLists newSubmissionObject:editedObject sectionHeader:self.sectionHeaderRecieved];
+        NSLog(@"DeleteViewController: submissionObjectsAsPlist for SUBMISSIONS Header before %@", self.objectsAsPropertyList);
         
-        //[[NSUserDefaults standardUserDefaults] setObject:submittedObjectsAsPropertyLists forKey:ADDED_SUBMITTED_OBJECTS_KEY];
-        //[[NSUserDefaults standardUserDefaults] synchronize];
-        
-        
-    }//else if ([self.sectionHeaderRecieved isEqualToString:@"DRAW"]){
-        
-        //NSMutableArray *drawObjectsAsPropertyLists = [[[NSUserDefaults standardUserDefaults]arrayForKey:ADDED_DRAW_OBJECTS_KEY] mutableCopy];
-        
-        
-        //[saveEditedSubmissionObject compareEditedSubmissionObjectToSavedData:drawObjectsAsPropertyLists newSubmissionObject:deletedObject sectionHeader:self.sectionHeaderRecieved];
-        
-    //}
+    }
+    
     
 }
-//deprecated with new commitEditingDelete tableview rewrite
-//-(void)reloadTableAfterEditing{
-//    
-//    NSLog(@"DeletionViewController: reloading Data submissionObjectAsDic %@", self.submissionObjectDict);
-//    
-//    if ([self.sectionHeaderRecieved isEqualToString:@"SUBMISSIONS"]) {
-//        NSLog(@"DeletionViewController: reloading Data for Submission");
-//        
-//        NSMutableArray *submissionObjectsAsPropertyLists = [[[NSUserDefaults standardUserDefaults]arrayForKey:ADDED_SUBMISSION_OBJECTS_KEY] mutableCopy];
-//        
-//        
-//        NSLog(@"DeletionController:IndexPath section %ld  row %ld", (long)self.indexOfSubmissionObject.section, (long)self.indexOfSubmissionObject.row);
-//        
-//        NSLog(@"DeletionController: submittedObjectsAsPropertyList %@", submissionObjectsAsPropertyLists);
-//        
-//        
-//        if (!submissionObjectsAsPropertyLists | !submissionObjectsAsPropertyLists.count) {
-//            self.submissionObjectDict = nil;
-//        }else{
-//            
-//        self.submissionObjectDict = [submissionObjectsAsPropertyLists  objectAtIndex:self.indexOfSubmissionObject.row];
-//        }
-//        
-//        NSLog(@"DeletionViewController: submissionObject %@", self.submissionObjectDict);
-//    
-//    }else if([self.sectionHeaderRecieved isEqualToString:@"SUBMITTED"]){
-//        
-//        NSLog(@"DeletionViewController: reloading Data for Submitted");
-//        
-//        NSMutableArray *submittedObjectsAsPropertyLists = [[[NSUserDefaults standardUserDefaults]arrayForKey:ADDED_SUBMITTED_OBJECTS_KEY] mutableCopy];
-//        
-//        NSLog(@"DeletionController:IndexPath section %ld  row %ld", (long)self.indexOfSubmissionObject.section, (long)self.indexOfSubmissionObject.row);
-//        
-//        NSLog(@"DeletionController: submittedObjects");
-//        
-//        if (!submittedObjectsAsPropertyLists | !submittedObjectsAsPropertyLists.count) {
-//            self.submissionObjectDict = nil;
-//        }else{
-//        
-//        self.submissionObjectDict = [submittedObjectsAsPropertyLists  objectAtIndex:self.indexOfSubmissionObject.row];
-//        }
-//        NSLog(@"DeletionViewController: submissionObject %@", self.submissionObjectDict);
-//        
-//    }//else if ([self.sectionHeaderRecieved isEqualToString:@"DRAW"]){
-//        
-//        //NSLog(@"DeletionViewController: reloading Data for Draw");
-//        
-//        //NSMutableArray *drawObjectsAsPropertyLists = [[[NSUserDefaults standardUserDefaults]arrayForKey:ADDED_DRAW_OBJECTS_KEY] mutableCopy];
-//        
-//        //NSLog(@"DeletionController:IndexPath section %ld  row %ld", (long)self.indexOfSubmissionObject.section, (long)self.indexOfSubmissionObject.row);
-//        
-//        //NSLog(@"DeletionController: submittedObjects %@", self.submissionObjectDict);
-//
-//        //if (self.indexOfSubmissionObject.row == 0 && [self.submissionObjectDict[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_COUNTER] integerValue] == 1) {
-//            //[self dismissViewControllerAnimated:YES completion:nil];
-//        //}else{
-//        //self.submissionObjectDict = [drawObjectsAsPropertyLists  objectAtIndex:self.indexOfSubmissionObject.row];
-//        //}
-//        //NSLog(@"DeletionViewController: submissionObject %@", self.submissionObjectDict);
-//        
-//   // }
-//    
-//}
 
+-(void)saveNewObject:(NSMutableDictionary *)editedObject{
+    
+    //checkes to make sure the counter is greater then 1
+    if ([editedObject[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_COUNTER] intValue] > 0) {
+    
+        //removes old object and replaces it with the edited object back in the array at the same index
+        [self.objectsAsPropertyList removeObjectAtIndex:self.indexOfSubmissionObject.row];
+        [self.objectsAsPropertyList insertObject:editedObject atIndex:self.indexOfSubmissionObject.row];
+        
+        NSLog(@"DeleteViewController: submissionObjectsAsPlist for SUBMISSIONS Header after when counter is greater than 0 %@", self.objectsAsPropertyList);
+        
+    //if the object counter equals 0 it removes it from the submissions/submitted list array
+    }else if ([editedObject[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_COUNTER] intValue] == 0){
+        
+        [self.objectsAsPropertyList removeObjectAtIndex:self.indexOfSubmissionObject.row];
+        
+        NSLog(@"DeleteViewController: submissionObjectsAsPlist for SUBMISSIONS Header after when counter is equal to 0 %@", self.objectsAsPropertyList);
+    }
+    
+    //saves to the appropriate place
+    if ([self.sectionHeaderRecieved isEqualToString:@"SUBMISSIONS"]) {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:self.objectsAsPropertyList forKey:ADDED_SUBMISSION_OBJECTS_KEY];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        
+    }else if ([self.sectionHeaderRecieved isEqualToString:@"SUBMITTED"]){
+        
+        [[NSUserDefaults standardUserDefaults] setObject: self.objectsAsPropertyList forKey:ADDED_SUBMITTED_OBJECTS_KEY];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }
+
+    
+}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *CellIdentifier = @"Cell";
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = [self.submissionObjectDict[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_DATE] objectAtIndex:indexPath.row];
-    NSLog(@"DeleteViewController: Date for table %@", [self.submissionObjectDict[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_DATE] objectAtIndex:indexPath.row]);
+    if (self.submissionObjectDict) {
     
-    cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.textColor = [UIColor colorWithRed: 0.29 green: 0.47 blue: 0.75 alpha: 1.0];
-    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17.0];
+        cell.textLabel.text = [self.submissionObjectDict[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_DATE] objectAtIndex:indexPath.row];
+        NSLog(@"DeleteViewController: Date for table %@", [self.submissionObjectDict[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_DATE] objectAtIndex:indexPath.row]);
     
+        cell.backgroundColor = [UIColor clearColor];
+        cell.textLabel.textColor = [UIColor colorWithRed: 0.29 green: 0.47 blue: 0.75 alpha: 1.0];
+        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17.0];
+    }
     return cell;
     
 }
@@ -293,58 +270,80 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [self.datesTableView beginUpdates];
         NSLog(@"DeleteViewController: Editing Deletion Started!!!");
         
-        
-        NSMutableArray *tmpDatesArray = [ self.submissionObjectDict[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_DATE] mutableCopy];
+        //creates temporary array to store dates so they can be modified
+        NSMutableArray *tmpDatesArray = [self.submissionObjectDict[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_DATE] mutableCopy];
         NSLog(@"DeletionView: tmpDatesArray array before %@", tmpDatesArray);
         
+        //removed date after swiping to delete on table from datasource
         [tmpDatesArray removeObjectAtIndex:indexPath.row];
-        
+        //removes cell from table after clicking delete
+        [self.datesTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         NSLog(@"DeletionView: tmpDatesArray after %@", tmpDatesArray);
         
-        self.submissionObjectDict[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_DATE] = tmpDatesArray;
+        
+        //create temporary counter for modification
         int tmpCounter = [self.submissionObjectDict[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_COUNTER] intValue];
+        NSLog(@"DeleteViewController: copied counter data %d", tmpCounter);
+        
+        //updates the new counter
         
         NSNumber *updatedCounter = [NSNumber numberWithInt:(tmpCounter - 1)];
         
+        NSLog(@"DeleteViewController: setup new updated counter %@", updatedCounter);
+        
+        //makes a copy of the submission object
         NSMutableDictionary *tmpSubObject = [self.submissionObjectDict mutableCopy];
+        NSLog(@"DeleteViewController: copied submission object");
         
-        [tmpSubObject setValue:updatedCounter forKeyPath:@"Submission Counter and Date.Counter"];
+        //sets the new updates counter
+        //[[tmpSubObject objectForKey:@"Submission Counter and Date"] rem:@"Counter"];
         
-        NSLog(@"DeletionView: SubmissionObject after update %@", tmpSubObject);
+        NSMutableDictionary *tempStore = [[tmpSubObject  objectForKey:@"Submission Counter and Date" ] mutableCopy];
+        NSLog(@"DeleteViewController: temp store %@", tempStore);
+    
+    
+        [tempStore setObject:updatedCounter forKey:@"Counter"];
+        [tempStore setObject:tmpDatesArray forKey:@"Date"];
         
-        [tableView reloadData];
-        [self setupSubmissionObjectDetails];
+        NSLog(@"DeleteViewController: counter updated");
         
-        //rewrite new save method that might not need the persistance manager to impliment
-        //[self saveNewObject];
+        //sets new dates array into modified object
+        //[[tmpSubObject objectForKey:@"Submission Counter and Date" ] removeObjectForKey:@"Date"];
+        //[[tmpSubObject  objectForKey:@"Submission Counter and Date" ] setObject:tmpDatesArray forKey:@"Date"];
         
+        NSLog(@"DeleteViewController: dates updated");
         
+        NSLog(@"DeleteViewController: temp store %@", tempStore);
         
-        //[tableView beginUpdates];
-        //if ([self.submissionObjectDict[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_COUNTER] integerValue]== 1) {
+        [tmpSubObject setObject:tempStore forKey:@"Submission Counter and Date"];
+        
+        NSLog(@"DeleteViewController: table reloaded and new object details %@", tmpSubObject);
+        
+        //saves the the new editied object to to NSUserDefaults
+        [self saveNewObject:tmpSubObject];
+        
+        self.submissionObjectDict = tmpSubObject;
+        
+        //reloads the table data
+        //[tableView reloadData];
+        
+        if (tmpCounter == 0) {
+            [self finishedButtonPressed:nil];
+        }else{
             
+            //reload the details to reflect the updated information
+            [self setupSubmissionObjectDetails];
             
-            
-        //}else{
-        //[self removeDateFromObject:indexPath];
-        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        //if (self.submissionObjectDict[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_COUNTER] == 0) {
-        //    [self dismissViewControllerAnimated:YES completion:nil];
-        //}
+        }
         
-        //if ([self.counterLabel.text isEqualToString:@"0"]) {
-            //[self dismissViewControllerAnimated:YES completion:nil];
-        //}
+        [self.datesTableView endUpdates];
         
-        //[self reloadTableAfterEditing];
-        //}
-        //[tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         
-
         
-        //[tableView endUpdates];
         
     }
     
@@ -355,11 +354,16 @@
     NSString *sectionName;
     
     switch (section) {
+            
         case 0:
+            
             sectionName = @"Dates";
             break;
+        
         default:
+            
             break;
+            
     }
     
     return sectionName;

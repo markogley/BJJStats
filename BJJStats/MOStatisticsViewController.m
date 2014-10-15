@@ -23,7 +23,7 @@
 @property (strong, nonatomic) NSMutableArray *percentageCalculatedSubmitted;
 @property (strong, nonatomic) NSMutableArray *objectsForPosition;
 @property (strong, nonatomic) NSString *positionSelected;
-@property (strong, nonatomic) NSArray *submissionsFromPlistArray;
+@property (strong, nonatomic) NSArray *positionsFromPlistArray;
 @property (strong, nonatomic) IBOutlet UIView *collectionHolder;
 
 @property int totalSubmissions;
@@ -113,6 +113,8 @@
     
     self.percentageCalculatedSubmission = [self getTotalSubmissionForEachPosition:self.mySubmissionsAsPropertyList];
     self.percentageCalculatedSubmitted = [self getTotalSubmissionForEachPosition:self.mySubmittedAsPropertyList];
+    
+    NSLog(@"StatisticsViewController: percentageSubmission %@ and percentageSubmitted %@", self.percentageCalculatedSubmission, self.percentageCalculatedSubmitted);
     
     [[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
     [[MZFormSheetBackgroundWindow appearance] setBlurRadius:5.0];
@@ -229,10 +231,18 @@
     float percentage = 0;
     
     
-    valueOfCounter = [self.percentageCalculatedSubmission[index][1] intValue];
+    if(self.selectedView == 0 && [self.percentageCalculatedSubmission count] > 0){
+        
+        valueOfCounter = [self.percentageCalculatedSubmission[index][1] intValue];
+        percentage = (float)valueOfCounter/self.totalSubmissions * 100;
+    }
     
-    
-    percentage = (float)valueOfCounter/self.totalSubmissions * 100;
+    if (self.selectedView == 1 && [self.percentageCalculatedSubmitted count] > 0){
+        
+        valueOfCounter = [self.percentageCalculatedSubmitted[index][1] intValue];
+        percentage = (float)valueOfCounter/self.totalSubmitted * 100;
+        
+    }
     
     
     return percentage;
@@ -323,6 +333,7 @@
     if ([segue.destinationViewController isKindOfClass:[MOTopTableTableViewController class]]) {
         MOTopTableTableViewController *destinVC = segue.destinationViewController;
         
+        
         if (self.selectedView == 0) {
             
             
@@ -408,15 +419,15 @@
 -(NSMutableArray *)getTotalSubmissionForEachPosition:(NSMutableArray *)submissionObjectsAsPlist{
     
     NSURL *positions = [[NSBundle mainBundle] URLForResource:@"Positions" withExtension:@"plist"];
-    self.submissionsFromPlistArray = [NSArray arrayWithContentsOfURL:positions];
+    self.positionsFromPlistArray = [NSArray arrayWithContentsOfURL:positions];
     
-    NSLog(@"StatisticsViewController: submissionFromPlist: %@", self.submissionsFromPlistArray);
+    NSLog(@"StatisticsViewController: submissionFromPlist: %@", self.positionsFromPlistArray);
     
     int tmpInt = 0;
     NSArray *tmpDic = [[NSArray alloc] init];
     NSMutableArray * testArray = [[NSMutableArray alloc] init];
     
-        for (NSString *item in self.submissionsFromPlistArray){
+        for (NSString *item in self.positionsFromPlistArray){
             for (NSDictionary *submission in submissionObjectsAsPlist) {
                 if ([item isEqualToString:submission[SUBMISSION_POSITION]]){
                     

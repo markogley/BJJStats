@@ -8,10 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "MOSubmissionObject.h"
-#import "MOObjectConverter.h"
 #import "MOSubmissionsPersistenceManager.h"
 
+@protocol MODeleteViewControllerDelegate <NSObject>
+
+-(void)reloadTableData;
+
+@end
+
+
 @interface MODeleteViewController : UIViewController
+
+
+@property (weak, nonatomic) id<MODeleteViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) NSDictionary *submissionObjectDict;
 @property (strong, nonatomic) NSString *sectionHeaderRecieved;
@@ -22,6 +31,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *submissionPositionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *topOrBottomLabel;
 @property (strong, nonatomic) IBOutlet UILabel *counterLabel;
+@property (strong, nonatomic) IBOutlet UIView *deleteModalView;
 
 
 

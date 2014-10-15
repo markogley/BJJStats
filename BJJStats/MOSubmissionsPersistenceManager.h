@@ -24,10 +24,10 @@
 -(void)addMatchObject:(MOMatchObject *)matchObject;
 
 -(NSMutableArray *)compareNewSubmissionObjectToSavedData:(NSMutableArray *)objectsAsPropertyList newSubmissionObject:(MOSubmissionObject *)newObject;
--(void)compareEditedSubmissionObjectToSavedData:(NSMutableArray *)objectsAsPropertyList newSubmissionObject:(MOSubmissionObject *)newObject sectionHeader:(NSString *)sectionHeader;
+//-(void)compareEditedSubmissionObjectToSavedData:(NSMutableArray *)objectsAsPropertyList newSubmissionObject:(MOSubmissionObject *)newObject sectionHeader:(NSString *)sectionHeader;
 
 
 -(NSMutableArray *)compareNewMatchObjectToSavedMatchData:(NSMutableArray *)objectAsPropertyList newMatchObject:(MOMatchObject *)newObject;
--(void)compareEditedMatchObjectToSavedData:(NSMutableArray *)objectAsPropertyList newMatchObject:(MOMatchObject *)newObject;
+//-(void)compareEditedMatchObjectToSavedData:(NSMutableArray *)objectAsPropertyList newMatchObject:(MOMatchObject *)newObject;
 
 @end

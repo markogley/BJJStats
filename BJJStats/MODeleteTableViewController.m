@@ -78,33 +78,43 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.mySubmissionsAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_SUBMISSION_OBJECTS_KEY] mutableCopy];
-    
-    //Gets the data stored in NSUserDefaults for submitted
-    self.mySubmittedAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_SUBMITTED_OBJECTS_KEY] mutableCopy];
-    
-    //self.myDrawAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_DRAW_OBJECTS_KEY] mutableCopy];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     
     //[[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
     //[[MZFormSheetBackgroundWindow appearance] setBlurRadius:5.0];
     //[[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
     
+    //Gets the data stored in NSUserDefaults for submissions
+    self.mySubmissionsAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_SUBMISSION_OBJECTS_KEY] mutableCopy];
     
-    //NSLog(@"mySubmittedAsPropertyList %@", self.mySubmittedAsPropertyList);
+    //Gets the data stored in NSUserDefaults for submitted
+    self.mySubmittedAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_SUBMITTED_OBJECTS_KEY] mutableCopy];
+    
+//    int index = 0;
+//    for (NSMutableDictionary *item in self.mySubmissionsAsPropertyList) {
+//        if ([item[SUBMISSION_TYPE] isEqualToString:@"Read Naked Choke"]) {
+//            NSMutableArray *tmpDic = [self.mySubmissionsAsPropertyList mutableCopy];
+//            [tmpDic removeObjectAtIndex:index];
+//            
+//            [[NSUserDefaults standardUserDefaults] setObject:tmpDic forKey:ADDED_SUBMISSION_OBJECTS_KEY];
+//            [[NSUserDefaults standardUserDefaults] synchronize];
+//        }else{
+//            index++;
+//        }
+//    }
+    
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
     
-    [self.tableView reloadData];
-    [self viewDidLoad];
+    
     [super viewWillAppear:YES];
+    [self.tableView reloadData];
     
 }
 
@@ -112,6 +122,23 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark MODeleteViewControllerDelegate
+
+-(void)reloadTableData{
+    
+    NSLog(@"DeletionTableView: Delegate Fired Up");
+    
+    self.tableView.dataSource = nil;
+    
+    [self viewDidLoad];
+    
+    NSLog(@"DeleteTabelView: reloading Data");
+    [self.tableView reloadData];
+    NSLog(@"DeleteTabelView: data reloaded");
+    
+    
 }
 
 #pragma mark - Table view data source
@@ -194,7 +221,7 @@
         
         self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
         
-        NSLog(@"DeletionTableView1: section header is %@", self.sectionHeader);
+        
         //[self performSegueWithIdentifier:@"pushToDeleteViewController" sender:indexPath];
         
     }else if (indexPath.section == 1){
@@ -321,11 +348,11 @@
                 
                 deleteVC.submissionObjectDict = self.selectedObject;
                 
-                NSLog(@"DeletionTableView2: Prepare For Segue The sections header is %@ and seletectedObjectAsDict is %@", self.sectionHeader, self.selectedObject);
-                
                 deleteVC.sectionHeaderRecieved = self.sectionHeader;
                 
                 deleteVC.indexOfSubmissionObject = self.indexPathStored;
+            
+                deleteVC.delegate = self;
 
             
 //            MZFormSheetSegue *formSheetSegue = (MZFormSheetSegue *)segue;

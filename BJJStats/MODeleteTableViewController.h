@@ -13,7 +13,8 @@
 #import "MOObjectConverter.h"
 #import "MZFormSheetController.h"
 #import "MZFormSheetSegue.h"
+#import "MODeleteViewController.h"
 
-@interface MODeleteTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface MODeleteTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, MODeleteViewControllerDelegate>
 
 @end
