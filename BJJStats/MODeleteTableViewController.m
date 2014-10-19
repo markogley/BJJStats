@@ -82,9 +82,9 @@
     self.tableView.dataSource = self;
     
     
-    //[[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
-    //[[MZFormSheetBackgroundWindow appearance] setBlurRadius:5.0];
-    //[[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
+    [[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
+    [[MZFormSheetBackgroundWindow appearance] setBlurRadius:5.0];
+    [[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
     
     //Gets the data stored in NSUserDefaults for submissions
     self.mySubmissionsAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_SUBMISSION_OBJECTS_KEY] mutableCopy];
@@ -236,6 +236,32 @@
         
     }
     
+    UIViewController *deleteVC = [self.storyboard instantiateViewControllerWithIdentifier:@"delete"];
+    
+    MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithViewController:deleteVC];
+    
+    formSheet.presentedFormSheetSize = CGSizeMake(304, 312);
+    
+    formSheet.shadowRadius = 2.0;
+    formSheet.shadowOpacity = 0.3;
+    formSheet.shouldDismissOnBackgroundViewTap = NO;
+    formSheet.shouldCenterVertically = YES;
+    
+    
+    
+    formSheet.willPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
+        presentedFSViewController.view.autoresizingMask = presentedFSViewController.view.autoresizingMask | UIViewAutoresizingFlexibleWidth;
+        
+        NSLog(@"Will Present MZFormSheet");
+        
+        
+    };
+    
+    [formSheet presentAnimated:YES completionHandler:^(UIViewController *presentedFSViewController) {
+        
+    }];
+
+    
 //    UIViewController *deleteVC = [self.storyboard instantiateViewControllerWithIdentifier:@"deletionView"];
 //    
 //    MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithViewController:deleteVC];
@@ -268,7 +294,7 @@
         //self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
         
         
-        [self performSegueWithIdentifier:@"pushToDeleteViewController" sender:self];
+        //[self performSegueWithIdentifier:@"pushToDeleteViewController" sender:self];
         
     //}
     
@@ -341,36 +367,31 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-        if([segue.destinationViewController isKindOfClass:[MODeleteViewController class]]){
+    //if ([segue.identifier isEqualToString:@"pushToDeleteViewCOntroller"]) {
+        if([segue.identifier isEqualToString:@"pushToDeletionViewController"]){
             
+            MZFormSheetSegue *formSheetSegue = (MZFormSheetSegue *)segue;
+            MZFormSheetController *formSheet = formSheetSegue.formSheetController;
+            formSheet.transitionStyle = MZFormSheetTransitionStyleBounce;
+            formSheet.cornerRadius = 8.0;
+            formSheet.didTapOnBackgroundViewCompletionHandler = ^(CGPoint location){
+                
+            };
+            
+            formSheet.shouldDismissOnBackgroundViewTap = NO;
+            formSheet.didPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
+                
+                
+            };
             MODeleteViewController *deleteVC = segue.destinationViewController;
+            deleteVC.delegate = self;
+            deleteVC.submissionObjectDict = self.selectedObject;
+            deleteVC.indexOfSubmissionObject =self.indexPathStored;
+            deleteVC.sectionHeaderRecieved = self.sectionHeader;
             
-                
-                deleteVC.submissionObjectDict = self.selectedObject;
-                
-                deleteVC.sectionHeaderRecieved = self.sectionHeader;
-                
-                deleteVC.indexOfSubmissionObject = self.indexPathStored;
-            
-                deleteVC.delegate = self;
-
-            
-//            MZFormSheetSegue *formSheetSegue = (MZFormSheetSegue *)segue;
-//            MZFormSheetController *formSheet = formSheetSegue.formSheetController;
-//            formSheet.transitionStyle = MZFormSheetTransitionStyleBounce;
-//            formSheet.cornerRadius = 8.0;
-//            formSheet.didTapOnBackgroundViewCompletionHandler = ^(CGPoint location){
-//                
-//            };
-//            
-//            formSheet.shouldDismissOnBackgroundViewTap = NO;
-//            formSheet.didPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
-//                
-//            };
-//            
+        //}
     }
 }
-
 
 
 @end

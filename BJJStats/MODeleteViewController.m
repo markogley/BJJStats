@@ -7,6 +7,7 @@
 //
 
 #import "MODeleteViewController.h"
+#import "MZFormSheetController.h"
 
 @interface MODeleteViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -121,14 +122,20 @@
 -(IBAction)finishedButtonPressed:(id)sender{
     
     
-    [self.delegate reloadTableData];
+    
     
     //[self dismissViewControllerAnimated:YES completion:nil];
     //UINavigationController *nav = (UINavigationController *)self.presentingViewController;
-    [self dismissViewControllerAnimated:YES completion:^{
+    //[self dismissViewControllerAnimated:YES completion:^{
         //[nav popViewControllerAnimated:YES];
         
+    //}];
+    [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+        
+        [self.delegate reloadTableData];
+        
     }];
+
     
 }
 
