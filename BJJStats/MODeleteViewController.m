@@ -7,12 +7,7 @@
 //
 
 #import "MODeleteViewController.h"
-<<<<<<< HEAD
 #import "UIViewController+MJPopupViewController.h"
-
-=======
-#import "MZFormSheetController.h"
->>>>>>> dfa9bc12b921b2cbcd45feb3913a61ec9a7566f8
 
 @interface MODeleteViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -137,15 +132,6 @@
         //[nav popViewControllerAnimated:YES];
         
     //}];
-<<<<<<< HEAD
-=======
-    [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
-        
-        [self.delegate reloadTableData];
-        
-    }];
-
->>>>>>> dfa9bc12b921b2cbcd45feb3913a61ec9a7566f8
     
     [self.delegate reloadTableData];
     //[self dismissViewControllerAnimated:YES completion:nil];
