@@ -15,6 +15,10 @@
 #import "MOCustomCollectionViewCell.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "CSStickyHeaderFlowLayoutAttributes.h"
+#import "MOCollectionViewDetailViewController.h"
+#import "UIViewController+MJPopupViewController.h"
+#import "FPPopoverController.h"
+
 
 
 @interface MOMoreCollectionViewController ()
@@ -87,6 +91,8 @@
     //[self retrieveYouTubeVideoLinks];
     NSLog(@"MoreCollectionViewController: JSONResponse %@", self.youTubeJSONResponseAsArray);
     
+    self.collectionView.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0];
+    
     
     // Do any additional setup after loading the view.
 }
@@ -95,6 +101,32 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//-(void)setupView{
+    //self.view.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0];
+    
+    //[self addShadowForView:];
+    //[self addShadowForView:self.buttonView];
+    //do want to clip any subviews of the imageView
+//}
+
+//-(void)addShadowForView:(UIView *)view{
+    
+    //any subviews will be clipped
+    //view.layer.masksToBounds = NO;
+    //rounds corners of the view
+    //view.layer.cornerRadius = 8;
+    //size of shadow raidius
+    //view.layer.shadowRadius = 1;
+    //tweak to allow iPhone 4 to load shadows without hindering performace of XYPieChart animations
+    //view.layer.shadowPath = [[UIBezierPath bezierPathWithRect:view.bounds] CGPath];
+    //how the shadow is oriented to the view
+    //view.layer.shadowOffset = CGSizeMake(0, 1);
+    //sets alpha for shadow
+    //view.layer.shadowOpacity = 0.25;
+    
+//}
+
 
 /*
 #pragma mark - Navigation
@@ -137,12 +169,23 @@
     //cell.backgroundColor = [UIColor blackColor];
     
         
-    NSString *youTubeVideoLink = [NSString stringWithFormat:@"<iframe width= %f height= %f src=http://www.youtube.com/embed/%@ frameborder=0 allowfullscreen></iframe>", cell.youtubeVideoWebView.frame.size.width, cell.youtubeVideoWebView.frame.size.height, item[@"id"][@"videoId"]];
-        
-        
-    [cell.youtubeVideoWebView loadHTMLString:youTubeVideoLink baseURL:nil];
-        
+    //NSString *youTubeVideoLink = [NSString stringWithFormat:@"<iframe width= %f height= %f src=http://www.youtube.com/embed/%@ frameborder=0 allowfullscreen></iframe>", cell.youtubeVideoWebView.frame.size.width, cell.youtubeVideoWebView.frame.size.height, item[@"id"][@"videoId"]];
     
+    NSURL *url = [NSURL URLWithString:item[@"snippet"][@"thumbnails"][@"high"][@"url"]];
+    
+    NSData *imageData = [NSData dataWithContentsOfURL:url];
+    
+    cell.youtubeImageView.image = [UIImage imageWithData:imageData];
+    
+        
+        
+    //[cell.youtubeVideoWebView loadHTMLString:youTubeVideoLink baseURL:nil];
+        
+    cell.layer.masksToBounds = NO;
+    cell.layer.cornerRadius = 8;
+    cell.layer.shadowRadius = 1;
+    cell.layer.shadowOffset = CGSizeMake(0, 1);
+    cell.layer.shadowOpacity = 0.25;
     
     //MOCustomCollectionViewCell *header = [collectionView dequeueReusableCellWithReuseIdentifier:@"Header" forIndexPath:indexPath];
     
@@ -155,6 +198,8 @@
         
         //return header;
         //}
+    //[self webViewDidFinishLoad:cell.youtubeVideoWebView];
+    
 
     return cell;
 
@@ -202,6 +247,13 @@
         NSLog(@"CollectionView: Title per cell: %@", title);
         
         cell.videoTitleLabel.text = title;
+        
+        cell.layer.masksToBounds = NO;
+        cell.layer.cornerRadius = 8;
+        cell.layer.shadowRadius = 1;
+        cell.layer.shadowOffset = CGSizeMake(0, 1);
+        cell.layer.shadowOpacity = 0.25;
+        
         return cell;
     }
     
@@ -221,12 +273,45 @@
 }
 */
 
-/*
-// Uncomment this method to specify if the specified item should be selected
+
+//Uncomment this method to specify if the specified item should be selected
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
-*/
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSDictionary *item = self.youTubeJSONResponseAsArray[indexPath.section];
+    
+    //create access to your storyboard
+    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    //instantiate you view from the storyboard access
+    MOCollectionViewDetailViewController *details =[mainStoryBoard instantiateViewControllerWithIdentifier:@"collectionViewDetailView"];
+    
+    details.title = item[@"snippet"][@"title"];
+    
+    
+    //create toy FPPopOverClass view
+    FPPopoverController *test = [[FPPopoverController alloc] initWithViewController:details];
+    
+    test.contentSize = CGSizeMake(304, 200
+                                  );
+    test.tint = FPPopoverLightGrayTint;
+    test.border = NO;
+    test.alpha = 0.95;
+    
+    
+    NSLog(@"POPOver: %@", item[@"snippet"][@"title"]);
+    
+    //sets the animation to come from the cell
+    UIView *cellView = [collectionView cellForItemAtIndexPath:indexPath];
+    
+    
+    //presents the FPPopOverView
+    [test presentPopoverFromView:cellView];
+    
+}
 
 /*
 // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
@@ -242,6 +327,9 @@
 	
 }
 */
+
+
+
 
 -(void)retrieveYouTubeVideoLinks{
     

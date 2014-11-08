@@ -19,5 +19,6 @@
 @property (weak, nonatomic) id<MOOptionsViewControllerSegueDelegate> deleagate;
 @property (strong, nonatomic) IBOutlet UISwitch *percentageSwitch;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *selectedViewSegmentController;
+@property (weak, nonatomic) IBOutlet UIView *optionsView;
 
 @end

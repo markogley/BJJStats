@@ -14,5 +14,8 @@
 
 @property (strong, nonatomic) IBOutlet UIWebView *youtubeVideoWebView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *youtubeImageView;
+
+
 
 @end

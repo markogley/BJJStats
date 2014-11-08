@@ -32,8 +32,13 @@
 		5B24DFD819B3553A007223BA /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B24DFC519B3553A007223BA /* UIProgressView+AFNetworking.m */; };
 		5B24DFD919B3553A007223BA /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B24DFC719B3553A007223BA /* UIRefreshControl+AFNetworking.m */; };
 		5B24DFDA19B3553A007223BA /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B24DFC919B3553A007223BA /* UIWebView+AFNetworking.m */; };
+		5B25A84C1A04DF3000DCADEE /* MOCollectionViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B25A84B1A04DF3000DCADEE /* MOCollectionViewDetailViewController.m */; };
+		5B25A8651A04E6FD00DCADEE /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B25A8601A04E6FD00DCADEE /* FPPopoverController.m */; };
+		5B25A8661A04E6FD00DCADEE /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B25A8621A04E6FD00DCADEE /* FPPopoverView.m */; };
+		5B25A8671A04E6FD00DCADEE /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B25A8641A04E6FD00DCADEE /* FPTouchView.m */; };
 		5B3253F219CE8E6C007D4174 /* MOTopTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3253F119CE8E6C007D4174 /* MOTopTableTableViewController.m */; };
 		5B4BE43419A9FFED006536CE /* MOMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE43319A9FFED006536CE /* MOMatchesViewController.m */; };
+		5B60B71619F8F27C00516ED7 /* MOModalSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B60B71519F8F27C00516ED7 /* MOModalSegue.m */; };
 		5B617F0B198D04EB008837DD /* MODeleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B617F0A198D04EB008837DD /* MODeleteTableViewController.m */; };
 		5B617F0F198D15B7008837DD /* MODeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B617F0E198D15B7008837DD /* MODeleteViewController.m */; };
 		5B640E5E19AB6C45000EAD45 /* MOMatchObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B640E5D19AB6C45000EAD45 /* MOMatchObject.m */; };
@@ -41,17 +46,10 @@
 		5B868D7E19D8006300DB7644 /* CollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B868D7D19D8006300DB7644 /* CollectionViewHeader.xib */; };
 		5B8FEEF119DEE52A00B40FFF /* MOOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEEF019DEE52A00B40FFF /* MOOptionsViewController.m */; };
 		5B8FEF1619DEF13E00B40FFF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B8FEF1519DEF13E00B40FFF /* QuartzCore.framework */; };
-		5B8FEF2E19DEF71600B40FFF /* MZFormSheetBackgroundWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF2019DEF71600B40FFF /* MZFormSheetBackgroundWindow.m */; };
-		5B8FEF2F19DEF71600B40FFF /* MZFormSheetBackgroundWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF2219DEF71600B40FFF /* MZFormSheetBackgroundWindowViewController.m */; };
-		5B8FEF3019DEF71600B40FFF /* MZFormSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF2419DEF71600B40FFF /* MZFormSheetController.m */; };
-		5B8FEF3119DEF71600B40FFF /* MZFormSheetSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF2619DEF71600B40FFF /* MZFormSheetSegue.m */; };
-		5B8FEF3219DEF71600B40FFF /* MZTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF2919DEF71600B40FFF /* MZTransition.m */; };
-		5B8FEF3319DEF71600B40FFF /* UIImage+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF2B19DEF71600B40FFF /* UIImage+Additional.m */; };
-		5B8FEF3419DEF71600B40FFF /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF2D19DEF71600B40FFF /* UIViewController+TargetViewController.m */; };
-		5B8FEF3A19DEF83600B40FFF /* MZAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF3719DEF83600B40FFF /* MZAppearance.m */; };
-		5B8FEF3B19DEF83600B40FFF /* NSInvocation+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEF3919DEF83600B40FFF /* NSInvocation+Copy.m */; };
 		5B9CF52D19DFC3C2004FBB5C /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9CF52C19DFC3C2004FBB5C /* Launch Screen.xib */; };
 		5B9CF53019DFD247004FBB5C /* MOStatisticsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9CF52F19DFD247004FBB5C /* MOStatisticsCollectionViewCell.m */; };
+		5B9FAB7319F9347D002C0D54 /* MJPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9FAB7019F9347D002C0D54 /* MJPopupBackgroundView.m */; };
+		5B9FAB7419F9347D002C0D54 /* UIViewController+MJPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9FAB7219F9347D002C0D54 /* UIViewController+MJPopupViewController.m */; };
 		5BABB284197A5F77009B636E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB283197A5F77009B636E /* Foundation.framework */; };
 		5BABB286197A5F77009B636E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB285197A5F77009B636E /* CoreGraphics.framework */; };
 		5BABB288197A5F77009B636E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BABB287197A5F77009B636E /* UIKit.framework */; };
@@ -137,10 +135,21 @@
 		5B24DFC719B3553A007223BA /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		5B24DFC819B3553A007223BA /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		5B24DFC919B3553A007223BA /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		5B25A84A1A04DF3000DCADEE /* MOCollectionViewDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOCollectionViewDetailViewController.h; sourceTree = "<group>"; };
+		5B25A84B1A04DF3000DCADEE /* MOCollectionViewDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOCollectionViewDetailViewController.m; sourceTree = "<group>"; };
+		5B25A85E1A04E6FD00DCADEE /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
+		5B25A85F1A04E6FD00DCADEE /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
+		5B25A8601A04E6FD00DCADEE /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
+		5B25A8611A04E6FD00DCADEE /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
+		5B25A8621A04E6FD00DCADEE /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
+		5B25A8631A04E6FD00DCADEE /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
+		5B25A8641A04E6FD00DCADEE /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
 		5B3253F019CE8E6C007D4174 /* MOTopTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOTopTableTableViewController.h; sourceTree = "<group>"; };
 		5B3253F119CE8E6C007D4174 /* MOTopTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOTopTableTableViewController.m; sourceTree = "<group>"; };
 		5B4BE43219A9FFED006536CE /* MOMatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMatchesViewController.h; sourceTree = "<group>"; };
 		5B4BE43319A9FFED006536CE /* MOMatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMatchesViewController.m; sourceTree = "<group>"; };
+		5B60B71419F8F27C00516ED7 /* MOModalSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOModalSegue.h; sourceTree = "<group>"; };
+		5B60B71519F8F27C00516ED7 /* MOModalSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOModalSegue.m; sourceTree = "<group>"; };
 		5B617F09198D04EB008837DD /* MODeleteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MODeleteTableViewController.h; sourceTree = "<group>"; };
 		5B617F0A198D04EB008837DD /* MODeleteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MODeleteTableViewController.m; sourceTree = "<group>"; };
 		5B617F0D198D15B7008837DD /* MODeleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MODeleteViewController.h; sourceTree = "<group>"; };
@@ -153,28 +162,13 @@
 		5B8FEEEF19DEE52A00B40FFF /* MOOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOptionsViewController.h; sourceTree = "<group>"; };
 		5B8FEEF019DEE52A00B40FFF /* MOOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOptionsViewController.m; sourceTree = "<group>"; };
 		5B8FEF1519DEF13E00B40FFF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		5B8FEF1F19DEF71600B40FFF /* MZFormSheetBackgroundWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetBackgroundWindow.h; sourceTree = "<group>"; };
-		5B8FEF2019DEF71600B40FFF /* MZFormSheetBackgroundWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetBackgroundWindow.m; sourceTree = "<group>"; };
-		5B8FEF2119DEF71600B40FFF /* MZFormSheetBackgroundWindowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetBackgroundWindowViewController.h; sourceTree = "<group>"; };
-		5B8FEF2219DEF71600B40FFF /* MZFormSheetBackgroundWindowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetBackgroundWindowViewController.m; sourceTree = "<group>"; };
-		5B8FEF2319DEF71600B40FFF /* MZFormSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetController.h; sourceTree = "<group>"; };
-		5B8FEF2419DEF71600B40FFF /* MZFormSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetController.m; sourceTree = "<group>"; };
-		5B8FEF2519DEF71600B40FFF /* MZFormSheetSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetSegue.h; sourceTree = "<group>"; };
-		5B8FEF2619DEF71600B40FFF /* MZFormSheetSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetSegue.m; sourceTree = "<group>"; };
-		5B8FEF2719DEF71600B40FFF /* MZMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMacro.h; sourceTree = "<group>"; };
-		5B8FEF2819DEF71600B40FFF /* MZTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZTransition.h; sourceTree = "<group>"; };
-		5B8FEF2919DEF71600B40FFF /* MZTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTransition.m; sourceTree = "<group>"; };
-		5B8FEF2A19DEF71600B40FFF /* UIImage+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additional.h"; sourceTree = "<group>"; };
-		5B8FEF2B19DEF71600B40FFF /* UIImage+Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additional.m"; sourceTree = "<group>"; };
-		5B8FEF2C19DEF71600B40FFF /* UIViewController+TargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TargetViewController.h"; sourceTree = "<group>"; };
-		5B8FEF2D19DEF71600B40FFF /* UIViewController+TargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TargetViewController.m"; sourceTree = "<group>"; };
-		5B8FEF3619DEF83600B40FFF /* MZAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZAppearance.h; sourceTree = "<group>"; };
-		5B8FEF3719DEF83600B40FFF /* MZAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZAppearance.m; sourceTree = "<group>"; };
-		5B8FEF3819DEF83600B40FFF /* NSInvocation+Copy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Copy.h"; sourceTree = "<group>"; };
-		5B8FEF3919DEF83600B40FFF /* NSInvocation+Copy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Copy.m"; sourceTree = "<group>"; };
 		5B9CF52C19DFC3C2004FBB5C /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		5B9CF52E19DFD247004FBB5C /* MOStatisticsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOStatisticsCollectionViewCell.h; sourceTree = "<group>"; };
 		5B9CF52F19DFD247004FBB5C /* MOStatisticsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOStatisticsCollectionViewCell.m; sourceTree = "<group>"; };
+		5B9FAB6F19F9347D002C0D54 /* MJPopupBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPopupBackgroundView.h; sourceTree = "<group>"; };
+		5B9FAB7019F9347D002C0D54 /* MJPopupBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPopupBackgroundView.m; sourceTree = "<group>"; };
+		5B9FAB7119F9347D002C0D54 /* UIViewController+MJPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MJPopupViewController.h"; sourceTree = "<group>"; };
+		5B9FAB7219F9347D002C0D54 /* UIViewController+MJPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MJPopupViewController.m"; sourceTree = "<group>"; };
 		5BABB280197A5F77009B636E /* BJJStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BJJStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BABB283197A5F77009B636E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5BABB285197A5F77009B636E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -231,6 +225,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B066B1F19F7AC0C0052CFCB /* Custom Transitions and Segues */ = {
+			isa = PBXGroup;
+			children = (
+				5B60B71419F8F27C00516ED7 /* MOModalSegue.h */,
+				5B60B71519F8F27C00516ED7 /* MOModalSegue.m */,
+			);
+			name = "Custom Transitions and Segues";
+			sourceTree = "<group>";
+		};
 		5B1CAF161983F44F00383D97 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +247,7 @@
 				5BABB2C8197A9EF6009B636E /* Home */,
 				5B1FB21B19892D0700B81387 /* Date Added */,
 				5B9CF53319E06C3B004FBB5C /* Options Segue */,
+				5B25A83B1A04D8E000DCADEE /* CollectionView Detail PopOver */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -354,12 +358,36 @@
 		5B24DFDC19B35556007223BA /* Imported Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5B8FEF1E19DEF71600B40FFF /* MZFormSheetController */,
+				5B25A8681A04E70A00DCADEE /* FPPopOver */,
+				5B9FAB6E19F9347D002C0D54 /* MJPopViewController */,
 				5B23BE2D19D7C31600C862D6 /* CSSStickyHeader */,
 				5B24DFDB19B35543007223BA /* AFNetworking */,
 				5BD5BB4719A0CAE600E2F1F8 /* XYPieChart */,
 			);
 			name = "Imported Frameworks";
+			sourceTree = "<group>";
+		};
+		5B25A83B1A04D8E000DCADEE /* CollectionView Detail PopOver */ = {
+			isa = PBXGroup;
+			children = (
+				5B25A84A1A04DF3000DCADEE /* MOCollectionViewDetailViewController.h */,
+				5B25A84B1A04DF3000DCADEE /* MOCollectionViewDetailViewController.m */,
+			);
+			name = "CollectionView Detail PopOver";
+			sourceTree = "<group>";
+		};
+		5B25A8681A04E70A00DCADEE /* FPPopOver */ = {
+			isa = PBXGroup;
+			children = (
+				5B25A85E1A04E6FD00DCADEE /* ARCMacros.h */,
+				5B25A85F1A04E6FD00DCADEE /* FPPopoverController.h */,
+				5B25A8601A04E6FD00DCADEE /* FPPopoverController.m */,
+				5B25A8611A04E6FD00DCADEE /* FPPopoverView.h */,
+				5B25A8621A04E6FD00DCADEE /* FPPopoverView.m */,
+				5B25A8631A04E6FD00DCADEE /* FPTouchView.h */,
+				5B25A8641A04E6FD00DCADEE /* FPTouchView.m */,
+			);
+			name = FPPopOver;
 			sourceTree = "<group>";
 		};
 		5B3253EF19CE8E37007D4174 /* Top TableView */ = {
@@ -412,40 +440,6 @@
 			name = "Match Object";
 			sourceTree = "<group>";
 		};
-		5B8FEF1E19DEF71600B40FFF /* MZFormSheetController */ = {
-			isa = PBXGroup;
-			children = (
-				5B8FEF3519DEF83600B40FFF /* Additional */,
-				5B8FEF1F19DEF71600B40FFF /* MZFormSheetBackgroundWindow.h */,
-				5B8FEF2019DEF71600B40FFF /* MZFormSheetBackgroundWindow.m */,
-				5B8FEF2119DEF71600B40FFF /* MZFormSheetBackgroundWindowViewController.h */,
-				5B8FEF2219DEF71600B40FFF /* MZFormSheetBackgroundWindowViewController.m */,
-				5B8FEF2319DEF71600B40FFF /* MZFormSheetController.h */,
-				5B8FEF2419DEF71600B40FFF /* MZFormSheetController.m */,
-				5B8FEF2519DEF71600B40FFF /* MZFormSheetSegue.h */,
-				5B8FEF2619DEF71600B40FFF /* MZFormSheetSegue.m */,
-				5B8FEF2719DEF71600B40FFF /* MZMacro.h */,
-				5B8FEF2819DEF71600B40FFF /* MZTransition.h */,
-				5B8FEF2919DEF71600B40FFF /* MZTransition.m */,
-				5B8FEF2A19DEF71600B40FFF /* UIImage+Additional.h */,
-				5B8FEF2B19DEF71600B40FFF /* UIImage+Additional.m */,
-				5B8FEF2C19DEF71600B40FFF /* UIViewController+TargetViewController.h */,
-				5B8FEF2D19DEF71600B40FFF /* UIViewController+TargetViewController.m */,
-			);
-			path = MZFormSheetController;
-			sourceTree = "<group>";
-		};
-		5B8FEF3519DEF83600B40FFF /* Additional */ = {
-			isa = PBXGroup;
-			children = (
-				5B8FEF3619DEF83600B40FFF /* MZAppearance.h */,
-				5B8FEF3719DEF83600B40FFF /* MZAppearance.m */,
-				5B8FEF3819DEF83600B40FFF /* NSInvocation+Copy.h */,
-				5B8FEF3919DEF83600B40FFF /* NSInvocation+Copy.m */,
-			);
-			path = Additional;
-			sourceTree = "<group>";
-		};
 		5B9CF53319E06C3B004FBB5C /* Options Segue */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,6 +447,18 @@
 				5B8FEEF019DEE52A00B40FFF /* MOOptionsViewController.m */,
 			);
 			name = "Options Segue";
+			sourceTree = "<group>";
+		};
+		5B9FAB6E19F9347D002C0D54 /* MJPopViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5B9FAB6F19F9347D002C0D54 /* MJPopupBackgroundView.h */,
+				5B9FAB7019F9347D002C0D54 /* MJPopupBackgroundView.m */,
+				5B9FAB7119F9347D002C0D54 /* UIViewController+MJPopupViewController.h */,
+				5B9FAB7219F9347D002C0D54 /* UIViewController+MJPopupViewController.m */,
+			);
+			name = MJPopViewController;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		5BABB277197A5F77009B636E = {
@@ -495,6 +501,7 @@
 				5B1CAF171983F45C00383D97 /* Model */,
 				5BABB295197A5F77009B636E /* Main.storyboard */,
 				5B9CF52C19DFC3C2004FBB5C /* Launch Screen.xib */,
+				5B066B1F19F7AC0C0052CFCB /* Custom Transitions and Segues */,
 				5B1CAF161983F44F00383D97 /* View */,
 				5BABB29B197A5F77009B636E /* Images.xcassets */,
 				5BABB28A197A5F77009B636E /* Supporting Files */,
@@ -692,7 +699,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BABB294197A5F77009B636E /* MOAppDelegate.m in Sources */,
-				5B8FEF2F19DEF71600B40FFF /* MZFormSheetBackgroundWindowViewController.m in Sources */,
 				5B1CAF1A1983F49300383D97 /* MOSubmissionsPersistenceManager.m in Sources */,
 				5B24DFCE19B3553A007223BA /* AFSecurityPolicy.m in Sources */,
 				5B24DFCB19B3553A007223BA /* AFHTTPRequestOperationManager.m in Sources */,
@@ -704,40 +710,39 @@
 				5B24DFD619B3553A007223BA /* UIButton+AFNetworking.m in Sources */,
 				5B202823197BA2BC00105D36 /* MOStatisticsViewController.m in Sources */,
 				5B8FEEF119DEE52A00B40FFF /* MOOptionsViewController.m in Sources */,
-				5B8FEF3B19DEF83600B40FFF /* NSInvocation+Copy.m in Sources */,
-				5B8FEF3119DEF71600B40FFF /* MZFormSheetSegue.m in Sources */,
 				5B24DFD719B3553A007223BA /* UIImageView+AFNetworking.m in Sources */,
+				5B25A8651A04E6FD00DCADEE /* FPPopoverController.m in Sources */,
 				5BABB2C1197A6CAA009B636E /* MOSubmissionsViewController.m in Sources */,
 				5B24DFD819B3553A007223BA /* UIProgressView+AFNetworking.m in Sources */,
 				5B23BE3319D7C34100C862D6 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,
 				5BABB2C4197A6CBB009B636E /* MOSubmittedViewController.m in Sources */,
-				5B8FEF3319DEF71600B40FFF /* UIImage+Additional.m in Sources */,
 				5B24DFD319B3553A007223BA /* AFNetworkActivityIndicatorManager.m in Sources */,
 				5BEB4512197E5DA7008F6355 /* MOObjectConverter.m in Sources */,
 				5B24DFDA19B3553A007223BA /* UIWebView+AFNetworking.m in Sources */,
 				5B24DFCC19B3553A007223BA /* AFHTTPSessionManager.m in Sources */,
+				5B25A84C1A04DF3000DCADEE /* MOCollectionViewDetailViewController.m in Sources */,
 				5B640E5E19AB6C45000EAD45 /* MOMatchObject.m in Sources */,
 				5B202820197B937300105D36 /* MOSubmissionObject.m in Sources */,
 				5B24DFCF19B3553A007223BA /* AFURLConnectionOperation.m in Sources */,
 				5B24DFD019B3553A007223BA /* AFURLRequestSerialization.m in Sources */,
 				5B24DFD219B3553A007223BA /* AFURLSessionManager.m in Sources */,
+				5B25A8671A04E6FD00DCADEE /* FPTouchView.m in Sources */,
 				5B23BE3219D7C34100C862D6 /* CSStickyHeaderFlowLayout.m in Sources */,
 				5B24DFD119B3553A007223BA /* AFURLResponseSerialization.m in Sources */,
 				5B24DFD919B3553A007223BA /* UIRefreshControl+AFNetworking.m in Sources */,
 				5B4BE43419A9FFED006536CE /* MOMatchesViewController.m in Sources */,
+				5B9FAB7419F9347D002C0D54 /* UIViewController+MJPopupViewController.m in Sources */,
 				5B9CF53019DFD247004FBB5C /* MOStatisticsCollectionViewCell.m in Sources */,
 				5B24DFD419B3553A007223BA /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				5BABB290197A5F77009B636E /* main.m in Sources */,
+				5B25A8661A04E6FD00DCADEE /* FPPopoverView.m in Sources */,
 				5BF89FD619BC5FEB002C1084 /* MOCustomCollectionViewCell.m in Sources */,
-				5B8FEF3419DEF71600B40FFF /* UIViewController+TargetViewController.m in Sources */,
-				5B8FEF3A19DEF83600B40FFF /* MZAppearance.m in Sources */,
-				5B8FEF3019DEF71600B40FFF /* MZFormSheetController.m in Sources */,
-				5B8FEF3219DEF71600B40FFF /* MZTransition.m in Sources */,
+				5B60B71619F8F27C00516ED7 /* MOModalSegue.m in Sources */,
+				5B9FAB7319F9347D002C0D54 /* MJPopupBackgroundView.m in Sources */,
 				5B24DFD519B3553A007223BA /* UIAlertView+AFNetworking.m in Sources */,
 				5B3253F219CE8E6C007D4174 /* MOTopTableTableViewController.m in Sources */,
 				5B1D761C19D16FAA002D3D58 /* MOMoreCollectionViewController.m in Sources */,
 				5B617F0B198D04EB008837DD /* MODeleteTableViewController.m in Sources */,
-				5B8FEF2E19DEF71600B40FFF /* MZFormSheetBackgroundWindow.m in Sources */,
 				5BD5BB4A19A0CAE600E2F1F8 /* XYPieChart.m in Sources */,
 				5B24DFCD19B3553A007223BA /* AFNetworkReachabilityManager.m in Sources */,
 				5B067DCA197C00F1000C7B56 /* MOSubmissionData.m in Sources */,

@@ -8,6 +8,10 @@
 
 #import "MODeleteTableViewController.h"
 
+
+
+
+
 @interface MODeleteTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *mySubmissionsAsPropertyList;
@@ -19,9 +23,12 @@
 @property (strong, nonatomic) NSIndexPath *indexPathStored;
 
 
+
+
 @end
 
 @implementation MODeleteTableViewController
+
 
 -(NSMutableArray *)mySubmissionsAsPropertyList{
     if (!_mySubmissionsAsPropertyList) {
@@ -39,12 +46,12 @@
 }
 
 //-(NSMutableArray *)myDrawAsPropertyList{
-    
-    //if (!_myDrawAsPropertyList) {
-        //_myDrawAsPropertyList = [[NSMutableArray alloc] init];
-    //}
-    
-    //return _myDrawAsPropertyList;
+
+//if (!_myDrawAsPropertyList) {
+//_myDrawAsPropertyList = [[NSMutableArray alloc] init];
+//}
+
+//return _myDrawAsPropertyList;
 //}
 
 -(NSDictionary *)selectedObject{
@@ -74,17 +81,16 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    
-    //[[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
-    //[[MZFormSheetBackgroundWindow appearance] setBlurRadius:5.0];
-    //[[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
     
     //Gets the data stored in NSUserDefaults for submissions
     self.mySubmissionsAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_SUBMISSION_OBJECTS_KEY] mutableCopy];
@@ -92,18 +98,19 @@
     //Gets the data stored in NSUserDefaults for submitted
     self.mySubmittedAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_SUBMITTED_OBJECTS_KEY] mutableCopy];
     
-//    int index = 0;
-//    for (NSMutableDictionary *item in self.mySubmissionsAsPropertyList) {
-//        if ([item[SUBMISSION_TYPE] isEqualToString:@"Read Naked Choke"]) {
-//            NSMutableArray *tmpDic = [self.mySubmissionsAsPropertyList mutableCopy];
-//            [tmpDic removeObjectAtIndex:index];
-//            
-//            [[NSUserDefaults standardUserDefaults] setObject:tmpDic forKey:ADDED_SUBMISSION_OBJECTS_KEY];
-//            [[NSUserDefaults standardUserDefaults] synchronize];
-//        }else{
-//            index++;
-//        }
-//    }
+    
+    //    int index = 0;
+    //    for (NSMutableDictionary *item in self.mySubmissionsAsPropertyList) {
+    //        if ([item[SUBMISSION_TYPE] isEqualToString:@"Read Naked Choke"]) {
+    //            NSMutableArray *tmpDic = [self.mySubmissionsAsPropertyList mutableCopy];
+    //            [tmpDic removeObjectAtIndex:index];
+    //
+    //            [[NSUserDefaults standardUserDefaults] setObject:tmpDic forKey:ADDED_SUBMISSION_OBJECTS_KEY];
+    //            [[NSUserDefaults standardUserDefaults] synchronize];
+    //        }else{
+    //            index++;
+    //        }
+    //    }
     
     
     
@@ -145,12 +152,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
+    
     // Return the number of sections.
     //if ([self.mySubmittedAsPropertyList count] && ![self.mySubmissionsAsPropertyList count] | ![self.mySubmittedAsPropertyList count] && [self.mySubmissionsAsPropertyList count]) {
-        //return 1;
+    //return 1;
     //}else{
-        //return 2;
+    //return 2;
     //}
     return 2;
 }
@@ -163,7 +170,7 @@
     }else if(section == 1){
         return [self.mySubmittedAsPropertyList count];
     }//else if(section == 2){
-        //return [self.myDrawAsPropertyList count];
+    //return [self.myDrawAsPropertyList count];
     //}
     return 0;
 }
@@ -190,12 +197,12 @@
         cell.textLabel.text = selectedSubmittedObject[SUBMISSION_TYPE];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@", selectedSubmittedObject[SUBMISSION_POSITION], selectedSubmittedObject[SUBMISSION_TOP_OR_BOTTOM]];
     }//else if (indexPath.section == 2){
-        
-        //NSDictionary *selectedDrawObject = [self.myDrawAsPropertyList objectAtIndex:indexPath.row];
-        
-        //cell.textLabel.text = selectedDrawObject[SUBMISSION_TYPE];
-        
-        
+    
+    //NSDictionary *selectedDrawObject = [self.myDrawAsPropertyList objectAtIndex:indexPath.row];
+    
+    //cell.textLabel.text = selectedDrawObject[SUBMISSION_TYPE];
+    
+    
     //}
     
     cell.backgroundColor = [UIColor clearColor];
@@ -214,12 +221,13 @@
     if (indexPath.section == 0) {
         
         self.selectedObject = [self.mySubmissionsAsPropertyList objectAtIndex:indexPath.row];
-    
+        
         UITableViewHeaderFooterView *headerTitle = [[UITableViewHeaderFooterView alloc] init];
         
         headerTitle = [self.tableView headerViewForSection:indexPath.section];
         
         self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
+        
         
         
         //[self performSegueWithIdentifier:@"pushToDeleteViewController" sender:indexPath];
@@ -232,47 +240,34 @@
         self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
         
         
-        //[self performSegueWithIdentifier:@"pushToDeleteViewController" sender:indexPath];
-        
     }
     
-//    UIViewController *deleteVC = [self.storyboard instantiateViewControllerWithIdentifier:@"deletionView"];
-//    
-//    MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithViewController:deleteVC];
-//    
-//    formSheet.presentedFormSheetSize = CGSizeMake(304, 312);
-//    
-//    formSheet.shadowRadius = 2.0;
-//    formSheet.shadowOpacity = 0.3;
-//    formSheet.shouldDismissOnBackgroundViewTap = YES;
-//    formSheet.shouldCenterVertically = YES;
-//    
-//    
-//    
-//    formSheet.willPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
-//        presentedFSViewController.view.autoresizingMask = presentedFSViewController.view.autoresizingMask | UIViewAutoresizingFlexibleWidth;
-//    };
-//    
-//    [formSheet presentAnimated:YES completionHandler:^(UIViewController *presentedFSViewController) {
-//
-//        
-//    }];
-
-    //[self performSegueWithIdentifier:@"pushToDeleteViewController" sender:self];
+    NSLog(@"DeletionTableView: The selected object to pass is %@", self.selectedObject);
     
-    //else if (indexPath.section == 2){
-        
-        //self.selectedObject = [self.myDrawAsPropertyList objectAtIndex:indexPath.row];
-        
-        //UITableViewHeaderFooterView *headerTitle = [self.tableView headerViewForSection:indexPath.section];
-        //self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
-        
-        
-        [self performSegueWithIdentifier:@"pushToDeleteViewController" sender:self];
-        
-    //}
+    
+    
+    
+    
+    
     
 }
+
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    
+    [self tableView:tableView didSelectRowAtIndexPath:indexPath];
+    
+    
+    
+    [self performSegueWithIdentifier:@"deleteSegue" sender:self];
+    
+    //[self performSegueWithIdentifier:@"pushToDelete" sender:self];
+    
+    
+    
+}
+
+
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
@@ -296,42 +291,42 @@
 
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 
 #pragma mark - Navigation
@@ -341,35 +336,28 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-        if([segue.destinationViewController isKindOfClass:[MODeleteViewController class]]){
-            
-            MODeleteViewController *deleteVC = segue.destinationViewController;
-            
-                
-                deleteVC.submissionObjectDict = self.selectedObject;
-                
-                deleteVC.sectionHeaderRecieved = self.sectionHeader;
-                
-                deleteVC.indexOfSubmissionObject = self.indexPathStored;
-            
-                deleteVC.delegate = self;
+    if([segue.destinationViewController isKindOfClass:[MODeleteViewController class]]){
+    
 
-            
-//            MZFormSheetSegue *formSheetSegue = (MZFormSheetSegue *)segue;
-//            MZFormSheetController *formSheet = formSheetSegue.formSheetController;
-//            formSheet.transitionStyle = MZFormSheetTransitionStyleBounce;
-//            formSheet.cornerRadius = 8.0;
-//            formSheet.didTapOnBackgroundViewCompletionHandler = ^(CGPoint location){
-//                
-//            };
-//            
-//            formSheet.shouldDismissOnBackgroundViewTap = NO;
-//            formSheet.didPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
-//                
-//            };
-//            
+        MODeleteViewController *deleteVC = segue.destinationViewController;
+    
+        
+        //setting delegate for reloadTable method
+        deleteVC.delegate = self;
+        //setting data to pass to deleteView
+        deleteVC.submissionObjectDict = self.selectedObject;
+        deleteVC.indexOfSubmissionObject =self.indexPathStored;
+        deleteVC.sectionHeaderRecieved = self.sectionHeader;
+       
+        
     }
 }
+
+#pragma mark HelperMethod
+
+
+
+
 
 
 

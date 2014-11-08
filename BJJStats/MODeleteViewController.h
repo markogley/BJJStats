@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MOSubmissionObject.h"
 #import "MOSubmissionsPersistenceManager.h"
+#import "MOSubmissionData.h"
 
 @protocol MODeleteViewControllerDelegate <NSObject>
 

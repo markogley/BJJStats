@@ -7,6 +7,8 @@
 //
 
 #import "MODeleteViewController.h"
+#import "UIViewController+MJPopupViewController.h"
+
 
 @interface MODeleteViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -81,25 +83,27 @@
     self.datesTableView.dataSource = self;
     
     
-    
+    NSLog(@"DeleteViewController: the submission object passed is %@)", self.submissionObjectDict);
     
     //sets up the view
-    [self setupSubmissionObjectDetails];
     [self getObjectsFromUserDefaults];
+    [self setupSubmissionObjectDetails];
     
     
-    self.view.backgroundColor = [UIColor clearColor];
+    //self.view.backgroundColor = [UIColor clearColor];
     
     //sets parameters for the tableView
     self.datesTableView.layer.borderWidth = 1.0;
     self.datesTableView.layer.borderColor = [UIColor blackColor].CGColor;
+    
+    [self prepViewForShow:self.deleteModalView];
     
     
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     
-    [self setupView];
+    //[self setupView];
     
 }
 
@@ -121,41 +125,35 @@
 -(IBAction)finishedButtonPressed:(id)sender{
     
     
-    [self.delegate reloadTableData];
+    
     
     //[self dismissViewControllerAnimated:YES completion:nil];
     //UINavigationController *nav = (UINavigationController *)self.presentingViewController;
-    [self dismissViewControllerAnimated:YES completion:^{
+    //[self dismissViewControllerAnimated:YES completion:^{
         //[nav popViewControllerAnimated:YES];
         
-    }];
+    //}];
+    
+    [self.delegate reloadTableData];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    
+    //dissmiss MJPopViewCOntroller and dismiss diming overlay
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
+
     
 }
 
 
 
--(void)setupView{
-    //self.view.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0];
-    
-    [self addShadowForView:self.detailDeleteView];
-    //do want to clip any subviews of the imageView
-}
-
--(void)addShadowForView:(UIView *)view{
+-(void)prepViewForShow:(UIView *)view{
     
     //any subviews will be clipped
     view.layer.masksToBounds = NO;
     //rounds corners of the view
-    view.layer.cornerRadius = 4;
-    //size of shadow raidius
-    //view.layer.shadowRadius = 1;
-    //tweak to allow iPhone 4 to load shadows without hindering performace of XYPieChart animations
-    //view.layer.shadowPath = [[UIBezierPath bezierPathWithRect:view.bounds] CGPath];
-    //how the shadow is oriented to the view
-    //view.layer.shadowOffset = CGSizeMake(0, 1);
-    //sets alpha for shadow
-    //view.layer.shadowOpacity = 0.25;
+    view.layer.cornerRadius = 8;
+    
 }
+
 
 //loads the details from the submissionObjectAsDict sent to the view controller
 -(void)setupSubmissionObjectDetails{

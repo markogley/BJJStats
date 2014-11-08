@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MOMoreCollectionViewController : UICollectionViewController
+@interface MOMoreCollectionViewController : UICollectionViewController <UIWebViewDelegate>
 
 @property (strong, nonatomic) NSString *labelFromCell;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navigationTitle;
 @property int segmentIndexCollectionView;
+@property  (strong, nonatomic) UIPopoverController *cellSelectedPopover;
 
 @end

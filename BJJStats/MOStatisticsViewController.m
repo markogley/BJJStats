@@ -7,7 +7,7 @@
 //
 
 #import "MOStatisticsViewController.h"
-
+#import "UIViewController+MJPopupViewController.h"
 
 
 @interface MOStatisticsViewController ()
@@ -86,6 +86,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    
     [_pieChart setDelegate:self];
     [_pieChart setDataSource:self];
     // Do any additional setup after loading the view.
@@ -116,9 +119,6 @@
     
     NSLog(@"StatisticsViewController: percentageSubmission %@ and percentageSubmitted %@", self.percentageCalculatedSubmission, self.percentageCalculatedSubmitted);
     
-    [[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
-    [[MZFormSheetBackgroundWindow appearance] setBlurRadius:5.0];
-    [[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
     
     self.pieChartKey.dataSource = self;
     self.pieChartKey.delegate = self;
@@ -354,18 +354,6 @@
     
     if([segue.destinationViewController isKindOfClass:[MOOptionsViewController class]]){
         
-        MZFormSheetSegue *formSheetSegue = (MZFormSheetSegue *)segue;
-        MZFormSheetController *formSheet = formSheetSegue.formSheetController;
-        formSheet.transitionStyle = MZFormSheetTransitionStyleBounce;
-        formSheet.cornerRadius = 8.0;
-        formSheet.didTapOnBackgroundViewCompletionHandler = ^(CGPoint location){
-            
-        };
-        
-        formSheet.shouldDismissOnBackgroundViewTap = NO;
-        formSheet.didPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
-        
-        };
         
         MOOptionsViewController *destinVC = segue.destinationViewController;
         destinVC.deleagate = self;
@@ -479,26 +467,11 @@
 //    }
 //    
 //    [self.pieChart reloadData];
-    UIViewController *optionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"options"];
     
-    MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithViewController:optionVC];
+    MOOptionsViewController *optionsVC = [[MOOptionsViewController alloc] init];
     
-    formSheet.presentedFormSheetSize = CGSizeMake(300, 200);
-    
-    formSheet.shadowRadius = 2.0;
-    formSheet.shadowOpacity = 0.3;
-    formSheet.shouldDismissOnBackgroundViewTap = YES;
-    formSheet.shouldCenterVertically = YES;
-    
+    [self presentPopupViewController:optionsVC animationType:MJPopupViewAnimationFade];
 
-    
-    formSheet.willPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
-        presentedFSViewController.view.autoresizingMask = presentedFSViewController.view.autoresizingMask | UIViewAutoresizingFlexibleWidth;
-    };
-    
-    [formSheet presentAnimated:YES completionHandler:^(UIViewController *presentedFSViewController) {
-        
-    }];
     
     
     //[self performSegueWithIdentifier:@"optionsSegue" sender:nil];

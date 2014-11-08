@@ -7,7 +7,7 @@
 //
 
 #import "MOOptionsViewController.h"
-#import "MZFormSheetController.h"
+#import "UIViewController+MJPopupViewController.h"
 
 @interface MOOptionsViewController ()
 
@@ -22,6 +22,7 @@
     self.view.backgroundColor = [UIColor clearColor];
     
     NSLog(@"Options: selectedsegement %ld and percentage %d", (long)self.selectedViewSegmentController.selectedSegmentIndex, self.percentageSwitch.isOn);
+    [self prepViewForShow:self.optionsView];
     
     
 }
@@ -29,6 +30,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepViewForShow:(UIView *)view{
+    
+    //any subviews will be clipped
+    view.layer.masksToBounds = NO;
+    //rounds corners of the view
+    view.layer.cornerRadius = 8;
+    
 }
 
 /*
@@ -43,10 +53,11 @@
 - (IBAction)finishedButtonPressed:(UIButton *)sender {
     
     NSLog(@"Options: showPercentageStat %d", self.percentageSwitch.isOn);
+    [self hollerBack];
+    //self.mj_popupBackgroundView.removeFromSuperview;
     
-    [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
-        [self hollerBack];
-    }];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
 }
 
 -(void)hollerBack{
