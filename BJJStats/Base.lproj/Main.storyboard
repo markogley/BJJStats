@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sIl-DM-p9v">
     <dependencies>
+<<<<<<< HEAD
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+=======
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+>>>>>>> dfa9bc12b921b2cbcd45feb3913a61ec9a7566f8
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -56,6 +60,12 @@
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="F5M-Z1-253">
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
+<<<<<<< HEAD
+=======
+                    <connections>
+                        <segue destination="8Qo-eX-feR" kind="custom" identifier="pushToDeletionViewController" customClass="MZFormSheetSegue" id="lF9-Nw-iTv"/>
+                    </connections>
+>>>>>>> dfa9bc12b921b2cbcd45feb3913a61ec9a7566f8
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jK-2D-L2A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,7 +74,11 @@
         <!--Delete View Controller-->
         <scene sceneID="VRx-Fa-s5A">
             <objects>
+<<<<<<< HEAD
                 <viewController storyboardIdentifier="deleteViewController" id="8Qo-eX-feR" customClass="MODeleteViewController" sceneMemberID="viewController">
+=======
+                <viewController storyboardIdentifier="delete" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Qo-eX-feR" customClass="MODeleteViewController" sceneMemberID="viewController">
+>>>>>>> dfa9bc12b921b2cbcd45feb3913a61ec9a7566f8
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DZY-Ls-RBy"/>
                         <viewControllerLayoutGuide type="bottom" id="ydW-QO-hUo"/>
