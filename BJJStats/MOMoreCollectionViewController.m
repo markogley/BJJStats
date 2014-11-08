@@ -283,33 +283,43 @@
     
     NSDictionary *item = self.youTubeJSONResponseAsArray[indexPath.section];
     
+    self.itemToTransfer = item;
+    
     //create access to your storyboard
-    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    //UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     //instantiate you view from the storyboard access
-    MOCollectionViewDetailViewController *details =[mainStoryBoard instantiateViewControllerWithIdentifier:@"collectionViewDetailView"];
+    //MOCollectionViewDetailViewController *details =[mainStoryBoard instantiateViewControllerWithIdentifier:@"collectionViewDetailView"];
+    //MOCollectionViewDetailViewController *detailsVC = [[MOCollectionViewDetailViewController alloc] init];
     
-    details.title = item[@"snippet"][@"title"];
+    //[self presentPopupViewController:detailsVC animationType:MJPopupViewAnimationFade];
+    
+    NSLog(@"MOCollectionView: item is %@", item);
+    [self performSegueWithIdentifier:@"detailViewSegue" sender:nil];
     
     
     //create toy FPPopOverClass view
-    FPPopoverController *test = [[FPPopoverController alloc] initWithViewController:details];
+    //FPPopoverController *test = [[FPPopoverController alloc] initWithViewController:details];
     
-    test.contentSize = CGSizeMake(304, 200
-                                  );
-    test.tint = FPPopoverLightGrayTint;
-    test.border = NO;
-    test.alpha = 0.95;
+    //test.title = [NSString stringWithFormat:@"%@", item[@"snippet"][@"title"]];
     
     
-    NSLog(@"POPOver: %@", item[@"snippet"][@"title"]);
+    //details.transferedItem = item;
+    
+    //test.contentSize = CGSizeMake(304, 200);
+    //test.tint = FPPopoverLightGrayTint;
+    //test.border = NO;
+    //test.alpha = 0.95;
+    
+    
+    //NSLog(@"POPOver: %@", item[@"snippet"][@"title"]);
     
     //sets the animation to come from the cell
-    UIView *cellView = [collectionView cellForItemAtIndexPath:indexPath];
+    //UIView *cellView = [collectionView cellForItemAtIndexPath:indexPath];
     
     
     //presents the FPPopOverView
-    [test presentPopoverFromView:cellView];
+    //[test presentPopoverFromView:cellView];
     
 }
 
@@ -400,6 +410,26 @@
     
     
     [operation start];
+    
+}
+
+#pragma mark Segue Method
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    //if ([sender isKindOfClass:[MOCustomCollectionViewCell class]]) {
+        if ([segue.destinationViewController isKindOfClass:[MOCollectionViewDetailViewController class]]) {
+            
+            
+            MOCollectionViewDetailViewController *destinationVC = segue.destinationViewController;
+            
+            destinationVC.transferedItem =self.itemToTransfer;
+        
+        }
+        
+        
+    //}
+    
     
 }
 

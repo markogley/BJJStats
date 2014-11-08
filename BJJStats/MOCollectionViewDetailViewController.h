@@ -12,6 +12,9 @@
 @property (strong, nonatomic) IBOutlet UIView *detailView;
 
 @property (strong, nonatomic) IBOutlet UILabel *detailLabel;
+@property (strong, nonatomic) IBOutlet UIWebView *youtubeVideoWebView;
+@property (strong, nonatomic) NSDictionary *transferedItem;
 
+- (IBAction)finishedButonPressed:(id)sender;
 
 @end

@@ -2046,7 +2046,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sectionHeader" id="ceg-m8-dh3" customClass="MOCustomCollectionViewCell">
-                            <rect key="frame" x="0.0" y="64" width="600" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="35"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkG-PM-uTB">
@@ -2113,6 +2113,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="navigationTitle" destination="XaA-IV-hOC" id="6vg-41-dH1"/>
+                        <segue destination="Ynj-5f-f3Z" kind="custom" identifier="detailViewSegue" customClass="MOModalSegue" id="44R-6o-RKv"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XO6-9Z-yvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2128,50 +2129,128 @@
                         <viewControllerLayoutGuide type="bottom" id="M0m-3u-Ux6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TjC-vJ-OlP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8cP-j2-ndi">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1U-jl-9Cj">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1U-jl-9Cj">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="138" y="89" width="29" height="21"/>
+                                            <rect key="frame" x="168" y="41" width="128" height="100"/>
                                         </variation>
                                     </label>
+                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPb-6q-24A">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="-48" y="-200" width="0.0" height="0.0"/>
+                                        </variation>
+                                    </webView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPi-hl-D6Y">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" title="Finished">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="238" y="162" width="58" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="finishedButonPressed:" destination="Ynj-5f-f3Z" eventType="touchUpInside" id="BRd-1I-Der"/>
+                                        </connections>
+                                    </button>
+                                    <webView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="UJG-TE-sZt">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="152" id="7QB-3C-uCc"/>
+                                            <constraint firstAttribute="width" constant="152" id="Wbt-VH-a0D"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="7QB-3C-uCc"/>
+                                                <exclude reference="Wbt-VH-a0D"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="7QB-3C-uCc"/>
+                                                <include reference="Wbt-VH-a0D"/>
+                                            </mask>
+                                        </variation>
+                                    </webView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="afV-GU-bKV"/>
+                                    <constraint firstItem="UJG-TE-sZt" firstAttribute="top" secondItem="8cP-j2-ndi" secondAttribute="top" constant="26" id="d69-Ly-Qdo">
+                                        <variation key="widthClass=compact" constant="24"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="304" id="fOB-2u-3v9"/>
+                                    <constraint firstItem="UJG-TE-sZt" firstAttribute="leading" secondItem="8cP-j2-ndi" secondAttribute="leading" constant="8" id="q2L-Zi-IZf"/>
+                                </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="b1U-jl-9Cj"/>
+                                        <exclude reference="wPb-6q-24A"/>
+                                        <exclude reference="iPi-hl-D6Y"/>
+                                        <exclude reference="UJG-TE-sZt"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="afV-GU-bKV"/>
+                                        <exclude reference="fOB-2u-3v9"/>
+                                        <exclude reference="d69-Ly-Qdo"/>
+                                        <exclude reference="q2L-Zi-IZf"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="-5" y="-11" width="304" height="200"/>
+                                <variation key="widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="b1U-jl-9Cj"/>
+                                        <include reference="wPb-6q-24A"/>
+                                        <include reference="iPi-hl-D6Y"/>
+                                        <include reference="UJG-TE-sZt"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="afV-GU-bKV"/>
+                                        <include reference="fOB-2u-3v9"/>
+                                        <include reference="d69-Ly-Qdo"/>
+                                        <include reference="q2L-Zi-IZf"/>
                                     </mask>
                                 </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="8cP-j2-ndi" secondAttribute="centerX" id="4Ix-C8-1q0"/>
+                            <constraint firstAttribute="centerY" secondItem="8cP-j2-ndi" secondAttribute="centerY" id="doA-yy-ErK"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="8cP-j2-ndi"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="4Ix-C8-1q0"/>
+                                <exclude reference="doA-yy-ErK"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="8cP-j2-ndi"/>
                             </mask>
+                            <mask key="constraints">
+                                <include reference="4Ix-C8-1q0"/>
+                                <include reference="doA-yy-ErK"/>
+                            </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="detailLabel" destination="b1U-jl-9Cj" id="lCS-9d-icp"/>
                         <outlet property="detailView" destination="8cP-j2-ndi" id="d52-DS-rbx"/>
+                        <outlet property="youtubeVideoWebView" destination="UJG-TE-sZt" id="GuD-G7-KKo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1K9-Pb-LXa" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSString *labelFromCell;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navigationTitle;
 @property int segmentIndexCollectionView;
-@property  (strong, nonatomic) UIPopoverController *cellSelectedPopover;
+//@property  (strong, nonatomic) UIPopoverController *cellSelectedPopover;
+@property (strong, nonatomic) NSDictionary *itemToTransfer;
 
 @end

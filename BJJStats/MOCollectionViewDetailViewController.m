@@ -7,6 +7,7 @@
 //
 
 #import "MOCollectionViewDetailViewController.h"
+#import "UIViewController+MJPopupViewController.h"
 
 
 @interface MOCollectionViewDetailViewController ()
@@ -15,9 +16,37 @@
 
 @implementation MOCollectionViewDetailViewController
 
+
+-(NSDictionary *)transferedItem{
+    
+    if (!_transferedItem) {
+        _transferedItem = [[NSDictionary alloc] init];
+    }
+    
+    return _transferedItem;
+    
+}
+
+- (IBAction)finishedButonPressed:(id)sender {
+    
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor clearColor];
+    
+    NSLog(@"UIPopover: transferredItem %@", self.transferedItem);
+    
+    NSString *youTubeVideoLink = [NSString stringWithFormat:@"<iframe width= %d height= %d src=http://www.youtube.com/embed/%@ frameborder=0 allowfullscreen></iframe>",152, 152, self.transferedItem[@"id"][@"videoId"]];
+    
+    self.detailLabel.text = self.transferedItem[@"snippet"][@"title"];
+    [[self.youtubeVideoWebView scrollView] setScrollEnabled:NO];
+    [self.youtubeVideoWebView loadHTMLString:youTubeVideoLink baseURL:nil];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,6 +63,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 
 @end
