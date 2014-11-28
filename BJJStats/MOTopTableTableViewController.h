@@ -18,4 +18,7 @@
 @property int segmentIndex;
 @property (strong, nonatomic) IBOutlet UINavigationItem *tableViewTitle;
 
+@property (strong, nonatomic) NSMutableArray *topArray;
+@property (strong, nonatomic) NSMutableArray *bottomArray;
+
 @end

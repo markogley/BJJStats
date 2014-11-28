@@ -468,14 +468,8 @@
 //    
 //    [self.pieChart reloadData];
     
-<<<<<<< HEAD
     MOOptionsViewController *optionsVC = [[MOOptionsViewController alloc] init];
-=======
-    formSheet.shadowRadius = 2.0;
-    formSheet.shadowOpacity = 0.3;
-    formSheet.shouldDismissOnBackgroundViewTap = NO;
-    formSheet.shouldCenterVertically = YES;
->>>>>>> dfa9bc12b921b2cbcd45feb3913a61ec9a7566f8
+
     
     [self presentPopupViewController:optionsVC animationType:MJPopupViewAnimationFade];
 

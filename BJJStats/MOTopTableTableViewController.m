@@ -52,6 +52,24 @@
     return _cellLabel;
 }
 
+-(NSMutableArray *)topArray{
+    if (!_topArray) {
+        _topArray = [[NSMutableArray alloc] init];
+    }
+    
+    return _topArray;
+    
+}
+
+-(NSMutableArray *)bottomArray{
+    if (!_bottomArray) {
+        _bottomArray = [[NSMutableArray alloc] init];
+    }
+    
+    return _bottomArray;
+    
+}
+
 
 
 - (void)viewDidLoad {
@@ -68,6 +86,26 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    
+    if (self.segmentIndex == 0) {
+        for (NSDictionary *item in self.submissions){
+            if ([item[SUBMISSION_TOP_OR_BOTTOM] isEqualToString:@"Top"]) {
+                [self.topArray addObject:item];
+            }else if ([item[SUBMISSION_TOP_OR_BOTTOM] isEqualToString:@"Bottom"]){
+                [self.bottomArray addObject:item];
+            }
+        }
+    }else if (self.segmentIndex == 1){
+        for (NSDictionary *item in self.submitted){
+            if ([item[SUBMISSION_TOP_OR_BOTTOM] isEqualToString:@"Top"]) {
+                [self.topArray addObject:item];
+            }else if ([item[SUBMISSION_TOP_OR_BOTTOM] isEqualToString:@"Bottom"]){
+                [self.bottomArray addObject:item];
+            }
+        }
+        
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,22 +117,58 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    //checks if the top or bottom array is empty if either it returns 1 or retuns 2.
+    if (!self.bottomArray.count) {
+        if (self.topArray.count) {
+            return 1;
+        }
+    }
+    
+    if (!self.topArray.count){
+        if(self.bottomArray.count){
+            return 1;
+        }
+    }
+    
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    if (self.segmentIndex == 0) {
+    //if (self.segmentIndex == 0) {
     
-        return [self.submissions count];
+        //return [self.submissions count];
     
-    }
+    //}
     
-    if (self.segmentIndex == 1) {
+    //if (self.segmentIndex == 1) {
         
-        return [self.submitted count];
+        //return [self.submitted count];
+    //}
+    
+    if (!self.bottomArray.count) {
+        if (self.topArray.count) {
+            return [self.topArray count];
+        }
+    }else if (!self.topArray.count){
+        if(self.bottomArray.count){
+            return [self.bottomArray count];
+        }
+    }else{
+        
+        if (section == 0) {
+            return [self.topArray count];
+        }
+        
+        if (section == 1) {
+            return [self.bottomArray count];
+        }
+        
     }
+
+    
+    
     
     return 0;
 }
@@ -108,22 +182,58 @@
     
     // Configure the cell...
     
-    if (self.segmentIndex == 0) {
+    //if (self.segmentIndex == 0) {
+    if (indexPath.section == 0) {
+        if ([self.topArray count]) {
     
-        cell.textLabel.text = self.submissions[indexPath.row][SUBMISSION_TYPE];
-        cell.detailTextLabel.text = [ NSString stringWithFormat:@"Performed %@ times", self.submissions[indexPath.row][SUBMISSION_COUNTER_AND_DATE][SUBMISSION_COUNTER]];
+        cell.textLabel.text = self.topArray[indexPath.row][SUBMISSION_TYPE];
+        cell.detailTextLabel.text = [ NSString stringWithFormat:@"Performed %@ times", self.topArray[indexPath.row][SUBMISSION_COUNTER_AND_DATE][SUBMISSION_COUNTER]];
     
+        }else{
+            
+            cell.textLabel.text = self.bottomArray[indexPath.row][SUBMISSION_TYPE];
+            cell.detailTextLabel.text = [ NSString stringWithFormat:@"Performed %@ times", self.bottomArray[indexPath.row][SUBMISSION_COUNTER_AND_DATE][SUBMISSION_COUNTER]];
+            
+        }
     }
     
-    if (self.segmentIndex == 1) {
+    //if (self.segmentIndex == 1) {
+    
+    if (indexPath.section == 1) {
         
-        cell.textLabel.text = self.submitted[indexPath.row][SUBMISSION_TYPE];
-        cell.detailTextLabel.text = [ NSString stringWithFormat:@"Performed %@ times", self.submitted[indexPath.row][SUBMISSION_COUNTER_AND_DATE][SUBMISSION_COUNTER]];
+        cell.textLabel.text = self.bottomArray[indexPath.row][SUBMISSION_TYPE];
+        cell.detailTextLabel.text = [ NSString stringWithFormat:@"Performed %@ times", self.bottomArray[indexPath.row][SUBMISSION_COUNTER_AND_DATE][SUBMISSION_COUNTER]];
     
     }
     
     return cell;
 }
+
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    
+    NSString *sectionName;
+    
+    if (section == 0) {
+        if ([self.topArray count] && ![self.bottomArray count]) {
+            sectionName = @"Top";
+        }else if([self.bottomArray count] && ![self.topArray count]) {
+            sectionName = @"Bottom";
+        }else if ([self.topArray count] && [self.bottomArray count]){
+            sectionName = @"Top";
+        }
+    }
+    
+    if (section == 1) {
+        sectionName = @"Bottom";
+    }
+    
+    
+    
+    return sectionName;
+}
+
+
 
 //-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
