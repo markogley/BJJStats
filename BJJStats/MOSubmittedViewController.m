@@ -11,6 +11,7 @@
 @interface MOSubmittedViewController ()
 @property (strong, nonatomic) IBOutlet UIPickerView *submittedPickerView;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *topOrBottomSegmentedControl;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navigationTitle;
 
 
 @property (strong, nonatomic) NSArray *submittedArray;
@@ -30,6 +31,16 @@
 
 @implementation MOSubmittedViewController
 
+
+-(NSNumber *)viewIdentifierSubmission{
+    
+    if (!_viewIdentifierSubmission) {
+        _viewIdentifierSubmission = [[NSNumber alloc] init];
+    }
+    
+    return _viewIdentifierSubmission;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -38,6 +49,8 @@
     }
     return self;
 }
+
+
 
 - (void)viewDidLoad
 {
@@ -63,6 +76,14 @@
     
     self.view.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1.0];
     [self setupView];
+    
+    NSLog(@"SubmissionView: viewIdentifier is %@", self.viewIdentifierSubmission);
+    
+    if ([self.viewIdentifierSubmission isEqual:@0]) {
+        self.navigationTitle.title = @"Submission";
+    }else if ([self.viewIdentifierSubmission isEqual:@1]){
+        self.navigationTitle.title = @"Submitted";
+    }
     
 }
 
@@ -207,7 +228,14 @@
     
     MOSubmissionObject *newSubmissionObject = [self returnNewSubmissionObject];
     
-    [self.delegate addSubmitted:newSubmissionObject];
+    if ([self.viewIdentifierSubmission isEqual:@0]) {
+        [self.delegate addSubmission:newSubmissionObject];
+    }else if ([self.viewIdentifierSubmission isEqual:@1]){
+        [self.delegate addSubmitted:newSubmissionObject];
+    }
+
+    
+    
     
     [self.navigationController popToRootViewControllerAnimated:YES];
     

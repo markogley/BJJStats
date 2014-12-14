@@ -39,6 +39,15 @@
     return _addedSubmitted;
 }
 
+-(NSNumber *)viewIdentifierHome{
+    
+    if (!_viewIdentifierHome) {
+        _viewIdentifierHome = [[NSNumber alloc] init];
+    }
+    
+    return _viewIdentifierHome;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -110,14 +119,27 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-    if ([segue.destinationViewController isKindOfClass:[MOSubmissionsViewController class]]) {
-        MOSubmissionsViewController *addSubmissionVC = segue.destinationViewController;
-        addSubmissionVC.delegate = self;
-    }
+    //if ([segue.destinationViewController isKindOfClass:[MOSubmissionsViewController class]]) {
+      //  MOSubmissionsViewController *addSubmissionVC = segue.destinationViewController;
+        //addSubmissionVC.delegate = self;
+
+    //}
+    
     
     if ([segue.destinationViewController isKindOfClass:[MOSubmittedViewController class]]) {
         MOSubmittedViewController *addSubmittedVC = segue.destinationViewController;
         addSubmittedVC.delegate = self;
+        if ([segue.identifier isEqualToString:@"submissionSegue"]){
+            
+            self.viewIdentifierHome = [NSNumber numberWithInt:0];
+            NSLog(@"HomeView: viewIdentifier %@", self.viewIdentifierHome);
+            addSubmittedVC.viewIdentifierSubmission = self.viewIdentifierHome;
+            
+        }else if ([segue.identifier isEqualToString:@"submittedSegue"])
+            self.viewIdentifierHome = [NSNumber numberWithInt:1];
+            NSLog(@"HomeView: viewIdentifier %@", self.viewIdentifierHome);
+            addSubmittedVC.viewIdentifierSubmission = self.viewIdentifierHome;
+        
     }
     
     if ([segue.destinationViewController isKindOfClass:[MOMatchesViewController class]]) {
@@ -165,7 +187,6 @@
 
 
 #pragma mark HelperMethods
-
 
 
 

@@ -14,13 +14,15 @@
 
 @required
 -(void)addSubmitted:(MOSubmissionObject *)newSubmittedObject;
-
+-(void)addSubmission:(MOSubmissionObject *)newSubmissionObject;
 
 @end
 
 @interface MOSubmittedViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, MODateAddedViewControllerDelegate>
 
 @property (weak, nonatomic) id <MOSubmittedViewControllerDelegate> delegate;
+
+@property (strong, nonatomic) NSNumber *viewIdentifierSubmission;
 
 
 @end
