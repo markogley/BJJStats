@@ -364,16 +364,16 @@
         
 
     //if ([segue.identifier isEqualToString:@"pushToDeleteViewCOntroller"]) {
-        if([segue.identifier isEqualToString:@"pushToDeletionViewController"]){
+       // if([segue.identifier isEqualToString:@"pushToDeletionViewController"]){
             
-            MODeleteViewController *deleteVC = segue.destinationViewController;
-            deleteVC.delegate = self;
-            deleteVC.submissionObjectDict = self.selectedObject;
-            deleteVC.indexOfSubmissionObject =self.indexPathStored;
-            deleteVC.sectionHeaderRecieved = self.sectionHeader;
+            //MODeleteViewController *deleteVC = segue.destinationViewController;
+            //deleteVC.delegate = self;
+            //deleteVC.submissionObjectDict = self.selectedObject;
+            //deleteVC.indexOfSubmissionObject =self.indexPathStored;
+            //deleteVC.sectionHeaderRecieved = self.sectionHeader;
             
         //}
-    }
+    //}
 }
 
 #pragma mark HelperMethod
