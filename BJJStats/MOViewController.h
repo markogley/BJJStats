@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MOSubmissionsViewController.h"
+//#import "MOSubmissionsViewController.h"
 #import "MOSubmittedViewController.h"
 #import "MOMatchesViewController.h"
 #import "MOObjectConverter.h"
 #import "MOSubmissionsPersistenceManager.h"
 
-@interface MOViewController : UIViewController <MOSubmissionsViewControllerDelegate, MOSubmittedViewControllerDelegate, MOMatchesViewControllerDelegate>
+//MOSubmissionsViewControllerDelegate,
 
+@interface MOViewController : UIViewController <MOSubmittedViewControllerDelegate, MOMatchesViewControllerDelegate>
+
+
+@property (strong, nonatomic) NSNumber *viewIdentifierHome;
 
 @end

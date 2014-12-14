@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sIl-DM-p9v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sIl-DM-p9v">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -734,7 +734,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <segue destination="NV4-TG-6cj" kind="show" id="6ry-5e-FK4"/>
+                                            <segue destination="NV4-TG-6cj" kind="show" identifier="submittedSegue" id="6ry-5e-FK4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLf-qY-rmu">
@@ -814,7 +814,7 @@
                                             <rect key="frame" x="-24" y="5" width="154" height="37"/>
                                         </variation>
                                         <connections>
-                                            <segue destination="7UW-10-7tF" kind="show" id="mm4-y5-4ye"/>
+                                            <segue destination="NV4-TG-6cj" kind="show" identifier="submissionSegue" id="SWd-H6-Qt6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1123,7 +1123,7 @@
             </objects>
             <point key="canvasLocation" x="1200" y="-24"/>
         </scene>
-        <!--Submitted-->
+        <!--Title-->
         <scene sceneID="UZ3-oj-WLA">
             <objects>
                 <viewController id="NV4-TG-6cj" customClass="MOSubmittedViewController" sceneMemberID="viewController">
@@ -1199,7 +1199,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Today's Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eq-jY-QJ2">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eq-jY-QJ2">
                                 <rect key="frame" x="20" y="100" width="105" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="101" id="CLk-3R-LUl"/>
@@ -1221,7 +1221,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPE-tv-CAT">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPE-tv-CAT">
                                 <rect key="frame" x="130" y="100" width="170" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="33a-gN-Urj"/>
@@ -1333,14 +1333,14 @@
                                         <variation key="widthClass=compact" constant="13"/>
                                     </constraint>
                                     <constraint firstAttribute="centerX" secondItem="glT-4M-hq9" secondAttribute="centerX" constant="10" id="f3V-ON-d6M">
-                                        <variation key="widthClass=compact" constant="0.0"/>
+                                        <variation key="widthClass=compact" constant="-1"/>
                                     </constraint>
                                     <constraint firstItem="qFq-uR-a1t" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KEo-Xp-Jsf" secondAttribute="trailing" constant="122" id="kF3-fc-nFe">
                                         <variation key="widthClass=compact" constant="122"/>
                                     </constraint>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="304" id="lwK-ws-UJ5"/>
-                                    <constraint firstItem="glT-4M-hq9" firstAttribute="top" secondItem="lh3-dH-hec" secondAttribute="top" id="pm0-bJ-vdA">
-                                        <variation key="widthClass=compact" constant="0.0"/>
+                                    <constraint firstItem="glT-4M-hq9" firstAttribute="top" secondItem="lh3-dH-hec" secondAttribute="top" constant="4" id="pm0-bJ-vdA">
+                                        <variation key="widthClass=compact" constant="4"/>
                                     </constraint>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="rdL-tx-Quu">
                                         <variation key="heightClass=compact" constant="60"/>
@@ -1363,13 +1363,13 @@
                                         <exclude reference="lwK-ws-UJ5"/>
                                         <exclude reference="rdL-tx-Quu"/>
                                         <exclude reference="tBf-ho-X4W"/>
-                                        <exclude reference="RUa-QW-yxK"/>
-                                        <exclude reference="rif-X7-Q6i"/>
                                         <exclude reference="6kB-u0-S1o"/>
                                         <exclude reference="f3V-ON-d6M"/>
                                         <exclude reference="pm0-bJ-vdA"/>
                                         <exclude reference="DI6-f7-Mmr"/>
                                         <exclude reference="IYm-uZ-3wU"/>
+                                        <exclude reference="RUa-QW-yxK"/>
+                                        <exclude reference="rif-X7-Q6i"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact">
@@ -1387,14 +1387,14 @@
                                         <include reference="rdL-tx-Quu"/>
                                         <exclude reference="tBf-ho-X4W"/>
                                         <exclude reference="vHz-fV-ZNb"/>
-                                        <include reference="RUa-QW-yxK"/>
-                                        <include reference="rif-X7-Q6i"/>
                                         <exclude reference="6kB-u0-S1o"/>
                                         <include reference="f3V-ON-d6M"/>
                                         <include reference="pm0-bJ-vdA"/>
                                         <include reference="DI6-f7-Mmr"/>
                                         <include reference="IYm-uZ-3wU"/>
                                         <include reference="kF3-fc-nFe"/>
+                                        <include reference="RUa-QW-yxK"/>
+                                        <include reference="rif-X7-Q6i"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -1442,14 +1442,14 @@
                             <mask key="constraints">
                                 <exclude reference="7Xw-aD-EF8"/>
                                 <exclude reference="TEd-Py-Br7"/>
+                                <exclude reference="Klq-AN-sqN"/>
+                                <exclude reference="bID-eJ-XLn"/>
                                 <exclude reference="7YM-lx-mFC"/>
                                 <exclude reference="DQR-pX-6Nc"/>
                                 <exclude reference="EOR-ju-bR6"/>
                                 <exclude reference="UXV-iE-02J"/>
                                 <exclude reference="a3W-RQ-Ot3"/>
                                 <exclude reference="pYZ-o7-qv8"/>
-                                <exclude reference="Klq-AN-sqN"/>
-                                <exclude reference="bID-eJ-XLn"/>
                                 <exclude reference="2vb-87-k6y"/>
                                 <exclude reference="Agd-6Y-rnH"/>
                                 <exclude reference="Ato-2j-Jct"/>
@@ -1474,14 +1474,14 @@
                             <mask key="constraints">
                                 <include reference="7Xw-aD-EF8"/>
                                 <include reference="TEd-Py-Br7"/>
+                                <include reference="Klq-AN-sqN"/>
+                                <include reference="bID-eJ-XLn"/>
                                 <exclude reference="7YM-lx-mFC"/>
                                 <include reference="DQR-pX-6Nc"/>
                                 <include reference="EOR-ju-bR6"/>
                                 <include reference="UXV-iE-02J"/>
                                 <include reference="a3W-RQ-Ot3"/>
                                 <include reference="pYZ-o7-qv8"/>
-                                <include reference="Klq-AN-sqN"/>
-                                <include reference="bID-eJ-XLn"/>
                                 <include reference="2vb-87-k6y"/>
                                 <exclude reference="Agd-6Y-rnH"/>
                                 <exclude reference="Ato-2j-Jct"/>
@@ -1493,12 +1493,11 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Submitted" id="24K-zo-D6T">
-                        <barButtonItem key="backBarButtonItem" title=" " id="xI4-Sp-YEM"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="qz8-pr-HlN"/>
                     <connections>
                         <outlet property="buttonView" destination="lh3-dH-hec" id="JyE-m0-RhT"/>
                         <outlet property="dateForObjectLabel" destination="xPE-tv-CAT" id="tlU-Eg-mCK"/>
+                        <outlet property="navigationTitle" destination="qz8-pr-HlN" id="M70-18-d5u"/>
                         <outlet property="pickerContainerView" destination="rNy-YR-z9S" id="fET-tN-BCH"/>
                         <outlet property="submittedPickerView" destination="I4w-aM-CsE" id="zuo-Uk-un6"/>
                         <outlet property="topOrBottomSegmentedControl" destination="glT-4M-hq9" id="AN2-Og-gIt"/>
@@ -2793,6 +2792,7 @@
         <image name="Image" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="SWd-H6-Qt6"/>
         <segue reference="xMj-uv-A5M"/>
     </inferredMetricsTieBreakers>
 </document>
