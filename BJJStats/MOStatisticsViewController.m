@@ -469,14 +469,15 @@
 //    [self.pieChart reloadData];
     
     MOOptionsViewController *optionsVC = [[MOOptionsViewController alloc] init];
-
     
+
     [self presentPopupViewController:optionsVC animationType:MJPopupViewAnimationFade];
 
     
     
     //[self performSegueWithIdentifier:@"optionsSegue" sender:nil];
 }
+
 
 #pragma mark UICollectionView DataSource and Delegate
 

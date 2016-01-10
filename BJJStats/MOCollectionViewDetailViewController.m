@@ -46,12 +46,22 @@
     self.detailLabel.text = self.transferedItem[@"snippet"][@"title"];
     [[self.youtubeVideoWebView scrollView] setScrollEnabled:NO];
     [self.youtubeVideoWebView loadHTMLString:youTubeVideoLink baseURL:nil];
+    [self prepViewForShow:self.detailView];
 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepViewForShow:(UIView *)view{
+    
+    //any subviews will be clipped
+    view.layer.masksToBounds = NO;
+    //rounds corners of the view
+    view.layer.cornerRadius = 8;
+    
 }
 
 /*

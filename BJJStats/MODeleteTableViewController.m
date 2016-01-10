@@ -97,20 +97,22 @@
     //Gets the data stored in NSUserDefaults for submitted
     self.mySubmittedAsPropertyList = [[[NSUserDefaults standardUserDefaults] arrayForKey:ADDED_SUBMITTED_OBJECTS_KEY] mutableCopy];
     
-    
-    //    int index = 0;
-    //    for (NSMutableDictionary *item in self.mySubmissionsAsPropertyList) {
-    //        if ([item[SUBMISSION_TYPE] isEqualToString:@"Read Naked Choke"]) {
-    //            NSMutableArray *tmpDic = [self.mySubmissionsAsPropertyList mutableCopy];
-    //            [tmpDic removeObjectAtIndex:index];
-    //
-    //            [[NSUserDefaults standardUserDefaults] setObject:tmpDic forKey:ADDED_SUBMISSION_OBJECTS_KEY];
-    //            [[NSUserDefaults standardUserDefaults] synchronize];
-    //        }else{
-    //            index++;
-    //        }
-    //    }
-    
+//    
+//    int index = 0;
+//    for (NSMutableDictionary *item in self.mySubmissionsAsPropertyList) {
+//        if ([item[SUBMISSION_TYPE] isEqualToString:@"In Arm Guillotine"]) {
+//            if ([item[SUBMISSION_POSITION] isEqualToString:@"North/South"]){
+//                NSMutableArray *tmpDic = [self.mySubmissionsAsPropertyList mutableCopy];
+//                [tmpDic removeObjectAtIndex:index];
+//                [[NSUserDefaults standardUserDefaults] setObject:tmpDic forKey:ADDED_SUBMISSION_OBJECTS_KEY];
+//                [[NSUserDefaults standardUserDefaults] synchronize];
+//                    }
+//        }else{
+//            index++;
+//        }
+//    }
+//    
+//    [self.tableView reloadData];
     
     
 }
@@ -229,7 +231,6 @@
         
         
         
-        //[self performSegueWithIdentifier:@"pushToDeleteViewController" sender:indexPath];
         
     }else if (indexPath.section == 1){
         
@@ -244,34 +245,62 @@
 
     NSLog(@"DeletionTableView: The selected object to pass is %@", self.selectedObject);
 
-}
-
-
-
--(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
-{
-    
-    [self tableView:tableView didSelectRowAtIndexPath:indexPath];
-    
-    
-    
     [self performSegueWithIdentifier:@"deleteSegue" sender:self];
-    
-    //[self performSegueWithIdentifier:@"pushToDelete" sender:self];
-    
-    //else if (indexPath.section == 2){
-        
-        //self.selectedObject = [self.myDrawAsPropertyList objectAtIndex:indexPath.row];
-        
-        //UITableViewHeaderFooterView *headerTitle = [self.tableView headerViewForSection:indexPath.section];
-        //self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
-        
-        
-        //[self performSegueWithIdentifier:@"pushToDeleteViewController" sender:self];
-        
-    //}
-    
+
 }
+
+
+
+//-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+//    //[self tableView:tableView didSelectRowAtIndexPath:indexPath];
+//    
+//    self.indexPathStored = indexPath;
+//    
+//    
+//    if (indexPath.section == 0) {
+//        
+//        self.selectedObject = [self.mySubmissionsAsPropertyList objectAtIndex:indexPath.row];
+//        
+//        UITableViewHeaderFooterView *headerTitle = [[UITableViewHeaderFooterView alloc] init];
+//        
+//        headerTitle = [self.tableView headerViewForSection:indexPath.section];
+//        
+//        self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
+//        
+//        
+//        
+//        //[self performSegueWithIdentifier:@"pushToDeleteViewController" sender:indexPath];
+//        
+//    }else if (indexPath.section == 1){
+//        
+//        self.selectedObject = [self.mySubmittedAsPropertyList objectAtIndex:indexPath.row];
+//        
+//        UITableViewHeaderFooterView *headerTitle = [self.tableView headerViewForSection:indexPath.section];
+//        self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
+//        
+//        
+//    }
+//    
+//    
+//    [self performSegueWithIdentifier:@"deleteSegue" sender:self];
+//    
+//    //[self performSegueWithIdentifier:@"pushToDelete" sender:self];
+//    
+//    //else if (indexPath.section == 2){
+//        
+//        //self.selectedObject = [self.myDrawAsPropertyList objectAtIndex:indexPath.row];
+//        
+//        //UITableViewHeaderFooterView *headerTitle = [self.tableView headerViewForSection:indexPath.section];
+//        //self.sectionHeader = [NSString stringWithFormat:@"%@", headerTitle.textLabel.text];
+//        
+//        
+//        //[self performSegueWithIdentifier:@"pushToDeleteViewController" sender:self];
+//        
+//    //}
+//    
+//}
 
 
 
@@ -342,38 +371,27 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-
-    if ([segue.identifier isEqualToString:@"deleteSegue"]) {
-        if([segue.destinationViewController isKindOfClass:[MODeleteViewController class]]){
-            
-            
-            MODeleteViewController *deleteVC = segue.destinationViewController;
-            
-            
-            //setting delegate for reloadTable method
-            deleteVC.delegate = self;
-            //setting data to pass to deleteView
-            deleteVC.submissionObjectDict = self.selectedObject;
-            deleteVC.indexOfSubmissionObject =self.indexPathStored;
-            deleteVC.sectionHeaderRecieved = self.sectionHeader;
-            
-        }
+    //if([sender isKindOfClass:[UITableViewCell class]]){
+    //if ([segue.destinationViewController isKindOfClass:[MODeleteViewController class] ]){
+        //if ([segue.identifier isEqualToString:@"deleteSegue"]) {
         
-    }
+        
+        
+        MODeleteViewController *deleteVC = segue.destinationViewController;
+        
+        
+        //setting delegate for reloadTable method
+        deleteVC.delegate = self;
+        //setting data to pass to deleteView
+        deleteVC.submissionObjectDict = self.selectedObject;
+        deleteVC.indexOfSubmissionObject =self.indexPathStored;
+        deleteVC.sectionHeaderRecieved = self.sectionHeader;
+        
        
         
-
-    //if ([segue.identifier isEqualToString:@"pushToDeleteViewCOntroller"]) {
-       // if([segue.identifier isEqualToString:@"pushToDeletionViewController"]){
-            
-            //MODeleteViewController *deleteVC = segue.destinationViewController;
-            //deleteVC.delegate = self;
-            //deleteVC.submissionObjectDict = self.selectedObject;
-            //deleteVC.indexOfSubmissionObject =self.indexPathStored;
-            //deleteVC.sectionHeaderRecieved = self.sectionHeader;
-            
         //}
     //}
+    
 }
 
 #pragma mark HelperMethod

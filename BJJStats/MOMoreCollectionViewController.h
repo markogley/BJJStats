@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface MOMoreCollectionViewController : UICollectionViewController <UIWebViewDelegate>
+
+
 
 @property (strong, nonatomic) NSString *labelFromCell;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navigationTitle;
