@@ -12,6 +12,8 @@
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (strong, nonatomic) IBOutlet UILabel *objectDate;
 
+@property (weak, nonatomic) IBOutlet UIView *buttonView;
+@property (weak, nonatomic) IBOutlet UIView *datePickerView;
 
 @end
 
@@ -37,6 +39,9 @@
     NSString *dateAsString = [dateFormatter stringFromDate:todaysDate];
     
     self.objectDate.text = dateAsString;
+    
+    self.view.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1.0];
+    [self setupView];
 
 }
 
@@ -45,6 +50,33 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)setupView{
+    //self.view.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0];
+    
+    [self addShadowForView:self.datePickerView];
+    [self addShadowForView:self.buttonView];
+    //do want to clip any subviews of the imageView
+}
+
+
+-(void)addShadowForView:(UIView *)view{
+    
+    //any subviews will be clipped
+    view.layer.masksToBounds = NO;
+    //rounds corners of the view
+    view.layer.cornerRadius = 4;
+    //size of shadow raidius
+    view.layer.shadowRadius = 1;
+    //tweak to allow iPhone 4 to load shadows without hindering performace of XYPieChart animations
+    //view.layer.shadowPath = [[UIBezierPath bezierPathWithRect:view.bounds] CGPath];
+    //how the shadow is oriented to the view
+    view.layer.shadowOffset = CGSizeMake(0, 1);
+    //sets alpha for shadow
+    view.layer.shadowOpacity = 0.25;
+    
+}
+
 
 
 /*

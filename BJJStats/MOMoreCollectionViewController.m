@@ -17,7 +17,8 @@
 #import "CSStickyHeaderFlowLayoutAttributes.h"
 #import "MOCollectionViewDetailViewController.h"
 #import "UIViewController+MJPopupViewController.h"
-#import "FPPopoverController.h"
+#import "MOAPIKeys.h"
+
 
 
 
@@ -285,12 +286,9 @@
     
     self.itemToTransfer = item;
     
-    //create access to your storyboard
-    //UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    //instantiate you view from the storyboard access
-    //MOCollectionViewDetailViewController *details =[mainStoryBoard instantiateViewControllerWithIdentifier:@"collectionViewDetailView"];
     //MOCollectionViewDetailViewController *detailsVC = [[MOCollectionViewDetailViewController alloc] init];
+    
     
     //[self presentPopupViewController:detailsVC animationType:MJPopupViewAnimationFade];
     
@@ -298,30 +296,8 @@
     [self performSegueWithIdentifier:@"detailViewSegue" sender:nil];
     
     
-    //create toy FPPopOverClass view
-    //FPPopoverController *test = [[FPPopoverController alloc] initWithViewController:details];
-    
-    //test.title = [NSString stringWithFormat:@"%@", item[@"snippet"][@"title"]];
-    
-    
-    //details.transferedItem = item;
-    
-    //test.contentSize = CGSizeMake(304, 200);
-    //test.tint = FPPopoverLightGrayTint;
-    //test.border = NO;
-    //test.alpha = 0.95;
-    
-    
-    //NSLog(@"POPOver: %@", item[@"snippet"][@"title"]);
-    
-    //sets the animation to come from the cell
-    //UIView *cellView = [collectionView cellForItemAtIndexPath:indexPath];
-    
-    
-    //presents the FPPopOverView
-    //[test presentPopoverFromView:cellView];
-    
 }
+
 
 /*
 // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
@@ -345,7 +321,8 @@
     
     //self.randomIndex = (arc4random() % self.mySubmissionsAsPropertyList.count);
     
-    NSString *youtubeAPIKey = @"AIzaSyCNCsK_dknS6n1PokMBNC_BLumsza_LwxA";
+    
+    NSString *youtubeAPIKey = YOUTUBE_API_KEY;
     NSString *baseURL = @"https://www.googleapis.com/youtube/v3/search?part=snippet&q=";
     NSString *searchTerm;
     
@@ -425,6 +402,7 @@
             
             destinationVC.transferedItem =self.itemToTransfer;
         
+            
         }
         
         

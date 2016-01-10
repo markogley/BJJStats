@@ -333,7 +333,9 @@
         }else{
             
             //reload the details to reflect the updated information
-            [self setupSubmissionObjectDetails];
+            //[self setupSubmissionObjectDetails];
+            self.counterLabel.text = [NSString stringWithFormat:@"%@",self.submissionObjectDict[SUBMISSION_COUNTER_AND_DATE][SUBMISSION_COUNTER]];
+            [tableView reloadData];
             
         }
         

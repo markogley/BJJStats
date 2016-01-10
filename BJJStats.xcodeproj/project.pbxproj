@@ -33,9 +33,6 @@
 		5B24DFD919B3553A007223BA /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B24DFC719B3553A007223BA /* UIRefreshControl+AFNetworking.m */; };
 		5B24DFDA19B3553A007223BA /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B24DFC919B3553A007223BA /* UIWebView+AFNetworking.m */; };
 		5B25A84C1A04DF3000DCADEE /* MOCollectionViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B25A84B1A04DF3000DCADEE /* MOCollectionViewDetailViewController.m */; };
-		5B25A8651A04E6FD00DCADEE /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B25A8601A04E6FD00DCADEE /* FPPopoverController.m */; };
-		5B25A8661A04E6FD00DCADEE /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B25A8621A04E6FD00DCADEE /* FPPopoverView.m */; };
-		5B25A8671A04E6FD00DCADEE /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B25A8641A04E6FD00DCADEE /* FPTouchView.m */; };
 		5B3253F219CE8E6C007D4174 /* MOTopTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3253F119CE8E6C007D4174 /* MOTopTableTableViewController.m */; };
 		5B4BE43419A9FFED006536CE /* MOMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BE43319A9FFED006536CE /* MOMatchesViewController.m */; };
 		5B60B71619F8F27C00516ED7 /* MOModalSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B60B71519F8F27C00516ED7 /* MOModalSegue.m */; };
@@ -43,6 +40,7 @@
 		5B617F0F198D15B7008837DD /* MODeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B617F0E198D15B7008837DD /* MODeleteViewController.m */; };
 		5B640E5E19AB6C45000EAD45 /* MOMatchObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B640E5D19AB6C45000EAD45 /* MOMatchObject.m */; };
 		5B640E6119AB6E3E000EAD45 /* MOMatchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B640E6019AB6E3E000EAD45 /* MOMatchData.m */; };
+		5B64A39C1C4279D100E5B813 /* MOAPIKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B64A39B1C4279D100E5B813 /* MOAPIKeys.m */; };
 		5B868D7E19D8006300DB7644 /* CollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B868D7D19D8006300DB7644 /* CollectionViewHeader.xib */; };
 		5B8FEEF119DEE52A00B40FFF /* MOOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FEEF019DEE52A00B40FFF /* MOOptionsViewController.m */; };
 		5B8FEF1619DEF13E00B40FFF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B8FEF1519DEF13E00B40FFF /* QuartzCore.framework */; };
@@ -137,13 +135,6 @@
 		5B24DFC919B3553A007223BA /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		5B25A84A1A04DF3000DCADEE /* MOCollectionViewDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOCollectionViewDetailViewController.h; sourceTree = "<group>"; };
 		5B25A84B1A04DF3000DCADEE /* MOCollectionViewDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOCollectionViewDetailViewController.m; sourceTree = "<group>"; };
-		5B25A85E1A04E6FD00DCADEE /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
-		5B25A85F1A04E6FD00DCADEE /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
-		5B25A8601A04E6FD00DCADEE /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
-		5B25A8611A04E6FD00DCADEE /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
-		5B25A8621A04E6FD00DCADEE /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
-		5B25A8631A04E6FD00DCADEE /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
-		5B25A8641A04E6FD00DCADEE /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
 		5B3253F019CE8E6C007D4174 /* MOTopTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOTopTableTableViewController.h; sourceTree = "<group>"; };
 		5B3253F119CE8E6C007D4174 /* MOTopTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOTopTableTableViewController.m; sourceTree = "<group>"; };
 		5B4BE43219A9FFED006536CE /* MOMatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMatchesViewController.h; sourceTree = "<group>"; };
@@ -158,6 +149,8 @@
 		5B640E5D19AB6C45000EAD45 /* MOMatchObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMatchObject.m; sourceTree = "<group>"; };
 		5B640E5F19AB6E3E000EAD45 /* MOMatchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMatchData.h; sourceTree = "<group>"; };
 		5B640E6019AB6E3E000EAD45 /* MOMatchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMatchData.m; sourceTree = "<group>"; };
+		5B64A39A1C4279D100E5B813 /* MOAPIKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOAPIKeys.h; sourceTree = "<group>"; };
+		5B64A39B1C4279D100E5B813 /* MOAPIKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOAPIKeys.m; sourceTree = "<group>"; };
 		5B868D7D19D8006300DB7644 /* CollectionViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewHeader.xib; sourceTree = "<group>"; };
 		5B8FEEEF19DEE52A00B40FFF /* MOOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOOptionsViewController.h; sourceTree = "<group>"; };
 		5B8FEEF019DEE52A00B40FFF /* MOOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOOptionsViewController.m; sourceTree = "<group>"; };
@@ -358,7 +351,6 @@
 		5B24DFDC19B35556007223BA /* Imported Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5B25A8681A04E70A00DCADEE /* FPPopOver */,
 				5B9FAB6E19F9347D002C0D54 /* MJPopViewController */,
 				5B23BE2D19D7C31600C862D6 /* CSSStickyHeader */,
 				5B24DFDB19B35543007223BA /* AFNetworking */,
@@ -374,20 +366,6 @@
 				5B25A84B1A04DF3000DCADEE /* MOCollectionViewDetailViewController.m */,
 			);
 			name = "CollectionView Detail PopOver";
-			sourceTree = "<group>";
-		};
-		5B25A8681A04E70A00DCADEE /* FPPopOver */ = {
-			isa = PBXGroup;
-			children = (
-				5B25A85E1A04E6FD00DCADEE /* ARCMacros.h */,
-				5B25A85F1A04E6FD00DCADEE /* FPPopoverController.h */,
-				5B25A8601A04E6FD00DCADEE /* FPPopoverController.m */,
-				5B25A8611A04E6FD00DCADEE /* FPPopoverView.h */,
-				5B25A8621A04E6FD00DCADEE /* FPPopoverView.m */,
-				5B25A8631A04E6FD00DCADEE /* FPTouchView.h */,
-				5B25A8641A04E6FD00DCADEE /* FPTouchView.m */,
-			);
-			name = FPPopOver;
 			sourceTree = "<group>";
 		};
 		5B3253EF19CE8E37007D4174 /* Top TableView */ = {
@@ -520,6 +498,8 @@
 				5B640E6019AB6E3E000EAD45 /* MOMatchData.m */,
 				5B067DC8197C00F1000C7B56 /* MOSubmissionData.h */,
 				5B067DC9197C00F1000C7B56 /* MOSubmissionData.m */,
+				5B64A39A1C4279D100E5B813 /* MOAPIKeys.h */,
+				5B64A39B1C4279D100E5B813 /* MOAPIKeys.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -711,7 +691,6 @@
 				5B202823197BA2BC00105D36 /* MOStatisticsViewController.m in Sources */,
 				5B8FEEF119DEE52A00B40FFF /* MOOptionsViewController.m in Sources */,
 				5B24DFD719B3553A007223BA /* UIImageView+AFNetworking.m in Sources */,
-				5B25A8651A04E6FD00DCADEE /* FPPopoverController.m in Sources */,
 				5BABB2C1197A6CAA009B636E /* MOSubmissionsViewController.m in Sources */,
 				5B24DFD819B3553A007223BA /* UIProgressView+AFNetworking.m in Sources */,
 				5B23BE3319D7C34100C862D6 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,
@@ -726,7 +705,6 @@
 				5B24DFCF19B3553A007223BA /* AFURLConnectionOperation.m in Sources */,
 				5B24DFD019B3553A007223BA /* AFURLRequestSerialization.m in Sources */,
 				5B24DFD219B3553A007223BA /* AFURLSessionManager.m in Sources */,
-				5B25A8671A04E6FD00DCADEE /* FPTouchView.m in Sources */,
 				5B23BE3219D7C34100C862D6 /* CSStickyHeaderFlowLayout.m in Sources */,
 				5B24DFD119B3553A007223BA /* AFURLResponseSerialization.m in Sources */,
 				5B24DFD919B3553A007223BA /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -735,7 +713,6 @@
 				5B9CF53019DFD247004FBB5C /* MOStatisticsCollectionViewCell.m in Sources */,
 				5B24DFD419B3553A007223BA /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				5BABB290197A5F77009B636E /* main.m in Sources */,
-				5B25A8661A04E6FD00DCADEE /* FPPopoverView.m in Sources */,
 				5BF89FD619BC5FEB002C1084 /* MOCustomCollectionViewCell.m in Sources */,
 				5B60B71619F8F27C00516ED7 /* MOModalSegue.m in Sources */,
 				5B9FAB7319F9347D002C0D54 /* MJPopupBackgroundView.m in Sources */,
@@ -743,6 +720,7 @@
 				5B3253F219CE8E6C007D4174 /* MOTopTableTableViewController.m in Sources */,
 				5B1D761C19D16FAA002D3D58 /* MOMoreCollectionViewController.m in Sources */,
 				5B617F0B198D04EB008837DD /* MODeleteTableViewController.m in Sources */,
+				5B64A39C1C4279D100E5B813 /* MOAPIKeys.m in Sources */,
 				5BD5BB4A19A0CAE600E2F1F8 /* XYPieChart.m in Sources */,
 				5B24DFCD19B3553A007223BA /* AFNetworkReachabilityManager.m in Sources */,
 				5B067DCA197C00F1000C7B56 /* MOSubmissionData.m in Sources */,
@@ -869,7 +847,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -877,6 +855,7 @@
 				INFOPLIST_FILE = "BJJStats/BJJStats-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -886,7 +865,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -894,6 +873,7 @@
 				INFOPLIST_FILE = "BJJStats/BJJStats-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
